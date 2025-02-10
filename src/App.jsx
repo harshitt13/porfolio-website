@@ -1,10 +1,10 @@
+// C:/Users/hk908/Desktop/portfolio/src/components/Navbar.jsx
 import React from 'react';
-import Hero from './components/hero/Hero';
 
-export default function App() {
+export default function Navbar() {
   return (
-    <main className='bg-[#000000]'>
-      <Hero />
-    </main>
+    <nav>
+      {/* Navbar content */}
+    </nav>
   );
 }
