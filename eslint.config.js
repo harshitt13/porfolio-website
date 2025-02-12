@@ -36,3 +36,22 @@ export default [
     },
   },
 ]
+
+module.exports = {
+  env: {
+    node: true, // Add this to recognize Node.js globals
+    browser: true, // Add this for browser globals (e.g., `document`, `window`)
+    es2021: true, // Add this for ES2021 globals
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended', // If you're using React
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    // Add custom rules here
+  },
+};
