@@ -1,4 +1,4 @@
-// C:/Users/hk908/Desktop/portfolio/src/components/Navbar.jsx
+/* eslint-disable no-unused-vars */
 import React from 'react';
 
 export default function Navbar() {

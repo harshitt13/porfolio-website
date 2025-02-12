@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
+import {useState} from 'react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 
 const Navbar = () => {
@@ -10,13 +12,13 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className = 'bg-black text-gray-400 h-[100px] max-w-[1200px] mx-auto flex jsutify-between items-center'> 
+      <div className = 'bg-black text-gray-400 h-[100px] max-w-[1200px] mx-auto flex justify-between items-center'> 
 
         <h1 className='text-3xl font-bold primary-color ml-4'>J. DOE</h1>
         <ul className='hidden md:flex'>
           <li className='p-5'><a href='#home'>Home</a></li>
           <li className='p-5'><a href='#about'>About</a></li>
-          <li className='p-5'><a href='#resune'>Ressume</a></li>
+          <li className='p-5'><a href='#resume'>Resume</a></li>
           <li className='p-5'><a href='#projects'>Projects</a></li>
           <li className='p-5'><a href='#contact'>Contact</a></li>
         </ul> 
@@ -32,7 +34,7 @@ const Navbar = () => {
           <ul className='p-8 text-2xl'>
             <li className='p-5'><a href='#home'>Home</a></li>
             <li className='p-5'><a href='#about'>About</a></li>
-            <li className='p-5'><a href='#resune'>Ressume</a></li>
+            <li className='p-5'><a href='#resume'>Resume</a></li>
             <li className='p-5'><a href='#projects'>Projects</a></li>
             <li className='p-5'><a href='#contact'>Contact</a></li>
           </ul>
