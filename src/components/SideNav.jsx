@@ -1,22 +1,22 @@
-// src/components/SideNav.jsx
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaHome, FaUser, FaFileAlt, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
-import profile from "../assets/profile.jpg";
+import profile from "../assets/profile.jpg"; // Ensure this path is correct
 
 export default function SideNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
+      {/* Hamburger Menu for Mobile */}
       <button
-        className="fixed top-4 left-4 p-2 bg-gray-800 text-white rounded lg:hidden z-50 hover:bg-gray-700 transition-colors"
+        className="fixed top-4 left-4 p-2 bg-black text-white rounded lg:hidden z-50 hover:bg-blue-900 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
         ☰
       </button>
 
+      {/* Overlay for Mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -29,6 +29,7 @@ export default function SideNav() {
         )}
       </AnimatePresence>
 
+      {/* Side Navigation Bar */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -36,20 +37,22 @@ export default function SideNav() {
             animate={{ x: 0 }}
             exit={{ x: -300 }}
             transition={{ type: "spring", stiffness: 100 }}
-            className="fixed left-0 top-0 h-screen w-64 bg-gray-800 text-white p-6 z-40"
+            className="fixed left-0 top-0 h-screen w-64 bg-black text-white p-6 z-40"
           >
+            {/* Circular Photo */}
             <div className="flex justify-center">
               <motion.img
                 src={profile}
                 alt="Profile"
-                className="w-24 h-24 rounded-full object-cover border-4 border-blue-400 hover:border-blue-500 hover:shadow-lg transition-all"
+                className="w-24 h-24 rounded-full object-cover border-4 border-blue-900 hover:border-blue-700 hover:shadow-lg transition-all"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
               />
             </div>
 
-            <h1 className="text-2xl font-bold mt-4 mb-8 text-center">My Portfolio</h1>
+            {/* Navigation Links */}
+            <h1 className="text-2xl font-bold mt-4 mb-8 text-center text-blue-900">Harshit Kushwaha</h1>
             <nav>
               <ul className="space-y-4">
                 {[
@@ -67,12 +70,12 @@ export default function SideNav() {
                   >
                     <a
                       href={`#${item.name.toLowerCase()}`}
-                      className="hover:text-blue-400 hover:bg-gray-700 hover:underline transition-colors flex items-center space-x-2 p-2 rounded"
+                      className="flex items-center space-x-2 p-2 rounded hover:bg-blue-900 hover:text-white transition-colors"
                     >
-                      <span className="lg:hidden hover:text-blue-400 hover:scale-110 transition-transform">
+                      <span className="lg:hidden text-blue-900 hover:text-blue-700 transition-colors">
                         {item.icon}
                       </span>
-                      <span>{item.name}</span>
+                      <span className="text-blue-900 hover:text-blue-700">{item.name}</span>
                     </a>
                   </motion.li>
                 ))}
