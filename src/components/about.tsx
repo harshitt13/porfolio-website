@@ -33,32 +33,29 @@ export default function About() {
             </div>
 
             <p className="text-muted-foreground">
-              Hello! I'm a passionate developer with a strong foundation in both front-end and back-end technologies. My
-              journey in software development began 5 years ago, and I've been crafting digital experiences ever since.
+              Hello! I'm a developer with interset in AI/ML, IOT, and Full-Stack Development.
             </p>
 
             <p className="text-muted-foreground">
-              I specialize in building responsive web applications using modern frameworks like React, Next.js, and
-              Node.js. I'm dedicated to writing clean, efficient code and creating intuitive user experiences.
+              I specialize in building and deploying ML models, responsive web applications.
             </p>
 
             <p className="text-muted-foreground">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or
-              enjoying outdoor activities to maintain a healthy work-life balance.
+              When I'm not coding, you can find me exploring new technologies, doing Stocks & Crypto, or enjoying games.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div>
                 <h3 className="font-medium">Name:</h3>
-                <p className="text-muted-foreground">Your Name</p>
+                <p className="text-muted-foreground">Harshit Kushwaha</p>
               </div>
               <div>
                 <h3 className="font-medium">Email:</h3>
-                <p className="text-muted-foreground">your.email@example.com</p>
+                <p className="text-muted-foreground">find.harshitkushwaha@gmail.com</p>
               </div>
               <div>
                 <h3 className="font-medium">Location:</h3>
-                <p className="text-muted-foreground">City, Country</p>
+                <p className="text-muted-foreground">Agra, India</p>
               </div>
               <div>
                 <h3 className="font-medium">Availability:</h3>

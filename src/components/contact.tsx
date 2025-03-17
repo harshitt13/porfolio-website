@@ -5,10 +5,10 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
-import { Textarea } from "./ui/textarea"
-import { Card, CardContent } from "./ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MapPin, Phone } from "lucide-react"
 
 export default function Contact() {
@@ -63,7 +63,7 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-medium">Email</h3>
-                <p className="text-muted-foreground">your.email@example.com</p>
+                <p className="text-muted-foreground">find.hashitkushwaha@gmail.com</p>
                 <a href="mailto:your.email@example.com" className="text-primary hover:underline">
                   Send a message
                 </a>
@@ -78,7 +78,7 @@ export default function Contact() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-medium">Location</h3>
-                <p className="text-muted-foreground">City, Country</p>
+                <p className="text-muted-foreground">Agra, India</p>
                 <a href="#" className="text-primary hover:underline">
                   View on map
                 </a>
@@ -93,8 +93,8 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-medium">Phone</h3>
-                <p className="text-muted-foreground">+1 (123) 456-7890</p>
-                <a href="tel:+11234567890" className="text-primary hover:underline">
+                <p className="text-muted-foreground">+91 74090-64489</p>
+                <a href="tel:+907409064489" className="text-primary hover:underline">
                   Call me
                 </a>
               </div>
@@ -121,7 +121,7 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder="Your Name"
                       required
                     />
                   </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
+                      placeholder="username@mail.com"
                       required
                     />
                   </div>
@@ -149,7 +149,7 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Project Inquiry"
+                    placeholder="Inquiry"
                     required
                   />
                 </div>
