@@ -4,12 +4,14 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-const technologies = {
-  Frontend: ["HTML", "CSS", "JavaScript", "React", "Vite", "TypeScript", "Tailwind CSS", "Framer Motion"],
-  Backend: ["Node.js", "Express", "MongoDB", "Firebase"],
-  DevOps: ["Git", "GitHub", "Vercel"],
-  Design: ["Figma", "OpenCV"],
-  MachineLearning: ["Python", "Keras", "Matplotlib", "Pytorch", "Tensorflow"]
+const technologies: { [key: string]: string[] } = {
+  "Frontend": ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Vite", "Tailwind CSS", "Framer Motion"],
+  "Backend": ["Node.js", "Express", "MongoDB", "Firebase"],
+  "DevOps": ["Git", "GitHub", "Vercel"],
+  "Design": ["Figma"],
+  "Machine Learning": ["Python", "TensorFlow", "PyTorch", "Keras", "Matplotlib"],
+  "Artificial Intelligence": ["Python", "TensorFlow", "PyTorch", "OpenCV"],
+  "Generative AI": ["Python", "TensorFlow", "PyTorch", "OpenCV"]
 }
 
 const skillCategories = [
@@ -17,7 +19,9 @@ const skillCategories = [
   { name: "Backend" },
   { name: "DevOps" },
   { name: "Design" },
-  { name: "MachineLearning" }
+  { name: "Machine Learning" },
+  { name: "Artificial Intelligence" },
+  { name: "GenAI" }
 ]
 
 export default function Skills() {
@@ -90,7 +94,7 @@ export default function Skills() {
               animate={inView ? "show" : "hidden"}
               className="flex flex-wrap gap-3"
             >
-              {technologies[activeCategory].map((tech) => (
+              {technologies[activeCategory].map((tech: string) => (
                 <motion.span
                   key={tech}
                   variants={item}
