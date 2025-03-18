@@ -6,7 +6,6 @@ import Projects from "./components/projects"
 import Contact from "./components/contact"
 import Footer from "./components/footer"
 import IdentityShowcase from "./components/identity-showcase"
-import Testimonials from "./components/testimonials"
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      <Testimonials />
       <Contact />
       <Footer />
     </div>

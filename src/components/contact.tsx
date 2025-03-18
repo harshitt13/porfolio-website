@@ -94,7 +94,7 @@ export default function Contact() {
                 </div>
                 <h3 className="font-medium">Phone</h3>
                 <p className="text-muted-foreground">+91 74090-64489</p>
-                <a href="tel:+907409064489" className="text-primary hover:underline">
+                <a href="tel:+917409064489" className="text-primary hover:underline">
                   Call me
                 </a>
               </div>
