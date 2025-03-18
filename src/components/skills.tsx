@@ -21,7 +21,7 @@ const skillCategories = [
   { name: "Design" },
   { name: "Machine Learning" },
   { name: "Artificial Intelligence" },
-  { name: "GenAI" }
+  { name: "Generative AI" }
 ]
 
 export default function Skills() {
