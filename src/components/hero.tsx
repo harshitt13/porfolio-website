@@ -54,7 +54,7 @@ export default function Hero() {
             className="relative mb-10"
           >
             <div className="relative w-32 h-32 md:w-40 md:h-40 overflow-hidden rounded-full border-4 border-primary/20 mx-auto">
-              <img src="/placeholder.svg?height=400&width=400" alt="Profile" className="object-cover w-full h-full" />
+              <img src="/profile.jpg?height=400&width=400" alt="Profile" className="object-cover w-full h-full" />
             </div>
 
             <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
@@ -73,7 +73,7 @@ export default function Hero() {
           >
             <span className="text-primary">Hello, I'm </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-              Your Name
+              Harshit Kushwaha
             </span>
           </motion.h1>
 

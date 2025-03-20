@@ -55,11 +55,31 @@
   }
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+  }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size */
+  width: 100%;
+  overflow-x: hidden;
+}
+  font-size: 16px; /* Base font size */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Smaller font size for tablets */
   }
 }
 
-html {
-  scroll-behavior: smooth;
+@media (max-width: 480px) {
+  html {
+    font-size: 12px; /* Smaller font size for mobile devices */
+  }
 }
 
 /* 3D Cube Animation */
@@ -122,4 +142,3 @@ html {
     transform: rotateY(360deg) rotateX(360deg);
   }
 }
-
