@@ -22,7 +22,7 @@ export default function About() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-lg bg-gradient-to-r from-primary/20 to-primary-foreground/20 blur-lg opacity-75"></div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
-              <img src="/placeholder.svg?height=600&width=600" alt="About Me" className="object-cover w-full h-full" />
+              <img src="/aboutme.jpg?height=600&width=600" alt="About Me" className="object-cover w-full h-full" />
             </div>
           </div>
 
@@ -41,7 +41,7 @@ export default function About() {
             </p>
 
             <p className="text-muted-foreground">
-              When I'm not coding, you can find me exploring new technologies, doing Stocks & Crypto, or enjoying games.
+              When I'm not coding, you can find me exploring new technologies, doing Stocks & Crypto, or enjoying video games.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
