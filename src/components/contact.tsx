@@ -135,7 +135,7 @@ export default function Contact() {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="username@mail.com"
+                      placeholder="your.email@example.com"
                       required
                     />
                   </div>
