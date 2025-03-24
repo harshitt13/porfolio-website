@@ -174,7 +174,7 @@ export default function Projects() {
         </motion.div>
 
         <div className="mt-12 text-center">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/harshitt13" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="lg" className="rounded-full px-8">
               <Github className="mr-2 h-4 w-4" />
               Show More Projects
