@@ -34,10 +34,7 @@ export default function Hero() {
     <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
       <ParticlesBackground />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-primary/10 to-background z-0"
-        style={{
-          opacity: Math.min(1, scrollY / 500),
-        }}
+        className={`absolute inset-0 bg-gradient-to-b from-primary/10 to-background z-0 opacity-${Math.min(1, scrollY / 500)}`}
       />
 
       <motion.div
