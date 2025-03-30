@@ -29,13 +29,35 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission - would connect to a backend service in a real app
-    console.log(formData)
-    alert("Thank you for your message! I'll get back to you soon.")
-    setFormData({ name: "", email: "", subject: "", message: "" })
+    const formData = new FormData(e.currentTarget)
+  
+    formData.append("access_key", "af2e849d-afb1-46ce-9ebb-07e14091b799")
+  
+    const object = Object.fromEntries(formData)
+    const json = JSON.stringify(object)
+  
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    }).then((res) => res.json())
+  
+    if (res.success) {
+      console.log("Success", res)
+      alert("Thank you for your message! I'll get back to you soon.")
+      setFormData({ name: "", email: "", subject: "", message: "" })
+    } else {
+      console.error("Error", res)
+      alert("Something went wrong. Please try again later.")
+    }
   }
+
+  // Removed unused 'onSubmit' function to resolve the error
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
