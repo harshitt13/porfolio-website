@@ -101,7 +101,7 @@ export default function Contact() {
                 </div>
                 <h3 className="font-medium">Location</h3>
                 <p className="text-muted-foreground">Agra, India</p>
-                <a href="#" className="text-primary hover:underline">
+                <a href="https://maps.app.goo.gl/zZCeECqnEWaATus8A?g_st=aw" className="text-primary hover:underline">
                   View on map
                 </a>
               </div>

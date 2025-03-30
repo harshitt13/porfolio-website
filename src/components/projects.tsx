@@ -96,9 +96,6 @@ export default function Projects() {
         >
           <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
           <div className="h-1 w-20 bg-primary mx-auto"></div>
-          <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-            Here are some of my projects
-          </p>
         </motion.div>
 
         <div className="flex justify-center space-x-2 mb-8">
