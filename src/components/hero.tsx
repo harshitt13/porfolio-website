@@ -80,7 +80,7 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-xl md:text-2xl text-muted-foreground max-w-[700px] mt-4"
           >
-            A developer surviving through life with a cup of coffee
+            A Softwrae Developer surviving through life with a cup of coffee
           </motion.p>
 
           <motion.div

@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="mb-8 flex flex-col items-center">
             <h2 className="text-2xl font-bold mb-2">Harshit Kushwaha</h2>
             <p className="text-muted-foreground text-center max-w-md">
-              A developer surviving through life with a cup of coffee
+              A Software Developer surviving through life with a cup of coffee
             </p>
           </div>
 

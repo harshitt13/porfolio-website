@@ -33,7 +33,7 @@ export default function About() {
             </div>
 
             <p className="text-muted-foreground">
-              Hello! I'm a developer with interset in AI/ML, IOT, and Full-Stack Development.
+              Hello! I'm a Software Developer with interset in AI/ML, IOT, and Full-Stack Development.
             </p>
 
             <p className="text-muted-foreground">

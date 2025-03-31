@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
@@ -11,78 +10,39 @@ import { ExternalLink, Github } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Stranger-Comms",
     description:
-      "A full-stack e-commerce platform with product management, cart functionality, and payment integration.",
+      "A platform for one-on-one interaction with strangers.",
     image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    category: "Web Development",
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: ["React", "Node.js", "Webrtc", "Socket.io"],
+    githubUrl: "https://github.com/harshitt13/stranger-comms",
+    liveUrl: "https://stranger-comms.vercel.app/",
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team collaboration features.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
-    category: "Web Development",
-    githubUrl: "#",
-    liveUrl: "#",
+    title: "Meowscript",
+    description: "A purrest programming language.",
+    image: "/project2.png?height=400&width=600",
+    tags: ["React", "JavaScript", "Node.js", "CSS"],
+    githubUrl: "https://github.com/harshitt13/meowscripts",
+    liveUrl: "https://meowscripts.vercel.app/",
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    description: "A modern portfolio website showcasing projects and skills with a clean, responsive design.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Framer Motion", "Tailwind CSS", "Vite"],
-    category: "Web Development",
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    id: 4,
-    title: "Nature Photography Collection",
-    description: "A curated collection of nature photographs from around the world.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["Photography", "Adobe Lightroom", "Gallery"],
-    category: "Photography",
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    id: 5,
-    title: "Game Asset Pack",
-    description: "A collection of 3D assets for game developers, including characters, props, and environments.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["3D Modeling", "Blender", "Game Assets"],
-    category: "Game Development",
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    id: 6,
-    title: "UI/UX Design System",
-    description: "A comprehensive design system for creating consistent and beautiful user interfaces.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["UI/UX", "Figma", "Design System"],
-    category: "Design",
-    githubUrl: "#",
-    liveUrl: "#",
+    title: "Stock Market ML Model",
+    description: "A hybrid model for upcomming stocks predictions.",
+    image: "/project3.png?height=400&width=600",
+    tags: ["Python", "Pytorch", "Tensorflow", "Keras"],
+    githubUrl: "https://github.com/harshitt13/Stock-Market-Prediction-Using-ML",
+    liveUrl: "https://youtu.be/z8sXhWrwU0o",
   },
 ]
-
-const categories = ["All", "Web Development", "Photography", "Game Development", "Design"]
 
 export default function Projects() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
-
-  const [filter, setFilter] = useState("All")
-
-  const filteredProjects = filter === "All" ? projects : projects.filter((project) => project.category === filter)
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -98,22 +58,9 @@ export default function Projects() {
           <div className="h-1 w-20 bg-primary mx-auto"></div>
         </motion.div>
 
-        <div className="flex justify-center space-x-2 mb-8">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              onClick={() => setFilter(category)}
-              variant={filter === category ? "default" : "outline"}
-              className="rounded-full"
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
-
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" layout>
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -130,7 +77,7 @@ export default function Projects() {
                       className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" title={`View ${project.title} on GitHub`}>
                         <Button
                           size="icon"
                           variant="ghost"
@@ -139,7 +86,7 @@ export default function Projects() {
                           <Github className="h-5 w-5" />
                         </Button>
                       </a>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" title={`Visit live demo of ${project.title}`}>
                         <Button
                           size="icon"
                           variant="ghost"
@@ -181,4 +128,3 @@ export default function Projects() {
     </section>
   )
 }
-
