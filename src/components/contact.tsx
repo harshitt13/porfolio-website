@@ -100,8 +100,8 @@ export default function Contact() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-medium">Location</h3>
-                <p className="text-muted-foreground">Agra, India</p>
-                <a href="https://maps.app.goo.gl/zZCeECqnEWaATus8A?g_st=aw" className="text-primary hover:underline">
+                <p className="text-muted-foreground">Bhopal, India</p>
+                <a href="https://maps.app.goo.gl/kzsWyDH2b6LSXBnE8" className="text-primary hover:underline">
                   View on map
                 </a>
               </div>
