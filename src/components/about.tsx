@@ -55,7 +55,7 @@ export default function About() {
               </div>
               <div>
                 <h3 className="font-medium">Location:</h3>
-                <p className="text-muted-foreground">Agra, India</p>
+                <p className="text-muted-foreground">Bhopal, India</p>
               </div>
               <div>
                 <h3 className="font-medium">Availability:</h3>
