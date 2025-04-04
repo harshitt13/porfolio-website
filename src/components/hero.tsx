@@ -70,7 +70,7 @@ export default function Hero() {
           >
             <span className="text-primary">Hello, I'm </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-              Harshit Kushwaha
+              Harshit
             </span>
           </motion.h1>
 
