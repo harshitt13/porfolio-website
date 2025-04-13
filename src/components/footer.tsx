@@ -66,9 +66,9 @@ export default function Footer() {
 
           <div className="text-center text-sm text-muted-foreground">
             <p>© {currentYear} Harshit Kushwaha. All rights reserved.</p>
-            <p className="mt-1">
+            {/* <p className="mt-1">
               Created using v0 by Vercel
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
