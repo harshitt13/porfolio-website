@@ -12,12 +12,12 @@ export default function Footer() {
     <footer className="bg-muted py-12">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center">
-          <div className="mb-8 flex flex-col items-center">
+          {/* <div className="mb-8 flex flex-col items-center">
             <h2 className="text-2xl font-bold mb-2">Harshit Kushwaha</h2>
             <p className="text-muted-foreground text-center max-w-md">
-              A Software Developer surviving through life with a cup of coffee
+              Software Developer
             </p>
-          </div>
+          </div> */}
 
           <div className="flex space-x-4 mb-8">
             <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
