@@ -63,32 +63,34 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 bg-black">
+    <section id="skills" className="py-16 bg-black">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             My Skills
           </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-          <p className="text-gray-300 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            I've worked with a variety of technologies and frameworks to create robust and scalable applications. Here's an overview of my technical expertise:
+          <div className="h-1.5 w-24 bg-gray-600 mx-auto rounded-full"></div>
+          <p className="text-gray-300 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
+            I've worked with a variety of technologies and frameworks to create
+            robust and scalable applications. Here's an overview of my technical
+            expertise:
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <h3 className="text-2xl font-bold mb-8 text-white">
+            <h3 className="text-2xl font-bold mb-6 text-white">
               Skill Categories
             </h3>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">

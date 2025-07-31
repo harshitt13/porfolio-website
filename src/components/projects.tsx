@@ -50,20 +50,20 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-24 bg-black">
+    <section id="projects" className="py-16 bg-black">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Featured Projects
           </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-          <p className="text-gray-300 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
+          <div className="h-1.5 w-24 bg-gray-600 mx-auto rounded-full"></div>
+          <p className="text-gray-300 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
             Explore some of my recent work and side projects
           </p>
         </motion.div>

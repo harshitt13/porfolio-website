@@ -42,9 +42,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800 py-8">
+    <footer className="bg-black border-t border-gray-800 py-6">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -52,7 +52,9 @@ export default function Footer() {
             className="text-center md:text-left"
           >
             <p className="text-gray-400 text-sm">
-              © {currentYear} <span className="text-white font-semibold">Harshit Kushwaha</span>. All rights reserved.
+              © {currentYear}{" "}
+              <span className="text-white font-semibold">Harshit Kushwaha</span>
+              . All rights reserved.
             </p>
           </motion.div>
 
@@ -74,9 +76,7 @@ export default function Footer() {
                 whileHover={{ y: -2 }}
                 className={`p-2 rounded-lg bg-gray-900/50 ${link.color} transition-all duration-200 hover:bg-gray-800/50`}
               >
-                <div className="text-gray-400">
-                  {link.icon}
-                </div>
+                <div className="text-gray-400">{link.icon}</div>
                 <span className="sr-only">{link.label}</span>
               </motion.a>
             ))}

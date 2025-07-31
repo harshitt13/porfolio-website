@@ -61,40 +61,40 @@ export default function Contact() {
   // Removed unused 'onSubmit' function to resolve the error
 
   return (
-    <section id="contact" className="py-24 bg-black">
+    <section id="contact" className="py-16 bg-black">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Get In Touch
           </h2>
           <div className="h-1 w-16 bg-gray-600 mx-auto rounded-full"></div>
-          <p className="text-gray-300 mt-6 max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
             Have a project in mind or want to discuss opportunities? Feel free
             to reach out!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left side - Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-6"
+            className="space-y-4"
           >
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 whileHover={{ y: -2 }}
-                className="professional-card p-6 group hover:shadow-glow transition-all duration-300"
+                className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
               >
                 <div className="flex items-center space-x-4">
                   <div className="p-3 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-all duration-300">
@@ -123,7 +123,7 @@ export default function Contact() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 whileHover={{ y: -2 }}
-                className="professional-card p-6 group hover:shadow-glow transition-all duration-300"
+                className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
               >
                 <div className="flex items-center space-x-4">
                   <div className="p-3 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-all duration-300">
@@ -150,7 +150,7 @@ export default function Contact() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ y: -2 }}
-                className="professional-card p-6 group hover:shadow-glow transition-all duration-300"
+                className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
               >
                 <div className="flex items-center space-x-4">
                   <div className="p-3 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-all duration-300">
@@ -181,10 +181,10 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="professional-card p-8"
+            className="professional-card p-6"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <label
                     htmlFor="name"

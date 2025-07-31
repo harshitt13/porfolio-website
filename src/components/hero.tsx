@@ -56,7 +56,7 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
-            className="relative mb-12"
+            className="relative mb-8"
           >
             <div className="relative w-36 h-36 md:w-44 md:h-44 overflow-hidden rounded-full mx-auto group border-2 border-gray-700">
               <img
@@ -108,7 +108,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mt-8"
+            className="flex flex-col sm:flex-row gap-4 mt-6"
           >
             <Link to="projects" smooth={true} duration={500}>
               <Button

@@ -10,14 +10,14 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="py-24 bg-black">
+    <section id="about" className="py-16 bg-black">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
         >
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -41,31 +41,34 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-8"
+            className="space-y-6"
           >
             <div className="inline-block">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 About Me
               </h2>
-              <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+              <div className="h-1.5 w-24 bg-gray-600 rounded-full"></div>
             </div>
 
-            <div className="space-y-6 text-lg leading-relaxed">
+            <div className="space-y-4 text-lg leading-relaxed">
               <p className="text-gray-300">
-                Hello! I'm a Software Developer with interest in AI/ML, IOT, and Full-Stack Development.
+                Hello! I'm a Software Developer with interest in AI/ML, IOT, and
+                Full-Stack Development.
               </p>
 
               <p className="text-gray-300">
-                I specialize in building and deploying ML models, responsive web applications.
+                I specialize in building and deploying ML models, responsive web
+                applications.
               </p>
 
               <p className="text-gray-300">
-                When I'm not coding, you can find me exploring new technologies, doing Stocks & Crypto, or enjoying video games.
+                When I'm not coding, you can find me exploring new technologies,
+                doing Stocks & Crypto, or enjoying video games.
               </p>
             </div>
 
-            <div className="professional-card p-6 mt-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="professional-card p-4 mt-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="group">
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
                     Name:
@@ -78,24 +81,26 @@ export default function About() {
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
                     Email:
                   </h3>
-                    <button
-                      type="button"
-                      className="text-gray-300 text-lg group-hover:text-blue-400 transition-colors duration-200 focus:outline-none"
-                      onClick={async (e) => {
-                        await navigator.clipboard.writeText("find.harshitkushwaha@gmail.com");
-                        const btn = e.currentTarget as HTMLButtonElement | null;
-                        if (btn) {
-                          const original = btn.textContent;
-                          btn.textContent = "Copied!";
-                          setTimeout(() => {
-                            btn.textContent = original;
-                          }, 1200);
-                        }
-                      }}
-                      title="Click to copy email"
-                    >
-                      find.harshitkushwaha@gmail.com
-                    </button>
+                  <button
+                    type="button"
+                    className="text-gray-300 text-lg group-hover:text-blue-400 transition-colors duration-200 focus:outline-none"
+                    onClick={async (e) => {
+                      await navigator.clipboard.writeText(
+                        "find.harshitkushwaha@gmail.com"
+                      );
+                      const btn = e.currentTarget as HTMLButtonElement | null;
+                      if (btn) {
+                        const original = btn.textContent;
+                        btn.textContent = "Copied!";
+                        setTimeout(() => {
+                          btn.textContent = original;
+                        }, 1200);
+                      }
+                    }}
+                    title="Click to copy email"
+                  >
+                    find.harshitkushwaha@gmail.com
+                  </button>
                 </div>
                 <div className="group">
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
