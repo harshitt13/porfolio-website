@@ -1,41 +1,49 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { ArrowDown, Camera, Code, Gamepad2, Palette } from "lucide-react"
-import { Button } from "./ui/button"
-import { Link } from "react-scroll"
-import ParticlesBackground from "./particles-background"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ArrowDown, Camera, Code, Gamepad2, Palette } from "lucide-react";
+import { Button } from "./ui/button";
+import { Link } from "react-scroll";
+import ParticlesBackground from "./particles-background";
 
-const IdentityBadge = ({ icon, label }: { icon: React.ReactNode; label: string }) => {
+const IdentityBadge = ({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode;
+  label: string;
+}) => {
   return (
-    <motion.div whileHover={{ y: -5 }} className="flex flex-col items-center">
-      <div className="bg-background/80 backdrop-blur-sm shadow-lg rounded-full p-2 border border-border">{icon}</div>
-      <span className="text-xs font-medium mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{label}</span>
+    <motion.div whileHover={{ y: -8, scale: 1.05 }} className="group relative">
+      <div className="professional-card p-3 rounded-full animate-glow">
+        {icon}
+      </div>
+      <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/80 px-2 py-1 rounded whitespace-nowrap">
+        {label}
+      </span>
     </motion.div>
-  )
-}
+  );
+};
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0)
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
+      setScrollY(window.scrollY);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+    <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-black">
       <ParticlesBackground />
-      <div
-        className={`absolute inset-0 bg-gradient-to-b from-primary/10 to-background z-0 opacity-${Math.min(1, scrollY / 500)}`}
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent z-0" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -43,22 +51,41 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className="container px-4 md:px-6 z-10"
       >
-        <div className="flex flex-col items-center text-center space-y-4">
+        <div className="flex flex-col items-center text-center space-y-6">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="relative mb-10"
+            transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
+            className="relative mb-12"
           >
-            <div className="relative w-32 h-32 md:w-40 md:h-40 overflow-hidden rounded-full border-4 border-primary/20 mx-auto">
-              <img src="/profile.jpg?height=400&width=400" alt="Profile" className="object-cover w-full h-full" />
+            <div className="relative w-36 h-36 md:w-44 md:h-44 overflow-hidden rounded-full mx-auto group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-glow"></div>
+              <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-black">
+                <img
+                  src="/profile.jpg?height=400&width=400"
+                  alt="Profile"
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
             </div>
 
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3">
-              <IdentityBadge icon={<Code className="h-4 w-4" />} label="Developer" />
-              <IdentityBadge icon={<Camera className="h-4 w-4" />} label="Photographer" />
-              <IdentityBadge icon={<Gamepad2 className="h-4 w-4" />} label="Gamer" />
-              <IdentityBadge icon={<Palette className="h-4 w-4" />} label="Designer" />
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4">
+              <IdentityBadge
+                icon={<Code className="h-5 w-5 text-blue-400" />}
+                label="Developer"
+              />
+              <IdentityBadge
+                icon={<Camera className="h-5 w-5 text-green-400" />}
+                label="Photographer"
+              />
+              <IdentityBadge
+                icon={<Gamepad2 className="h-5 w-5 text-purple-400" />}
+                label="Gamer"
+              />
+              <IdentityBadge
+                icon={<Palette className="h-5 w-5 text-pink-400" />}
+                label="Designer"
+              />
             </div>
           </motion.div>
 
@@ -66,19 +93,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
           >
-            <span className="text-primary">Hello, I'm </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-              Harshit
-            </span>
+            <span className="text-white">Hello, I'm </span>
+            <span className="text-gradient">Harshit</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-[700px] mt-4"
+            className="text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed"
           >
             A Software Developer surviving through life with a cup of coffee
           </motion.p>
@@ -90,12 +115,19 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 mt-8"
           >
             <Link to="projects" smooth={true} duration={500}>
-              <Button size="lg" className="rounded-full px-8">
+              <Button
+                size="lg"
+                className="rounded-full px-10 py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-glow"
+              >
                 View My Work
               </Button>
             </Link>
             <Link to="contact" smooth={true} duration={500}>
-              <Button variant="outline" size="lg" className="rounded-full px-8">
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full px-10 py-6 text-lg font-semibold border-2 border-gray-600 text-white hover:bg-white/10 transform hover:scale-105 transition-all duration-300"
+              >
                 Contact Me
               </Button>
             </Link>
@@ -107,18 +139,23 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
       >
         <Link to="about" smooth={true} duration={500}>
-          <div className="flex flex-col items-center">
-            <span className="text-sm text-muted-foreground mb-2">Scroll Down</span>
-            <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}>
-              <ArrowDown className="h-6 w-6 text-primary" />
+          <div className="flex flex-col items-center group">
+            <span className="text-sm text-gray-400 mb-3 group-hover:text-white transition-colors duration-200">
+              Scroll Down
+            </span>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="p-3 rounded-full professional-card group-hover:animate-glow transition-all duration-300"
+            >
+              <ArrowDown className="h-5 w-5 text-blue-400" />
             </motion.div>
           </div>
         </Link>
       </motion.div>
     </section>
-  )
+  );
 }
-
