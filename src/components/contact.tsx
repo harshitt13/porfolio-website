@@ -75,10 +75,7 @@ export default function Contact() {
           </h2>
           <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           <p className="text-gray-300 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            Have a project in mind or want to discuss potential opportunities?
-            Feel free to reach out! I'm always open to{" "}
-            <span className="text-blue-400 font-semibold">new ideas</span> and
-            collaborations.
+            Have a project in mind or want to discuss potential opportunities? Feel free to reach out! I'm always open to new ideas and collaborations.
           </p>
         </motion.div>
 

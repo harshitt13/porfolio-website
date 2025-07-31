@@ -64,9 +64,7 @@ export default function Projects() {
           </h2>
           <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           <p className="text-gray-300 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            Explore some of my{" "}
-            <span className="text-blue-400 font-semibold">recent work</span> and
-            side projects
+            Explore some of my recent work and side projects
           </p>
         </motion.div>
 

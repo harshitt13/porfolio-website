@@ -77,12 +77,7 @@ export default function Skills() {
           </h2>
           <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           <p className="text-gray-300 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            I've worked with a variety of technologies and frameworks to create
-            robust and scalable applications. Here's an overview of my{" "}
-            <span className="text-blue-400 font-semibold">
-              technical expertise
-            </span>
-            :
+            I've worked with a variety of technologies and frameworks to create robust and scalable applications. Here's an overview of my technical expertise:
           </p>
         </motion.div>
 

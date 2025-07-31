@@ -92,8 +92,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
           >
-            <span className="text-white">Hello, I'm </span>
-            <span className="text-gradient">Harshit</span>
+            <span className="text-white">Hello, I'm Harshit</span>
           </motion.h1>
 
           <motion.p

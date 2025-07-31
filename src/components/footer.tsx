@@ -104,10 +104,6 @@ export default function Footer() {
               <span className="text-white font-semibold">Harshit Kushwaha</span>
               . All rights reserved.
             </p>
-            <p className="text-gray-500 text-xs mt-2">
-              Crafted with <span className="text-red-400">♥</span> using React,
-              Tailwind CSS & Framer Motion
-            </p>
           </motion.div>
         </div>
       </div>

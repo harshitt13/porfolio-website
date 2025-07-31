@@ -52,26 +52,15 @@ export default function About() {
 
             <div className="space-y-6 text-lg leading-relaxed">
               <p className="text-gray-300">
-                Hello! I'm a{" "}
-                <span className="text-blue-400 font-semibold">
-                  Software Developer
-                </span>{" "}
-                with interest in AI/ML, IOT, and Full-Stack Development.
+                Hello! I'm a Software Developer with interest in AI/ML, IOT, and Full-Stack Development.
               </p>
 
               <p className="text-gray-300">
-                I specialize in building and deploying{" "}
-                <span className="text-purple-400 font-semibold">ML models</span>
-                , responsive web applications.
+                I specialize in building and deploying ML models, responsive web applications.
               </p>
 
               <p className="text-gray-300">
-                When I'm not coding, you can find me exploring new technologies,
-                doing{" "}
-                <span className="text-green-400 font-semibold">
-                  Stocks & Crypto
-                </span>
-                , or enjoying video games.
+                When I'm not coding, you can find me exploring new technologies, doing Stocks & Crypto, or enjoying video games.
               </p>
             </div>
 
@@ -81,7 +70,7 @@ export default function About() {
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
                     Name:
                   </h3>
-                  <p className="text-gray-300 text-lg group-hover:text-blue-400 transition-colors duration-200">
+                  <p className="text-gray-300 text-lg duration-200">
                     Harshit Kushwaha
                   </p>
                 </div>
@@ -89,15 +78,30 @@ export default function About() {
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
                     Email:
                   </h3>
-                  <p className="text-gray-300 text-lg group-hover:text-blue-400 transition-colors duration-200">
-                    find.harshitkushwaha@gmail.com
-                  </p>
+                    <button
+                      type="button"
+                      className="text-gray-300 text-lg group-hover:text-blue-400 transition-colors duration-200 focus:outline-none"
+                      onClick={async (e) => {
+                        await navigator.clipboard.writeText("find.harshitkushwaha@gmail.com");
+                        const btn = e.currentTarget as HTMLButtonElement | null;
+                        if (btn) {
+                          const original = btn.textContent;
+                          btn.textContent = "Copied!";
+                          setTimeout(() => {
+                            btn.textContent = original;
+                          }, 1200);
+                        }
+                      }}
+                      title="Click to copy email"
+                    >
+                      find.harshitkushwaha@gmail.com
+                    </button>
                 </div>
                 <div className="group">
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
                     Location:
                   </h3>
-                  <p className="text-gray-300 text-lg group-hover:text-purple-400 transition-colors duration-200">
+                  <p className="text-gray-300 text-lg duration-200">
                     Bhopal, India
                   </p>
                 </div>
