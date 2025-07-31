@@ -11,59 +11,59 @@ export default function Footer() {
   const socialLinks = [
     {
       href: "https://www.linkedin.com/in/harshitt13/",
-      icon: <Linkedin className="h-6 w-6" />,
+      icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
-      color: "hover:text-blue-400",
+      color: "hover:text-gray-300",
     },
     {
       href: "https://github.com/harshitt13",
-      icon: <Github className="h-6 w-6" />,
+      icon: <Github className="h-5 w-5" />,
       label: "GitHub",
       color: "hover:text-gray-300",
     },
     {
       href: "https://twitter.com/harshittt_13",
-      icon: <X className="h-6 w-6" />,
+      icon: <X className="h-5 w-5" />,
       label: "Twitter",
-      color: "hover:text-blue-400",
+      color: "hover:text-gray-300",
     },
     {
       href: "https://linktr.ee/harshitt13",
-      icon: <ExternalLink className="h-6 w-6" />,
+      icon: <ExternalLink className="h-5 w-5" />,
       label: "Linktr.ee",
-      color: "hover:text-green-400",
+      color: "hover:text-gray-300",
     },
     {
       href: "/Harshit-Resume.pdf",
-      icon: <FileText className="h-6 w-6" />,
+      icon: <FileText className="h-5 w-5" />,
       label: "Resume",
-      color: "hover:text-purple-400",
+      color: "hover:text-gray-300",
     },
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800 py-16">
+    <footer className="bg-black border-t border-gray-800 py-8">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center md:text-left"
           >
-            <h2 className="text-3xl font-bold mb-4 text-white">
-              Let's Connect
-            </h2>
-            <p className="text-gray-400 max-w-md leading-relaxed">
-              Follow me on social media or check out my latest work
+            <p className="text-gray-400 text-sm">
+              © {currentYear} <span className="text-white font-semibold">Harshit Kushwaha</span>. All rights reserved.
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              Crafted with <span className="text-white">♥</span> using React & Tailwind CSS
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-6 mb-12"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex gap-4"
           >
             {socialLinks.map((link, index) => (
               <motion.a
@@ -71,39 +71,18 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className={`group p-4 rounded-full professional-card ${link.color} transition-all duration-300 hover:shadow-glow`}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ y: -2 }}
+                className={`p-2 rounded-lg bg-gray-900/50 ${link.color} transition-all duration-200 hover:bg-gray-800/50`}
               >
-                <div className="text-gray-400 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-gray-400">
                   {link.icon}
                 </div>
                 <span className="sr-only">{link.label}</span>
               </motion.a>
             ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center"
-          >
-            <p className="text-gray-400 text-sm leading-relaxed">
-              © {currentYear}{" "}
-              <span className="text-white font-semibold">Harshit Kushwaha</span>
-              . All rights reserved.
-            </p>
           </motion.div>
         </div>
       </div>
