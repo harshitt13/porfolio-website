@@ -1,14 +1,13 @@
 "use client";
 
 import React from "react";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
-import { Card, CardContent } from "../components/ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Card, CardContent } from "./ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {

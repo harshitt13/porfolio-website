@@ -58,15 +58,12 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6, type: "spring" }}
             className="relative mb-12"
           >
-            <div className="relative w-36 h-36 md:w-44 md:h-44 overflow-hidden rounded-full mx-auto group">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-glow"></div>
-              <div className="absolute inset-2 rounded-full overflow-hidden border-4 border-black">
-                <img
-                  src="/profile.jpg?height=400&width=400"
-                  alt="Profile"
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
+            <div className="relative w-36 h-36 md:w-44 md:h-44 overflow-hidden rounded-full mx-auto group border-2 border-gray-700">
+              <img
+                src="/profile.jpg?height=400&width=400"
+                alt="Profile"
+                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+              />
             </div>
 
             <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 flex gap-4">
