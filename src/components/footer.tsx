@@ -54,9 +54,6 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               © {currentYear} <span className="text-white font-semibold">Harshit Kushwaha</span>. All rights reserved.
             </p>
-            <p className="text-gray-500 text-xs mt-1">
-              Crafted with <span className="text-white">♥</span> using React & Tailwind CSS
-            </p>
           </motion.div>
 
           <motion.div
