@@ -68,182 +68,209 @@ export default function Contact() {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Get In Touch
           </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
-          <p className="text-gray-300 mt-8 max-w-3xl mx-auto text-lg leading-relaxed">
-            Have a project in mind or want to discuss potential opportunities? Feel free to reach out! I'm always open to new ideas and collaborations.
+          <div className="h-1 w-16 bg-gray-600 mx-auto rounded-full"></div>
+          <p className="text-gray-300 mt-6 max-w-2xl mx-auto text-base leading-relaxed">
+            Have a project in mind or want to discuss opportunities? Feel free
+            to reach out!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left side - Contact Information */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            whileHover={{ y: -5, scale: 1.02 }}
-            className="professional-card p-8 text-center group hover:shadow-glow transition-all duration-500"
+            className="space-y-6"
           >
-            <div className="flex flex-col items-center space-y-6">
-              <div className="p-4 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-600/20 group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all duration-300">
-                <Mail className="h-8 w-8 text-blue-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Email</h3>
-              <p className="text-gray-300 break-all">
-                find.harshitkushwaha@gmail.com
-              </p>
-              <motion.a
-                href="mailto:find.harshitkushwaha@gmail.com"
-                className="text-blue-400 hover:text-blue-300 font-semibold transition-colors duration-200"
-                whileHover={{ scale: 1.05 }}
+            <div className="grid grid-cols-1 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -2 }}
+                className="professional-card p-6 group hover:shadow-glow transition-all duration-300"
               >
-                Send a message
-              </motion.a>
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-all duration-300">
+                    <Mail className="h-6 w-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      Email
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      find.harshitkushwaha@gmail.com
+                    </p>
+                    <motion.a
+                      href="mailto:find.harshitkushwaha@gmail.com"
+                      className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      Send a message
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ y: -2 }}
+                className="professional-card p-6 group hover:shadow-glow transition-all duration-300"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-all duration-300">
+                    <Phone className="h-6 w-6 text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      Phone
+                    </h3>
+                    <p className="text-gray-300 text-sm">+91 74090-64489</p>
+                    <motion.a
+                      href="tel:+917409064489"
+                      className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      Call me
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                whileHover={{ y: -2 }}
+                className="professional-card p-6 group hover:shadow-glow transition-all duration-300"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="p-3 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-all duration-300">
+                    <MapPin className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      Location
+                    </h3>
+                    <p className="text-gray-300 text-sm">Bhopal, India</p>
+                    <motion.a
+                      href="https://maps.app.goo.gl/kzsWyDH2b6LSXBnE8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      View on map
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
+          {/* Right side - Contact Form */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ y: -5, scale: 1.02 }}
-            className="professional-card p-8 text-center group hover:shadow-glow transition-all duration-500"
+            initial={{ opacity: 0, x: 30 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="professional-card p-8"
           >
-            <div className="flex flex-col items-center space-y-6">
-              <div className="p-4 rounded-full bg-gradient-to-r from-purple-500/20 to-purple-600/20 group-hover:from-purple-500/30 group-hover:to-purple-600/30 transition-all duration-300">
-                <MapPin className="h-8 w-8 text-purple-400" />
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-semibold text-white uppercase tracking-wider"
+                  >
+                    Your Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    required
+                    className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-semibold text-white uppercase tracking-wider"
+                  >
+                    Your Email
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                    required
+                    className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300"
+                  />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white">Location</h3>
-              <p className="text-gray-300">Bhopal, India</p>
-              <motion.a
-                href="https://maps.app.goo.gl/kzsWyDH2b6LSXBnE8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-400 hover:text-purple-300 font-semibold transition-colors duration-200"
-                whileHover={{ scale: 1.05 }}
-              >
-                View on map
-              </motion.a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            whileHover={{ y: -5, scale: 1.02 }}
-            className="professional-card p-8 text-center group hover:shadow-glow transition-all duration-500"
-          >
-            <div className="flex flex-col items-center space-y-6">
-              <div className="p-4 rounded-full bg-gradient-to-r from-green-500/20 to-green-600/20 group-hover:from-green-500/30 group-hover:to-green-600/30 transition-all duration-300">
-                <Phone className="h-8 w-8 text-green-400" />
+              <div className="space-y-3">
+                <label
+                  htmlFor="subject"
+                  className="text-sm font-semibold text-white uppercase tracking-wider"
+                >
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Project Inquiry"
+                  required
+                  className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300"
+                />
               </div>
-              <h3 className="text-xl font-bold text-white">Phone</h3>
-              <p className="text-gray-300">+91 74090-64489</p>
-              <motion.a
-                href="tel:+917409064489"
-                className="text-green-400 hover:text-green-300 font-semibold transition-colors duration-200"
+              <div className="space-y-3">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-semibold text-white uppercase tracking-wider"
+                >
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Hello, I'd like to talk about..."
+                  rows={6}
+                  required
+                  className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300 resize-none"
+                />
+              </div>
+              <motion.div
                 whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Call me
-              </motion.a>
-            </div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full md:w-auto px-12 py-4 bg-gray-800 hover:bg-gray-700 text-white font-semibold rounded-xl text-lg shadow-glow transition-all duration-300"
+                >
+                  Send Message
+                </Button>
+              </motion.div>
+            </form>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="professional-card p-8 md:p-12"
-        >
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-3">
-                <label
-                  htmlFor="name"
-                  className="text-sm font-semibold text-white uppercase tracking-wider"
-                >
-                  Your Name
-                </label>
-                <Input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  required
-                  className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300"
-                />
-              </div>
-              <div className="space-y-3">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-semibold text-white uppercase tracking-wider"
-                >
-                  Your Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your.email@example.com"
-                  required
-                  className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300"
-                />
-              </div>
-            </div>
-            <div className="space-y-3">
-              <label
-                htmlFor="subject"
-                className="text-sm font-semibold text-white uppercase tracking-wider"
-              >
-                Subject
-              </label>
-              <Input
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                placeholder="Project Inquiry"
-                required
-                className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300"
-              />
-            </div>
-            <div className="space-y-3">
-              <label
-                htmlFor="message"
-                className="text-sm font-semibold text-white uppercase tracking-wider"
-              >
-                Message
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Hello, I'd like to talk about..."
-                rows={6}
-                required
-                className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-blue-400 focus:ring-blue-400/20 rounded-xl p-4 text-lg transition-all duration-300 resize-none"
-              />
-            </div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold rounded-xl text-lg shadow-glow transition-all duration-300"
-              >
-                Send Message
-              </Button>
-            </motion.div>
-          </form>
-        </motion.div>
       </div>
     </section>
   );
