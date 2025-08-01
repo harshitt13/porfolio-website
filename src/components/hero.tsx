@@ -90,7 +90,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl tracking-tight"
           >
             <span className="text-white">Hi, I'm Harshit Kushwaha</span>
           </motion.h1>
