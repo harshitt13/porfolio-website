@@ -96,25 +96,27 @@ export default function Contact() {
                 whileHover={{ y: -2 }}
                 className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-all duration-300">
-                    <Mail className="h-6 w-6 text-blue-400" />
+                <div className="flex items-center justify-between space-x-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-all duration-300">
+                      <Mail className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        Email
+                      </h3>
+                      <p className="text-gray-300 text-sm">
+                        find.harshitkushwaha@gmail.com
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      Email
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      find.harshitkushwaha@gmail.com
-                    </p>
-                    <motion.a
-                      href="mailto:find.harshitkushwaha@gmail.com"
-                      className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      Send a message
-                    </motion.a>
-                  </div>
+                  <motion.a
+                    href="mailto:find.harshitkushwaha@gmail.com"
+                    className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200 whitespace-nowrap"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    Send a message
+                  </motion.a>
                 </div>
               </motion.div>
 
@@ -125,23 +127,25 @@ export default function Contact() {
                 whileHover={{ y: -2 }}
                 className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-all duration-300">
-                    <Phone className="h-6 w-6 text-green-400" />
+                <div className="flex items-center justify-between space-x-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 rounded-lg bg-green-500/10 group-hover:bg-green-500/20 transition-all duration-300">
+                      <Phone className="h-6 w-6 text-green-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        Phone
+                      </h3>
+                      <p className="text-gray-300 text-sm">+91 74090-64489</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      Phone
-                    </h3>
-                    <p className="text-gray-300 text-sm">+91 74090-64489</p>
-                    <motion.a
-                      href="tel:+917409064489"
-                      className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      Call me
-                    </motion.a>
-                  </div>
+                  <motion.a
+                    href="tel:+917409064489"
+                    className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200 whitespace-nowrap"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    Call me
+                  </motion.a>
                 </div>
               </motion.div>
 
@@ -152,25 +156,27 @@ export default function Contact() {
                 whileHover={{ y: -2 }}
                 className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-all duration-300">
-                    <MapPin className="h-6 w-6 text-purple-400" />
+                <div className="flex items-center justify-between space-x-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-all duration-300">
+                      <MapPin className="h-6 w-6 text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        Location
+                      </h3>
+                      <p className="text-gray-300 text-sm">Bhopal, India</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      Location
-                    </h3>
-                    <p className="text-gray-300 text-sm">Bhopal, India</p>
-                    <motion.a
-                      href="https://maps.app.goo.gl/kzsWyDH2b6LSXBnE8"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      View on map
-                    </motion.a>
-                  </div>
+                  <motion.a
+                    href="https://maps.app.goo.gl/kzsWyDH2b6LSXBnE8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-gray-300 font-medium text-sm transition-colors duration-200 whitespace-nowrap"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    View on map
+                  </motion.a>
                 </div>
               </motion.div>
             </div>
