@@ -42,18 +42,21 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800 py-4">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-6">
+    <footer className="border-t border-gray-800/80 py-6 relative overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent pointer-events-none"></div>
+
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-8 lg:gap-12">
           {/* Left Side - Social Icons + Copyright */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center lg:items-start gap-4"
+            className="flex flex-col items-center lg:items-start gap-5"
           >
             {/* Social Icons */}
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={link.label}
@@ -63,21 +66,27 @@ export default function Footer() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  whileHover={{ y: -2 }}
-                  className={`p-2 rounded-lg bg-gray-900/50 ${link.color} transition-all duration-200 hover:bg-gray-800/50`}
+                  whileHover={{ y: -3, scale: 1.05 }}
+                  className={`p-3 rounded-xl bg-gray-900/60 backdrop-blur-sm ${link.color} transition-all duration-300 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-gray-900/25 border border-gray-800/30 hover:border-gray-700/50`}
                 >
-                  <div className="text-gray-400">{link.icon}</div>
+                  <div className="text-gray-400 hover:text-gray-200 transition-colors duration-300">
+                    {link.icon}
+                  </div>
                   <span className="sr-only">{link.label}</span>
                 </motion.a>
               ))}
             </div>
 
             {/* Copyright */}
-            <p className="text-gray-400 text-sm">
-              © {currentYear}{" "}
-              <span className="text-white font-semibold">Harshit Kushwaha</span>
-              . All rights reserved.
-            </p>
+            <div className="text-center lg:text-left">
+              <p className="text-gray-400 text-sm leading-relaxed">
+                © {currentYear}{" "}
+                <span className="text-white font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                  Harshit Kushwaha
+                </span>
+                . All rights reserved.
+              </p>
+            </div>
           </motion.div>
 
           {/* Right Side - Spotify Widget */}
@@ -85,7 +94,7 @@ export default function Footer() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full lg:w-auto flex justify-center lg:justify-end mt-8"
+            className="w-full lg:w-auto flex justify-center lg:justify-end mt-8 lg:mt-4"
           >
             <iframe
               src="https://open.spotify.com/embed/track/4iV5W9uYEdYUVa79Axb7Rh?utm_source=generator&theme=0"
