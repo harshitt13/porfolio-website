@@ -97,7 +97,7 @@ export default function Footer() {
             className="w-full lg:w-auto flex justify-center lg:justify-end mt-8 lg:mt-4"
           >
             <iframe
-              src="https://open.spotify.com/embed/track/4iV5W9uYEdYUVa79Axb7Rh?utm_source=generator&theme=0"
+              src="https://open.spotify.com/embed/track/6pj9JkwBA6VzYdLXvaJkPh?si=5562a60653e1480a?utm_source=generator&theme=0"
               width="100%"
               height="120"
               frameBorder="0"
