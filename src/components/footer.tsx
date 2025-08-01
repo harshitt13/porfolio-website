@@ -42,15 +42,37 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800 py-6">
+    <footer className="bg-black border-t border-gray-800 py-4">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-6">
+          {/* Left Side - Social Icons + Copyright */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center md:text-left"
+            className="flex flex-col items-center lg:items-start gap-4"
           >
+            {/* Social Icons */}
+            <div className="flex gap-3">
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  whileHover={{ y: -2 }}
+                  className={`p-2 rounded-lg bg-gray-900/50 ${link.color} transition-all duration-200 hover:bg-gray-800/50`}
+                >
+                  <div className="text-gray-400">{link.icon}</div>
+                  <span className="sr-only">{link.label}</span>
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Copyright */}
             <p className="text-gray-400 text-sm">
               © {currentYear}{" "}
               <span className="text-white font-semibold">Harshit Kushwaha</span>
@@ -58,28 +80,23 @@ export default function Footer() {
             </p>
           </motion.div>
 
+          {/* Right Side - Spotify Widget */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex gap-4"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-full lg:w-auto flex justify-center lg:justify-end mt-8"
           >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ y: -2 }}
-                className={`p-2 rounded-lg bg-gray-900/50 ${link.color} transition-all duration-200 hover:bg-gray-800/50`}
-              >
-                <div className="text-gray-400">{link.icon}</div>
-                <span className="sr-only">{link.label}</span>
-              </motion.a>
-            ))}
+            <iframe
+              src="https://open.spotify.com/embed/track/4iV5W9uYEdYUVa79Axb7Rh?utm_source=generator&theme=0"
+              width="100%"
+              height="120"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              title="Spotify Currently Playing"
+              className="rounded-lg min-w-[300px] max-w-[400px]"
+            ></iframe>
           </motion.div>
         </div>
       </div>
