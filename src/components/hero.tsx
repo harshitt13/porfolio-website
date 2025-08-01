@@ -99,7 +99,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl leading-relaxed whitespace-nowrap"
           >
             A Software Developer surviving through life with a cup of coffee
           </motion.p>
