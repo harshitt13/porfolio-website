@@ -86,9 +86,9 @@ export default function Contact() {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-4"
+            className="space-y-4 flex flex-col h-full"
           >
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-4 flex-1">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -154,9 +154,9 @@ export default function Contact() {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ y: -2 }}
-                className="professional-card p-4 group hover:shadow-glow transition-all duration-300"
+                className="professional-card p-4 group hover:shadow-glow transition-all duration-300 flex flex-col h-full"
               >
-                <div className="flex items-center justify-between space-x-4 mb-4">
+                <div className="flex items-center justify-between space-x-4 mb-6">
                   <div className="flex items-center space-x-4">
                     <div className="p-3 rounded-lg bg-purple-500/10 group-hover:bg-purple-500/20 transition-all duration-300">
                       <MapPin className="h-6 w-6 text-purple-400" />
@@ -179,8 +179,8 @@ export default function Contact() {
                   </motion.a>
                 </div>
 
-                {/* Embedded Map */}
-                <div className="w-full h-40 rounded-lg overflow-hidden border border-gray-700/50">
+                {/* Embedded Map - Now takes up remaining space */}
+                <div className="w-full flex-1 min-h-[300px] rounded-lg overflow-hidden border border-gray-700/50">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465563.1456167813!2d77.06176842871094!3d23.25404530000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1672847400000!5m2!1sen!2sin"
                     width="100%"
