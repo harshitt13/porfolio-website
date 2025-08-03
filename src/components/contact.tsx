@@ -209,7 +209,7 @@ export default function Contact() {
                     htmlFor="name"
                     className="text-sm font-semibold text-white uppercase tracking-wider"
                   >
-                    Your Name
+                    Name
                   </label>
                   <Input
                     id="name"
@@ -226,7 +226,7 @@ export default function Contact() {
                     htmlFor="email"
                     className="text-sm font-semibold text-white uppercase tracking-wider"
                   >
-                    Your Email
+                    Email
                   </label>
                   <Input
                     id="email"
