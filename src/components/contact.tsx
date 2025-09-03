@@ -30,15 +30,18 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    formData.append("access_key", process.env.VITE_WEB3FORM_ACCESS_KEY || "");
+  const formData = new FormData(e.currentTarget);
 
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+  // ✅ Correct way in Vite
+  formData.append("access_key", import.meta.env.VITE_WEB3FORM_ACCESS_KEY || "");
 
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  try {
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -52,13 +55,18 @@ export default function Contact() {
       console.log("Success", res);
       alert("Thank you for your message! I'll get back to you soon.");
       setFormData({ name: "", email: "", subject: "", message: "" });
+      e.currentTarget.reset(); // ✅ Reset form inputs
     } else {
       console.error("Error", res);
       alert("Something went wrong. Please try again later.");
     }
-  };
+  } catch (error) {
+    console.error("Fetch error:", error);
+    alert("Network error. Please check your connection.");
+  }
+};
 
-  // Removed unused 'onSubmit' function to resolve the error
+
 
   return (
     <section id="contact" className="py-16 bg-black">
