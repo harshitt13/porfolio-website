@@ -34,7 +34,7 @@ export default function Contact() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
-    formData.append("access_key", "af2e849d-afb1-46ce-9ebb-07e14091b799");
+    formData.append("access_key", process.env.VITE_WEB3FORM_ACCESS_KEY || "");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
