@@ -35,7 +35,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   const formData = new FormData(e.currentTarget);
 
-  // ✅ Correct way in Vite
   formData.append("access_key", import.meta.env.VITE_WEB3FORM_ACCESS_KEY);
 
   const object = Object.fromEntries(formData);
