@@ -54,7 +54,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       console.log("Success", res);
       alert("Thank you for your message! I'll get back to you soon.");
       setFormData({ name: "", email: "", subject: "", message: "" });
-      e.currentTarget.reset(); // ✅ Reset form inputs
+      e.currentTarget.reset();
     } else {
       console.error("Error", res);
       alert("Something went wrong. Please try again later.");
