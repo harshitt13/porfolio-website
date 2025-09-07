@@ -34,7 +34,7 @@ export default function Footer() {
       color: "hover:text-gray-300",
     },
     {
-      href: "/Harshit-Resume.pdf",
+      href: "https://github.com/harshitt13/resume",
       icon: <FileText className="h-5 w-5" />,
       label: "Resume",
       color: "hover:text-gray-300",
