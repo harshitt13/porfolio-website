@@ -1,3 +1,4 @@
+import Header from "./components/header";
 import Hero from "./components/hero";
 import About from "./components/about";
 import Skills from "./components/skills";
@@ -9,6 +10,7 @@ import IdentityShowcase from "./components/identity-showcase";
 function App() {
   return (
     <div className="min-h-screen bg-black text-white">
+      <Header />
       <Hero />
       <IdentityShowcase />
       <About />
