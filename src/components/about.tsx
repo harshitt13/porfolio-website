@@ -52,7 +52,7 @@ export default function About() {
 
             <div className="space-y-4 text-lg leading-relaxed">
               <p className="text-gray-300">
-                Hello! I'm a Software Developer with interest in AI/ML, IOT, and
+                Hi! I'm a Software Developer with interest in AI/ML, IOT, and
                 Full-Stack Development.
               </p>
 
@@ -79,31 +79,6 @@ export default function About() {
                 </div>
                 <div className="group">
                   <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
-                    Email:
-                  </h3>
-                  <button
-                    type="button"
-                    className="text-gray-300 text-lg group-hover:text-blue-400 transition-colors duration-200 focus:outline-none"
-                    onClick={async (e) => {
-                      await navigator.clipboard.writeText(
-                        "find.harshitkushwaha@gmail.com"
-                      );
-                      const btn = e.currentTarget as HTMLButtonElement | null;
-                      if (btn) {
-                        const original = btn.textContent;
-                        btn.textContent = "Copied!";
-                        setTimeout(() => {
-                          btn.textContent = original;
-                        }, 1200);
-                      }
-                    }}
-                    title="Click to copy email"
-                  >
-                    find.harshitkushwaha@gmail.com
-                  </button>
-                </div>
-                <div className="group">
-                  <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
                     Location:
                   </h3>
                   <p className="text-gray-300 text-lg duration-200">
@@ -111,12 +86,6 @@ export default function About() {
                   </p>
                 </div>
                 <div className="group">
-                  <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
-                    Availability:
-                  </h3>
-                  <p className="text-green-400 text-lg font-semibold group-hover:text-green-300 transition-colors duration-200">
-                    Open to opportunities
-                  </p>
                 </div>
               </div>
             </div>
