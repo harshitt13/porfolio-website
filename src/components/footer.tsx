@@ -86,6 +86,9 @@ export default function Footer() {
                 </span>
                 . All rights reserved.
               </p>
+              <p className="text-gray-500 italic text-xs mt-3 leading-relaxed">
+                "Hope only prolongs suffering."
+              </p>
             </div>
           </motion.div>
 

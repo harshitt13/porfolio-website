@@ -30,7 +30,7 @@ const projects = [
     image: "/project2.png?height=400&width=600",
     tags: ["React", "JavaScript", "Node.js", "CSS"],
     githubUrl: "https://github.com/harshitt13/meowscripts",
-    liveUrl: "https://meowscripts.vercel.app/",
+    liveUrl: "https://makaanwala.harshitt13.in/",
   },
   {
     id: 3,
