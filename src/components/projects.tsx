@@ -16,12 +16,12 @@ import { ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Stranger-Comms",
-    description: "A platform for one-on-one interaction with strangers.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Node.js", "Webrtc", "Socket.io"],
-    githubUrl: "https://github.com/harshitt13/stranger-comms",
-    liveUrl: "https://stranger-comms.vercel.app/",
+    title: "Krtrimahastah",
+    description: "An open-source, affordable, and intelligent prosthetic arm.",
+    image: "/project1.png?height=400&width=600",
+    tags: ["ESP32", "C++", "SinricPro", "Arduino"],
+    githubUrl: "https://github.com/harshitt13/Krtrimahastah",
+    liveUrl: "https://youtu.be/BNZyQIecj14",
   },
   {
     id: 2,
