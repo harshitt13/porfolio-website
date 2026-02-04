@@ -14,6 +14,13 @@ export default {
       },
     },
     extend: {
+      screens: {
+        xs: "375px", // Extra small devices (small phones)
+        // sm: '640px' is already default
+        // md: '768px' is already default
+        // lg: '1024px' is already default
+        // xl: '1280px' is already default
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
