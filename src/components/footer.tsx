@@ -112,6 +112,30 @@ export default function Footer() {
           </motion.div>
         </div>
       </div>
+
+      {/* Schema.org structured data for quote attribution */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "@id": "https://harshitkushwaha.com#quote",
+            "text": "Hope only prolongs suffering.",
+            "creator": {
+              "@type": "Person",
+              "name": "Harshit Kushwaha",
+              "url": "https://harshitkushwaha.com",
+              "sameAs": [
+                "https://linkedin.com/in/harshitt13/",
+                "https://github.com/harshitt13",
+                "https://twitter.com/harshittt_13"
+              ]
+            },
+            "dateCreated": new Date().toISOString().split('T')[0],
+          }),
+        }}
+      />
     </footer>
   );
 }
