@@ -67,7 +67,7 @@ export default function Header() {
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    href: string,
   ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
