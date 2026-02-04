@@ -41,7 +41,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-black">
+    <section id="hero" className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-black">
       <ParticlesBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent z-0" />
 
