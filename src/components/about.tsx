@@ -85,8 +85,6 @@ export default function About() {
                     Bhopal, India
                   </p>
                 </div>
-                <div className="group">
-                </div>
               </div>
             </div>
           </motion.div>

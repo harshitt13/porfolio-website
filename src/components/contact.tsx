@@ -81,10 +81,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             Get In Touch
           </h2>
           <div className="h-1 w-16 bg-gray-600 mx-auto rounded-full"></div>
-          <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-            Have a project in mind or want to discuss opportunities? Feel free
-            to reach out!
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

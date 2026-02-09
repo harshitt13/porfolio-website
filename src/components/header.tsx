@@ -29,7 +29,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "Resume",
-    href: "https://github.com/harshitt13/resume",
+    href: "https://github.com/harshitt13/resume/blob/main/Harshit_Kushwaha_Resume.pdf",
     icon: <FileText className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2} />,
     isExternal: true,
   },

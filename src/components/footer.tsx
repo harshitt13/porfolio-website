@@ -34,7 +34,7 @@ export default function Footer() {
       color: "hover:text-gray-300",
     },
     {
-      href: "https://github.com/harshitt13/resume",
+      href: "https://github.com/harshitt13/resume/blob/main/Harshit_Kushwaha_Resume.pdf",
       icon: <FileText className="h-5 w-5" />,
       label: "Resume",
       color: "hover:text-gray-300",
@@ -120,12 +120,12 @@ export default function Footer() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CreativeWork",
-            "@id": "https://harshitkushwaha.com#quote",
+            "@id": "https://harshitt13.in#quote",
             text: "Hope only prolongs suffering.",
             creator: {
               "@type": "Person",
               name: "Harshit Kushwaha",
-              url: "https://harshitkushwaha.com",
+              url: "https://harshitt13.in",
               sameAs: [
                 "https://linkedin.com/in/harshitt13/",
                 "https://github.com/harshitt13",
