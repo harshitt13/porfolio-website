@@ -50,7 +50,7 @@ export default function Hero() {
           >
             <div className="relative w-36 h-36 md:w-44 md:h-44 overflow-hidden rounded-full mx-auto group border-2 border-gray-700">
               <img
-                src="/profile.jpg?height=400&width=400"
+                src="/profile.webp"
                 alt="Profile"
                 width={400}
                 height={400}

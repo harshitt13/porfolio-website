@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card, CardContent } from "./ui/card";
+import LazyIframe from "./lazy-iframe";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
@@ -184,16 +185,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
                 {/* Embedded Map - Now takes up remaining space */}
                 <div className="w-full flex-1 min-h-[300px] rounded-lg overflow-hidden border border-gray-700/50">
-                  <iframe
+                  <LazyIframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465563.1456167813!2d77.06176842871094!3d23.25404530000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1672847400000!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     allowFullScreen={true}
-                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Bhopal Location Map"
                     className="grayscale hover:grayscale-0 transition-all duration-300 border-0"
-                  ></iframe>
+                  />
                 </div>
               </motion.div>
             </div>

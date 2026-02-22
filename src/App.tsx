@@ -1,26 +1,34 @@
+import { lazy, Suspense } from "react";
 import Header from "./components/header";
 import Hero from "./components/hero";
-import About from "./components/about";
-import Skills from "./components/skills";
-import Projects from "./components/projects";
-import Contact from "./components/contact";
-import Footer from "./components/footer";
-import IdentityShowcase from "./components/identity-showcase";
-import ParticlesBackground from "./components/particles-background";
+
+const IdentityShowcase = lazy(() => import("./components/identity-showcase"));
+const About = lazy(() => import("./components/about"));
+const Skills = lazy(() => import("./components/skills"));
+const Projects = lazy(() => import("./components/projects"));
+const Contact = lazy(() => import("./components/contact"));
+const Footer = lazy(() => import("./components/footer"));
+const ParticlesBackground = lazy(
+  () => import("./components/particles-background")
+);
 
 function App() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      <ParticlesBackground />
+      <Suspense fallback={null}>
+        <ParticlesBackground />
+      </Suspense>
       <div className="relative z-10">
         <Header />
         <Hero />
-        <IdentityShowcase />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-        <Footer />
+        <Suspense fallback={null}>
+          <IdentityShowcase />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+          <Footer />
+        </Suspense>
       </div>
     </div>
   );

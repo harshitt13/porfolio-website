@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, X, ExternalLink, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import { FC } from "react";
+import LazyIframe from "./lazy-iframe";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -99,17 +100,16 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-full lg:w-auto flex justify-center lg:justify-end mt-8 lg:mt-4"
           >
-            <iframe
+            <LazyIframe
               src="https://open.spotify.com/embed/track/6pj9JkwBA6VzYdLXvaJkPh?si=5562a60653e1480a?utm_source=generator&theme=0"
               width="100%"
               height="152"
               frameBorder="0"
               allowFullScreen={true}
-              loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               title="Spotify Currently Playing"
               className="rounded-lg min-w-[300px] max-w-[400px]"
-            ></iframe>
+            />
           </motion.div>
         </div>
       </div>

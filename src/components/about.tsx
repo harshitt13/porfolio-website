@@ -29,10 +29,10 @@ export default function About() {
             <div className="relative professional-card p-4 group-hover:scale-105 transition-transform duration-500">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img
-                  src="/aboutme.jpg?height=600&width=600"
+                  src="/aboutme.webp"
                   alt="About Me"
-                  width={600}
-                  height={600}
+                  width={800}
+                  height={800}
                   loading="lazy"
                   decoding="async"
                   className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
