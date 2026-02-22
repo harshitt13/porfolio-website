@@ -105,6 +105,7 @@ export default function Footer() {
               height="152"
               frameBorder="0"
               allowFullScreen={true}
+              loading="lazy"
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               title="Spotify Currently Playing"
               className="rounded-lg min-w-[300px] max-w-[400px]"

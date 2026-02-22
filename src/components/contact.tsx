@@ -68,7 +68,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
 
   return (
-    <section id="contact" className="py-16 bg-black">
+    <section id="contact" className="py-16">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -189,6 +189,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                     width="100%"
                     height="100%"
                     allowFullScreen={true}
+                    loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Bhopal Location Map"
                     className="grayscale hover:grayscale-0 transition-all duration-300 border-0"

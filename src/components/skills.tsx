@@ -63,7 +63,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-16 bg-black">
+    <section id="skills" className="py-16">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}

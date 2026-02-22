@@ -6,8 +6,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Camera, Code, Gamepad2, Palette } from "lucide-react";
 import { Button } from "./ui/button";
-import { Link } from "react-scroll";
-import ParticlesBackground from "./particles-background";
 
 const IdentityBadge = ({
   icon,
@@ -29,23 +27,12 @@ const IdentityBadge = ({
 };
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <section
       id="hero"
-      className="relative h-screen flex flex-col justify-center items-center overflow-hidden bg-black"
+      className="relative h-screen flex flex-col justify-center items-center overflow-hidden"
     >
-      <ParticlesBackground />
       <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent z-0" />
 
       <motion.div
@@ -65,6 +52,10 @@ export default function Hero() {
               <img
                 src="/profile.jpg?height=400&width=400"
                 alt="Profile"
+                width={400}
+                height={400}
+                loading="eager"
+                decoding="async"
                 className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
               />
             </div>
@@ -113,15 +104,15 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 mt-6"
           >
-            <Link to="projects" smooth={true} duration={500}>
+            <a href="#projects">
               <Button
                 size="lg"
                 className="rounded-full px-10 py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-glow"
               >
                 View My Work
               </Button>
-            </Link>
-            <Link to="contact" smooth={true} duration={500}>
+            </a>
+            <a href="#contact">
               <Button
                 variant="outline"
                 size="lg"
@@ -129,7 +120,7 @@ export default function Hero() {
               >
                 Contact Me
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </motion.div>
@@ -140,7 +131,7 @@ export default function Hero() {
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
       >
-        <Link to="about" smooth={true} duration={500}>
+        <a href="#about">
           <div className="flex flex-col items-center group">
             <span className="text-sm text-gray-400 mb-3 group-hover:text-white transition-colors duration-200">
               Scroll Down
@@ -153,7 +144,7 @@ export default function Hero() {
               <ArrowDown className="h-5 w-5 text-blue-400" />
             </motion.div>
           </div>
-        </Link>
+        </a>
       </motion.div>
     </section>
   );

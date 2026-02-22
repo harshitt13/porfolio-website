@@ -228,9 +228,9 @@ export default function IdentityShowcase() {
                 {activeIdentity.icon}
               </div>
               <div className="text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-2">
+                <h2 className="text-2xl font-bold mb-2">
                   I am a {activeIdentity.title}
-                </h3>
+                </h2>
                 <p className="text-white/90">{activeIdentity.description}</p>
               </div>
             </div>
@@ -247,6 +247,8 @@ export default function IdentityShowcase() {
                   ? `bg-gradient-to-r ${identity.color} shadow-md`
                   : "bg-muted hover:bg-muted/80"
               }`}
+              aria-label={`Show ${identity.title} card`}
+              title={`Show ${identity.title} card`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {

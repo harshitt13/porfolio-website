@@ -14,13 +14,18 @@ export default function ParticlesBackground() {
     <Particles
       id="tsparticles"
       init={particlesInit}
+      className="absolute inset-0 z-0"
+      style={{ width: "100%", height: "100%" }}
       options={{
+        fullScreen: {
+          enable: false,
+        },
         background: {
           color: {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {

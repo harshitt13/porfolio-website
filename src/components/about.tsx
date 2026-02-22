@@ -10,7 +10,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="py-16 bg-black">
+    <section id="about" className="py-16">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -31,6 +31,10 @@ export default function About() {
                 <img
                   src="/aboutme.jpg?height=600&width=600"
                   alt="About Me"
+                  width={600}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />
               </div>

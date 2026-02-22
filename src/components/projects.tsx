@@ -50,7 +50,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-16 bg-black">
+    <section id="projects" className="py-16">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -93,6 +93,10 @@ export default function Projects() {
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
+                      width={600}
+                      height={400}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
