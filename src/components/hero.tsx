@@ -104,23 +104,21 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 mt-6"
           >
-            <a href="#projects">
-              <Button
-                size="lg"
-                className="rounded-full px-10 py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-glow"
-              >
-                View My Work
-              </Button>
-            </a>
-            <a href="#contact">
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full px-10 py-6 text-lg font-semibold border-2 border-gray-600 text-white hover:bg-white/10 transform hover:scale-105 transition-all duration-300"
-              >
-                Contact Me
-              </Button>
-            </a>
+            <Button
+              asChild
+              size="lg"
+              className="min-h-12 rounded-full px-10 py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-glow"
+            >
+              <a href="#projects">View My Work</a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="min-h-12 rounded-full px-10 py-6 text-lg font-semibold border-2 border-gray-600 text-white hover:bg-white/10 transform hover:scale-105 transition-all duration-300"
+            >
+              <a href="#contact">Contact Me</a>
+            </Button>
           </motion.div>
         </div>
       </motion.div>
