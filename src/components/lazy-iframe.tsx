@@ -27,7 +27,7 @@ export default function LazyIframe({ src, ...props }: LazyIframeProps) {
   }, []);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="w-full h-full">
       {isVisible ? <iframe src={src} {...props} /> : null}
     </div>
   );
