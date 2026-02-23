@@ -109,9 +109,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       <h3 className="text-lg font-semibold text-white mb-1">
                         Email
                       </h3>
-                      <p className="text-gray-300 text-sm">
-                        find.harshitkushwaha@gmail.com
-                      </p>
                     </div>
                   </div>
                   <motion.a
@@ -140,7 +137,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       <h3 className="text-lg font-semibold text-white mb-1">
                         Phone
                       </h3>
-                      <p className="text-gray-300 text-sm">+91 7409064489</p>
                     </div>
                   </div>
                   <motion.a

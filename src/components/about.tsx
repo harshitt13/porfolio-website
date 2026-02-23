@@ -70,27 +70,6 @@ export default function About() {
                 doing Stocks & Crypto, or enjoying video games.
               </p>
             </div>
-
-            <div className="professional-card p-4 mt-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="group">
-                  <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
-                    Name:
-                  </h3>
-                  <p className="text-gray-300 text-lg duration-200">
-                    Harshit Kushwaha
-                  </p>
-                </div>
-                <div className="group">
-                  <h3 className="font-semibold text-white text-sm uppercase tracking-wider mb-2">
-                    Location:
-                  </h3>
-                  <p className="text-gray-300 text-lg duration-200">
-                    Bhopal, India
-                  </p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       </div>
