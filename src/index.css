@@ -358,7 +358,141 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
-/* Focus states and accessibility */
+/* Card with gradient top accent line */
+.card-accent-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.5), transparent);
+}
+
+/* Animated rotating gradient border for profile image */
+@keyframes border-rotate {
+  0% {
+    --angle: 0deg;
+  }
+
+  100% {
+    --angle: 360deg;
+  }
+}
+
+.profile-ring-glow {
+  position: relative;
+}
+
+.profile-ring-glow::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  background: conic-gradient(from var(--angle, 0deg), #3b82f6, #a855f7, #ec4899, #3b82f6);
+  animation: border-rotate 4s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@supports (background: conic-gradient(from 0deg, red, blue)) {
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+}
+
+/* Gradient button with glow */
+.btn-gradient-glow {
+  background: linear-gradient(135deg, #3b82f6, #7c3aed);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient-glow:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(124, 58, 237, 0.2);
+  transform: translateY(-1px);
+}
+
+/* --- Awwwards Revival Utilities --- */
+
+/* Film Grain / Noise Overlay */
+.noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Subtle glassmorphism for ultra-premium cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Aurora / Mesh Background Animations */
+@keyframes aurora-1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(10vw, -10vh) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-10vw, 5vh) scale(0.9);
+  }
+}
+
+@keyframes aurora-2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-10vw, 10vh) scale(1.2);
+  }
+
+  66% {
+    transform: translate(10vw, -5vh) scale(0.8);
+  }
+}
+
+@keyframes aurora-3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(5vw, 5vh) scale(1.1);
+  }
+}
+
+/* Text Reveal Animation */
+.text-reveal-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
