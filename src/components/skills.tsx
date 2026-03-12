@@ -205,9 +205,9 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="relative flex items-center justify-center"
+              className="relative flex w-full items-center justify-center mx-auto mt-8 lg:mt-12"
             >
-              <div className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px]">
+              <div className="relative mx-auto w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px]">
                 {/* Concentric ring borders */}
                 <div className="absolute inset-0 rounded-full border border-blue-500/10" />
                 <div className="absolute inset-[14%] rounded-full border border-blue-500/15" />

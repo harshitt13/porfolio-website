@@ -136,10 +136,10 @@ export default function IdentityShowcase() {
         const nextIndex = (currentIndex + 1) % identities.length;
         return identities[nextIndex];
       });
-    }, 3000);
+    }, 4000); // Increased to 4s to allow full 0.5s exit/enter animations
 
     return () => clearInterval(interval);
-  }, [isAutoRotating]);
+  }, [isAutoRotating, activeIdentity.id]); // Added activeIdentity.id to reset timer when manually changed
 
   const getCurrentRotationFromMatrix = (element: HTMLDivElement) => {
     const computedStyle = window.getComputedStyle(element);
@@ -224,28 +224,32 @@ export default function IdentityShowcase() {
 
   return (
     <div className="w-full max-w-3xl mx-auto my-16">
-      <div className="relative">
+      <div
+        className="relative min-h-[160px]"
+        onMouseEnter={() => setIsAutoRotating(false)}
+        onMouseLeave={() => setIsAutoRotating(true)}
+      >
         {/* Main display */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIdentity.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className={`bg-gradient-to-r ${activeIdentity.color} p-8 rounded-2xl shadow-lg text-white`}
-            onMouseEnter={() => setIsAutoRotating(false)}
-            onMouseLeave={() => setIsAutoRotating(true)}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4 }}
+            className="bg-transparent border border-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg transition-colors duration-500"
           >
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="bg-white/20 p-6 rounded-full backdrop-blur-sm">
-                {activeIdentity.icon}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+              <div className={`p-6 flex-shrink-0 rounded-full bg-white/5 border border-white/10 ${activeIdentity.color} bg-clip-text text-transparent flex items-center justify-center`}>
+                <div className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                  {activeIdentity.icon}
+                </div>
               </div>
-              <div className="text-center md:text-left">
-                <h2 className="text-2xl font-bold mb-2">
-                  I am a {activeIdentity.title}
+              <div className="flex flex-col justify-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+                  I am a <span className={`bg-gradient-to-r ${activeIdentity.color} bg-clip-text text-transparent drop-shadow-sm`}>{activeIdentity.title}</span>
                 </h2>
-                <p className="text-white/90">{activeIdentity.description}</p>
+                <p className="text-gray-300 min-h-[48px] flex items-center justify-center md:justify-start">{activeIdentity.description}</p>
               </div>
             </div>
           </motion.div>
@@ -256,11 +260,10 @@ export default function IdentityShowcase() {
           {identities.map((identity) => (
             <motion.button
               key={identity.id}
-              className={`p-3 rounded-full transition-all ${
-                activeIdentity.id === identity.id
-                  ? `bg-gradient-to-r ${identity.color} shadow-md`
-                  : "bg-muted hover:bg-muted/80"
-              }`}
+              className={`p-3 rounded-full border transition-all duration-300 ${activeIdentity.id === identity.id
+                  ? `bg-white/10 border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.15)]`
+                  : "bg-transparent border-white/10 hover:bg-white/5 hover:border-white/20"
+                }`}
               aria-label={`Show ${identity.title} card`}
               title={`Show ${identity.title} card`}
               whileHover={{ scale: 1.1 }}
@@ -271,11 +274,10 @@ export default function IdentityShowcase() {
               }}
             >
               <div
-                className={
-                  activeIdentity.id === identity.id
-                    ? "text-white"
-                    : "text-foreground"
-                }
+                className={`transition-colors duration-300 ${activeIdentity.id === identity.id
+                    ? "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                    : "text-gray-500"
+                  }`}
               >
                 {identity.icon}
               </div>
@@ -288,49 +290,60 @@ export default function IdentityShowcase() {
       <div className="mt-16 relative h-64 w-64 mx-auto perspective">
         <div
           ref={setCubeRef}
-          className={`cube-container cursor-grab ${
-            isDragging ? "cursor-grabbing" : ""
-          } select-none transition-transform duration-300 ease-out`}
+          className={`cube-container cursor-grab ${isDragging ? "cursor-grabbing" : ""
+            } select-none transition-transform duration-300 ease-out`}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
           <div className="cube">
-            <div className="cube-face front hover:brightness-110 transition-all duration-200">
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white rounded-lg p-4">
-                <Code className="h-12 w-12 mb-2" />
-                <span className="font-bold">Developer</span>
+            <div className="cube-face front hover:brightness-125 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center h-full bg-black/40 backdrop-blur-sm border-2 border-blue-500/30 hover:border-blue-400/80 shadow-[inset_0_0_30px_rgba(59,130,246,0.15)] rounded-xl p-4 group transition-colors duration-300">
+                <div className="text-blue-400 drop-shadow-[0_0_12px_rgba(59,130,246,0.8)] group-hover:scale-110 transition-transform duration-300">
+                  <Code className="h-12 w-12 mb-3" />
+                </div>
+                <span className="font-bold tracking-wider text-sm uppercase text-blue-300/90 group-hover:text-blue-200 transition-colors">Developer</span>
               </div>
             </div>
-            <div className="cube-face back hover:brightness-110 transition-all duration-200">
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-amber-500 to-orange-400 text-white rounded-lg p-4">
-                <Camera className="h-12 w-12 mb-2" />
-                <span className="font-bold">Photographer</span>
+            <div className="cube-face back hover:brightness-125 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center h-full bg-black/40 backdrop-blur-sm border-2 border-amber-500/30 hover:border-amber-400/80 shadow-[inset_0_0_30px_rgba(245,158,11,0.15)] rounded-xl p-4 group transition-colors duration-300">
+                <div className="text-amber-500 drop-shadow-[0_0_12px_rgba(245,158,11,0.8)] group-hover:scale-110 transition-transform duration-300">
+                  <Camera className="h-12 w-12 mb-3" />
+                </div>
+                <span className="font-bold tracking-wider text-sm uppercase text-amber-300/90 group-hover:text-amber-200 transition-colors">Photographer</span>
               </div>
             </div>
-            <div className="cube-face right hover:brightness-110 transition-all duration-200">
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-green-500 to-emerald-400 text-white rounded-lg p-4">
-                <Gamepad2 className="h-12 w-12 mb-2" />
-                <span className="font-bold">Gamer</span>
+            <div className="cube-face right hover:brightness-125 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center h-full bg-black/40 backdrop-blur-sm border-2 border-emerald-500/30 hover:border-emerald-400/80 shadow-[inset_0_0_30px_rgba(16,185,129,0.15)] rounded-xl p-4 group transition-colors duration-300">
+                <div className="text-emerald-400 drop-shadow-[0_0_12px_rgba(16,185,129,0.8)] group-hover:scale-110 transition-transform duration-300">
+                  <Gamepad2 className="h-12 w-12 mb-3" />
+                </div>
+                <span className="font-bold tracking-wider text-sm uppercase text-emerald-300/90 group-hover:text-emerald-200 transition-colors">Gamer</span>
               </div>
             </div>
-            <div className="cube-face left hover:brightness-110 transition-all duration-200">
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-purple-500 to-pink-400 text-white rounded-lg p-4">
-                <Palette className="h-12 w-12 mb-2" />
-                <span className="font-bold">Designer</span>
+            <div className="cube-face left hover:brightness-125 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center h-full bg-black/40 backdrop-blur-sm border-2 border-fuchsia-500/30 hover:border-fuchsia-400/80 shadow-[inset_0_0_30px_rgba(217,70,239,0.15)] rounded-xl p-4 group transition-colors duration-300">
+                <div className="text-fuchsia-400 drop-shadow-[0_0_12px_rgba(217,70,239,0.8)] group-hover:scale-110 transition-transform duration-300">
+                  <Palette className="h-12 w-12 mb-3" />
+                </div>
+                <span className="font-bold tracking-wider text-sm uppercase text-fuchsia-300/90 group-hover:text-fuchsia-200 transition-colors">Designer</span>
               </div>
             </div>
-            <div className="cube-face top hover:brightness-110 transition-all duration-200">
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-indigo-500 to-violet-400 text-white rounded-lg p-4">
-                <Cpu className="h-12 w-12 mb-2" />
-                <span className="font-bold">Engineer</span>
+            <div className="cube-face top hover:brightness-125 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center h-full bg-black/40 backdrop-blur-sm border-2 border-indigo-500/30 hover:border-indigo-400/80 shadow-[inset_0_0_30px_rgba(99,102,241,0.15)] rounded-xl p-4 group transition-colors duration-300">
+                <div className="text-indigo-400 drop-shadow-[0_0_12px_rgba(99,102,241,0.8)] group-hover:scale-110 transition-transform duration-300">
+                  <Cpu className="h-12 w-12 mb-3" />
+                </div>
+                <span className="font-bold tracking-wider text-sm uppercase text-indigo-300/90 group-hover:text-indigo-200 transition-colors">Engineer</span>
               </div>
             </div>
-            <div className="cube-face bottom hover:brightness-110 transition-all duration-200">
-              <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-rose-500 to-red-400 text-white rounded-lg p-4">
-                <Compass className="h-12 w-12 mb-2" />
-                <span className="font-bold">Seeker</span>
+            <div className="cube-face bottom hover:brightness-125 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center h-full bg-black/40 backdrop-blur-sm border-2 border-rose-500/30 hover:border-rose-400/80 shadow-[inset_0_0_30px_rgba(244,63,94,0.15)] rounded-xl p-4 group transition-colors duration-300">
+                <div className="text-rose-400 drop-shadow-[0_0_12px_rgba(244,63,94,0.8)] group-hover:scale-110 transition-transform duration-300">
+                  <Compass className="h-12 w-12 mb-3" />
+                </div>
+                <span className="font-bold tracking-wider text-sm uppercase text-rose-300/90 group-hover:text-rose-200 transition-colors">Seeker</span>
               </div>
             </div>
           </div>

@@ -25,9 +25,8 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative group"
           >
-            <div className="absolute -inset-6 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-600/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative professional-card p-4 group-hover:scale-105 transition-transform duration-500">
-              <div className="aspect-square rounded-xl overflow-hidden">
+            <div className="relative bg-transparent border border-white/10 backdrop-blur-md p-3 rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:border-white/20 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-500">
+              <div className="aspect-square rounded-2xl overflow-hidden">
                 <img
                   src="/aboutme.webp"
                   alt="About Me"
@@ -35,7 +34,7 @@ export default function About() {
                   height={800}
                   loading="lazy"
                   decoding="async"
-                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </div>

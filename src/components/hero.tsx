@@ -13,18 +13,30 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const current = roles[roleIndex];
     let timeout: ReturnType<typeof setTimeout>;
+    const current = roles[roleIndex];
 
-    if (!isDeleting && displayed.length < current.length) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80);
-    } else if (!isDeleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
-    } else if (isDeleting && displayed.length > 0) {
-      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), 40);
-    } else if (isDeleting && displayed.length === 0) {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+    if (isDeleting) {
+      if (displayed.length === 0) {
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }, 400); // slight pause before typing next word
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayed((prev) => prev.slice(0, prev.length - 1));
+        }, 40);
+      }
+    } else {
+      if (displayed.length === current.length) {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2000); // pause at end of word
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayed((prev) => current.slice(0, prev.length + 1));
+        }, 80);
+      }
     }
 
     return () => clearTimeout(timeout);
@@ -208,8 +220,6 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
         <a 
-          aria-label="Scroll"
-          title="Scroll"
           className="w-8 h-14 rounded-full border-2 border-gray-600/50 flex justify-center items-start p-2 hover:border-gray-400 transition-colors cursor-pointer group"
         >
           <motion.div
