@@ -1,13 +1,10 @@
-"use client";
-
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -85,7 +82,7 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left — Info */}
+
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -102,7 +99,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              {/* Contact links */}
+
               <div className="space-y-4">
                 {contactInfo.map((item, i) => (
                   <motion.a
@@ -126,7 +123,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              {/* Embedded Map */}
+
               <div className="w-full h-40 rounded-xl overflow-hidden border border-gray-800/50 mt-8">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465563.1456167813!2d77.06176842871094!3d23.25404530000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1672847400000!5m2!1sen!2sin"
@@ -141,7 +138,7 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Right — Form */}
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}

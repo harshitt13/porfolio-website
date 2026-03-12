@@ -1,4 +1,4 @@
-"use client";
+
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -57,7 +57,7 @@ export default function Hero() {
 
       <div className="container px-4 md:px-6 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left — Text */}
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -132,7 +132,7 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            {/* Social links */}
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -158,17 +158,16 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right — Photo + Decorative */}
+
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex items-center justify-center"
           >
-            {/* Decorative glow */}
             <div className="absolute w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl" />
 
-            {/* Floating code snippet */}
+
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
@@ -184,7 +183,7 @@ export default function Hero() {
               </pre>
             </motion.div>
 
-            {/* Profile image */}
+
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10">
               <div className="w-full h-full rounded-3xl overflow-hidden profile-ring-glow border-2 border-gray-800/50 rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img
@@ -199,20 +198,12 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating badge */}
-            {/* <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-4 -left-2 md:bottom-4 md:left-4 z-20 professional-card px-4 py-2.5 rounded-xl flex items-center gap-2 opacity-80"
-            >
-              <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs font-mono text-gray-400">Available for work</span>
-            </motion.div> */}
+
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator - minimalist line style from the new design */}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

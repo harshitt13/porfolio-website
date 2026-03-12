@@ -1,4 +1,3 @@
-"use client";
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -35,7 +34,7 @@ const techItems = [
   { name: "GCP", icon: `${DI}/googlecloud/googlecloud-original.svg`, angle: 288, ring: "middle" as const },
   { name: "Linux", icon: `${DI}/linux/linux-original.svg`, angle: 324, ring: "middle" as const },
 
-  // ─── Inner ring: ML / AI ────────────────────────────────────────────
+
   { name: "TensorFlow", icon: `${DI}/tensorflow/tensorflow-original.svg`, angle: 0, ring: "inner" as const },
   { name: "PyTorch", icon: `${DI}/pytorch/pytorch-original.svg`, angle: 51, ring: "inner" as const },
   { name: "Keras", icon: `${DI}/keras/keras-original.svg`, angle: 102, ring: "inner" as const },
@@ -48,35 +47,35 @@ const techItems = [
 // ── Extra items that only appear in the tag cloud ────────────────────────────
 
 const cloudOnlyItems = [
-  // Databases
+
   { name: "Neo4j", icon: `${DI}/neo4j/neo4j-original.svg` },
   { name: "SQL Server", icon: `${DI}/microsoftsqlserver/microsoftsqlserver-original.svg` },
-  // DevOps
+
   { name: "GitHub", icon: `${DI}/github/github-original.svg`, invert: true },
   { name: "Actions", icon: "/icons/git actions.png" },
   { name: "Netlify", icon: `${DI}/netlify/netlify-original.svg` },
   { name: "WordPress", icon: `${DI}/wordpress/wordpress-original.svg` },
-  // Hardware
+
   { name: "Arduino", icon: `${DI}/arduino/arduino-original.svg` },
   { name: "Fritzing", icon: "/icons/fritzing.png" },
   { name: "KiCad", icon: "/icons/kicad.png" },
   { name: "EasyEDA", icon: "/icons/easyeda.png" },
   { name: "Cura", icon: "/icons/cura.png" },
-  // Cloud
+
   { name: "AWS", icon: "/icons/aws.png" },
   { name: "Render", icon: "/icons/render.png" },
   { name: "Hostinger", icon: "/icons/hostinger.png" },
-  // Testing
+
   { name: "Postman", icon: `${DI}/postman/postman-original.svg` },
   { name: "DevTools", icon: "/icons/devtools.png" },
-  // Design
+
   { name: "Figma", icon: `${DI}/figma/figma-original.svg` },
   { name: "Photoshop", icon: `${DI}/photoshop/photoshop-original.svg` },
   { name: "Affinity", icon: "/icons/affinity.png" },
   { name: "Canva", icon: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg" },
   { name: "Clipchamp", icon: "/icons/clipclamp.png" },
   { name: "OBS", icon: "/icons/OBS.png" },
-  // AI & LLMs
+
   { name: "Copilot", icon: "/icons/Copilot.png" },
   { name: "LangChain", icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain-color.png" },
   { name: "HuggingFace", icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
@@ -85,10 +84,10 @@ const cloudOnlyItems = [
   { name: "Codex", icon: "/icons/codex.png" },
   { name: "Ollama", icon: "https://ollama.ai/public/ollama.png" },
   { name: "Cursor", icon: "/icons/cursor.png", invert: true },
-  // Config / Data formats
+
   { name: "YAML", icon: "https://www.vectorlogo.zone/logos/yaml/yaml-icon.svg" },
   { name: "JSON", icon: "/icons/json.png" },
-  // Visualization
+
   { name: "Matplotlib", icon: "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" },
   { name: "Plotly", icon: "https://www.vectorlogo.zone/logos/plotly/plotly-icon.svg" },
   { name: "Seaborn", icon: "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" },
@@ -107,7 +106,7 @@ type RadarTech = {
 const ringRadii = { outer: 44, middle: 30, inner: 16 };
 const ringDurations = { outer: 35, middle: 25, inner: 18 };
 
-// Tech icon on the radar
+
 
 function TechIcon({ tech }: { tech: RadarTech }) {
   return (
@@ -185,9 +184,9 @@ export default function Skills() {
     >
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* ── Left column: heading + radar ────────── */}
+
           <div>
-            {/* Section header */}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -200,7 +199,7 @@ export default function Skills() {
               <div className="h-1.5 w-24 bg-gray-600 rounded-full" />
             </motion.div>
 
-            {/* Radar */}
+
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -208,20 +207,20 @@ export default function Skills() {
               className="relative flex w-full items-center justify-center mx-auto mt-8 lg:mt-12"
             >
               <div className="relative mx-auto w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px]">
-                {/* Concentric ring borders */}
+
                 <div className="absolute inset-0 rounded-full border border-blue-500/10" />
                 <div className="absolute inset-[14%] rounded-full border border-blue-500/15" />
                 <div className="absolute inset-[28%] rounded-full border border-blue-500/25" />
                 <div className="absolute inset-[42%] rounded-full border-2 border-blue-500/40" />
 
-                {/* Crosshair lines */}
+
                 <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-blue-500/10 to-transparent" />
                 <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
 
-                {/* Center dot */}
+
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 glow-blue animate-pulse-glow-blue z-10" />
 
-                {/* Scan line */}
+
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -232,7 +231,7 @@ export default function Skills() {
                   />
                 </motion.div>
 
-                {/* Rotating rings */}
+
                 <RingItems ring="outer" direction={1} />
                 <RingItems ring="middle" direction={-1} />
                 <RingItems ring="inner" direction={1} />

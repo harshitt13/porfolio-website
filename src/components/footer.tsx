@@ -1,9 +1,5 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Github, Linkedin, X, ExternalLink, FileText } from "lucide-react";
-import { Button } from "./ui/button";
-import { FC } from "react";
 import LazyIframe from "./lazy-iframe";
 
 export default function Footer() {
@@ -44,19 +40,19 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gray-800/80 py-6 relative overflow-hidden">
-      {/* Subtle background gradient */}
+
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent pointer-events-none"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center gap-8 lg:gap-12">
-          {/* Left Side - Social Icons + Copyright */}
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center lg:items-start gap-5"
           >
-            {/* Social Icons */}
+
             <div className="flex gap-4">
               {socialLinks.map((link, index) => (
                 <motion.a
@@ -78,7 +74,7 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Copyright */}
+
             <div className="text-center lg:text-left">
               <p className="text-gray-400 text-sm leading-relaxed">
                 © {currentYear}{" "}
@@ -93,7 +89,7 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Right Side - Spotify Widget */}
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -116,7 +112,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Schema.org structured data for quote attribution */}
+
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

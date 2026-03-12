@@ -22,17 +22,15 @@ function App() {
     if (hash) {
       const targetId = hash.substring(1);
       
-      // Since components are lazy-loaded, poll briefly until the element is in the DOM
+
       let attempts = 0;
-      const maxAttempts = 50; // 5 seconds maximum polling (100ms interval)
+      const maxAttempts = 50;
 
       const tryScroll = () => {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          // Add a small delay for layout to settle after mount
           setTimeout(() => {
             const headerHeight = 80;
-            // Use getBoundingClientRect for more reliable positioning
             const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
             window.scrollTo({
               top: offsetTop,

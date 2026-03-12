@@ -1,4 +1,3 @@
-"use client";
 
 import type React from "react";
 
@@ -72,17 +71,17 @@ export default function IdentityShowcase() {
     if (!cubeRef) return;
 
     if (isUserInteracting) {
-      // Manual rotation when user is interacting
+
       cubeRef.style.transform = `rotateX(${cubeRotation.x}deg) rotateY(${cubeRotation.y}deg)`;
       cubeRef.style.animation = "none";
     } else {
-      // Auto rotation when not interacting - start from current position
+
       const startX = cubeRotation.x;
       const startY = cubeRotation.y;
       const endX = startX + 360;
       const endY = startY + 360;
 
-      // Create dynamic keyframes animation starting from current position
+
       const animationName = `rotate-from-${Math.round(startX)}-${Math.round(
         startY
       )}-${Date.now()}`;
@@ -97,7 +96,7 @@ export default function IdentityShowcase() {
         }
       `;
 
-      // Remove any existing dynamic styles
+
       const existingStyle = document.getElementById("dynamic-cube-animation");
       if (existingStyle) {
         existingStyle.remove();
@@ -229,7 +228,7 @@ export default function IdentityShowcase() {
         onMouseEnter={() => setIsAutoRotating(false)}
         onMouseLeave={() => setIsAutoRotating(true)}
       >
-        {/* Main display */}
+
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIdentity.id}
@@ -255,7 +254,7 @@ export default function IdentityShowcase() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Identity selector */}
+
         <div className="flex justify-center mt-6 gap-3">
           {identities.map((identity) => (
             <motion.button
@@ -286,7 +285,7 @@ export default function IdentityShowcase() {
         </div>
       </div>
 
-      {/* 3D rotating cube - visual representation of multiple identities */}
+
       <div className="mt-16 relative h-64 w-64 mx-auto perspective">
         <div
           ref={setCubeRef}

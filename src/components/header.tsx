@@ -1,4 +1,3 @@
-"use client";
 
 import { useEffect, useState, useCallback } from "react";
 import {
@@ -160,7 +159,7 @@ export default function Header() {
                     {item.icon}
                   </span>
 
-                  {/* Label — always visible on sm+, hidden on xs */}
+
                   <span className="hidden sm:inline">{item.label}</span>
                 </a>
               </li>
