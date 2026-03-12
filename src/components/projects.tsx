@@ -77,8 +77,8 @@ export default function Projects() {
                 layout
                 className="group"
               >
-                <div className="bg-transparent border border-white/10 rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-500 hover:border-white/30">
-                  <div className="relative overflow-hidden">
+                <div className="bg-transparent border border-white/10 rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-500 hover:border-white/30 card-glow-hover">
+                  <div className="relative overflow-hidden shimmer-hover">
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}

@@ -236,7 +236,7 @@ export default function IdentityShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            className="bg-transparent border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg transition-colors duration-500"
+            className="bg-transparent border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg transition-colors duration-500 identity-glow"
           >
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 text-center md:text-left">
               <div className={`p-4 sm:p-6 flex-shrink-0 rounded-full bg-white/5 border border-white/10 ${activeIdentity.color} bg-clip-text text-transparent flex items-center justify-center`}>

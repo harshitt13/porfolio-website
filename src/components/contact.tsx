@@ -154,7 +154,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Name"
                     required
-                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base"
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base input-glow"
                   />
                 </div>
                 <div className="space-y-0">
@@ -166,7 +166,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Email"
                     required
-                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base"
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base input-glow"
                   />
                 </div>
                 <div className="space-y-0">
@@ -177,7 +177,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Subject"
                     required
-                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base"
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base input-glow"
                   />
                 </div>
                 <div className="space-y-0 pt-2">
@@ -189,7 +189,7 @@ export default function Contact() {
                     placeholder="Message"
                     rows={6}
                     required
-                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg p-4 transition-all duration-300 resize-none text-base"
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg p-4 transition-all duration-300 resize-none text-base input-glow"
                   />
                 </div>
                 <div className="pt-2">
