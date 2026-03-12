@@ -21,7 +21,7 @@ export default function Hero() {
         timeout = setTimeout(() => {
           setIsDeleting(false);
           setRoleIndex((prev) => (prev + 1) % roles.length);
-        }, 400); // slight pause before typing next word
+        }, 400);
       } else {
         timeout = setTimeout(() => {
           setDisplayed((prev) => prev.slice(0, prev.length - 1));
@@ -31,7 +31,7 @@ export default function Hero() {
       if (displayed.length === current.length) {
         timeout = setTimeout(() => {
           setIsDeleting(true);
-        }, 2000); // pause at end of word
+        }, 2000);
       } else {
         timeout = setTimeout(() => {
           setDisplayed((prev) => current.slice(0, prev.length + 1));
@@ -48,11 +48,7 @@ export default function Hero() {
       className="relative min-h-[85svh] sm:min-h-[100svh] flex items-center overflow-hidden"
     >
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 z-0 pointer-events-none"
-        style={{
-          maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)"
-        }}
+        className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 z-0 pointer-events-none hero-gradient-mask"
       />
 
       <div className="container px-4 md:px-6 z-10">
@@ -62,14 +58,14 @@ export default function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div className="space-y-4">
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-blue-400 font-mono text-sm tracking-widest uppercase"
+                className="text-blue-400 font-mono text-sm tracking-widest uppercase drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]"
               >
                 {'>'} Hello, world
               </motion.p>
@@ -149,7 +145,7 @@ export default function Hero() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg border border-gray-800 text-gray-500 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300"
+                  className="p-2.5 rounded-xl border border-gray-800 text-gray-500 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:scale-110 transition-all duration-300"
                   title={link.label}
                 >
                   {link.icon}
@@ -185,7 +181,7 @@ export default function Hero() {
 
 
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10">
-              <div className="w-full h-full rounded-3xl overflow-hidden profile-ring-glow border-2 border-gray-800/50 rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="w-full h-full rounded-3xl overflow-hidden profile-ring-glow border-2 border-gray-800/50 rotate-3 hover:rotate-0 transition-transform duration-500 shimmer-hover">
                 <img
                   src="/profile.webp"
                   alt="Harshit Kushwaha"
@@ -211,10 +207,10 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
         <a 
-          className="w-8 h-14 rounded-full border-2 border-gray-600/50 flex justify-center items-start p-2 hover:border-gray-400 transition-colors cursor-pointer group"
+          className="w-8 h-14 rounded-full border-2 border-gray-600/30 flex justify-center items-start p-2 hover:border-blue-500/40 hover:shadow-[0_0_12px_rgba(59,130,246,0.15)] transition-all duration-500 cursor-pointer group"
         >
           <motion.div
-            className="w-1 h-3 bg-gray-500 group-hover:bg-white rounded-full"
+            className="w-1 h-3 bg-gradient-to-b from-blue-400 to-purple-400 group-hover:from-white group-hover:to-blue-300 rounded-full"
             animate={{ y: [0, 16, 0], opacity: [1, 0.5, 1] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
           />

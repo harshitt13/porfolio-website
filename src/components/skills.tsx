@@ -1,5 +1,5 @@
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 
 const DI = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
@@ -106,6 +106,41 @@ type RadarTech = {
 const ringRadii = { outer: 44, middle: 30, inner: 16 };
 const ringDurations = { outer: 35, middle: 25, inner: 18 };
 
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+const RING_COUNTS = { outer: 15, middle: 10, inner: 7 };
+
+function randomizeTechAngles() {
+  const pool = shuffleArray(allItems);
+  const picked = pool.slice(0, 32);
+
+  const result: Array<{ name: string; icon: string; angle: number; ring: "outer" | "middle" | "inner"; invert?: boolean }> = [];
+  let idx = 0;
+
+  for (const ring of ["outer", "middle", "inner"] as const) {
+    const count = RING_COUNTS[ring];
+    const angleStep = 360 / count;
+    for (let i = 0; i < count; i++) {
+      const item = picked[idx];
+      result.push({
+        name: item.name,
+        icon: item.icon,
+        angle: Math.round(angleStep * i),
+        ring,
+        invert: (item as { invert?: boolean }).invert,
+      });
+      idx++;
+    }
+  }
+  return result;
+}
 
 
 function TechIcon({ tech }: { tech: RadarTech }) {
@@ -136,11 +171,13 @@ function TechIcon({ tech }: { tech: RadarTech }) {
 function RingItems({
   ring,
   direction,
+  items,
 }: {
   ring: "outer" | "middle" | "inner";
   direction: 1 | -1;
+  items: RadarTech[];
 }) {
-  const items = techItems.filter((t) => t.ring === ring);
+  const ringItems = items.filter((t) => t.ring === ring);
   const r = ringRadii[ring];
   const dur = ringDurations[ring];
 
@@ -148,14 +185,14 @@ function RingItems({
     <motion.div
       animate={{ rotate: direction * 360 }}
       transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
-      className="absolute inset-0"
+      className="absolute inset-0 pointer-events-none"
     >
-      {items.map((tech) => {
+      {ringItems.map((tech) => {
         const rad = ((tech.angle || 0) * Math.PI) / 180;
         return (
           <motion.div
             key={tech.name}
-            className="absolute"
+            className="absolute pointer-events-auto"
             style={{
               left: `${50 + r * Math.cos(rad)}%`,
               top: `${50 + r * Math.sin(rad)}%`,
@@ -175,6 +212,7 @@ function RingItems({
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const randomizedTech = useMemo(() => randomizeTechAngles(), []);
 
   return (
     <section
@@ -232,9 +270,9 @@ export default function Skills() {
                 </motion.div>
 
 
-                <RingItems ring="outer" direction={1} />
-                <RingItems ring="middle" direction={-1} />
-                <RingItems ring="inner" direction={1} />
+                <RingItems ring="outer" direction={1} items={randomizedTech} />
+                <RingItems ring="middle" direction={-1} items={randomizedTech} />
+                <RingItems ring="inner" direction={1} items={randomizedTech} />
               </div>
             </motion.div>
           </div>

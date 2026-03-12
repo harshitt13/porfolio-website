@@ -119,8 +119,8 @@ export default function Header() {
           border
           transition-all duration-500 ease-out
           ${isScrolled
-            ? "bg-black/80 backdrop-blur-xl border-white/10 shadow-lg shadow-black/30"
-            : "bg-black/50 backdrop-blur-md border-white/5"
+            ? "bg-black/60 backdrop-blur-xl border-white/10 shadow-lg shadow-black/30"
+            : "bg-black/30 backdrop-blur-md border-white/5"
           }
         `}
       >

@@ -598,6 +598,23 @@
   }
 }
 
+.aurora-orb-1 {
+  animation: aurora-1 20s ease-in-out infinite alternate;
+}
+
+.aurora-orb-2 {
+  animation: aurora-2 25s ease-in-out infinite alternate-reverse;
+}
+
+.aurora-orb-3 {
+  animation: aurora-3 30s ease-in-out infinite alternate;
+}
+
+.hero-gradient-mask {
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
 /* Text Reveal Animation */
 .text-reveal-clip {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
