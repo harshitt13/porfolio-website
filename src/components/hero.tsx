@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex items-center overflow-hidden"
+      className="relative min-h-[85svh] sm:min-h-[100svh] flex items-center overflow-hidden"
     >
       <div 
         className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 z-0 pointer-events-none"

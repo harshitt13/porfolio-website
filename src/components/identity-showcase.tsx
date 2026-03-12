@@ -222,7 +222,7 @@ export default function IdentityShowcase() {
   }, [isDragging, lastMousePos]);
 
   return (
-    <div className="w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto my-10 sm:my-16">
+    <div className="w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto my-4 sm:my-10 md:my-16">
       <div
         className="relative min-h-[160px]"
         onMouseEnter={() => setIsAutoRotating(false)}

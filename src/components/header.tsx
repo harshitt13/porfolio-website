@@ -113,7 +113,7 @@ export default function Header() {
       <nav
         className={`
           pointer-events-auto
-          mt-3 sm:mt-4
+          mt-2 sm:mt-4
           px-2 sm:px-3 py-1.5 sm:py-2
           rounded-full
           border
