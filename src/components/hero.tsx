@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center overflow-hidden"
     >
       <div 
         className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 z-0 pointer-events-none"
@@ -78,7 +78,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
               >
                 <span className="text-white">I'm </span>
                 <span className="text-gradient">Harshit</span>
@@ -92,7 +92,7 @@ export default function Hero() {
                 transition={{ delay: 0.6 }}
                 className="h-12 flex items-center"
               >
-                <span className="text-xl md:text-2xl text-gray-400 font-mono">
+                <span className="text-lg sm:text-xl md:text-2xl text-gray-400 font-mono">
                   {displayed}
                   <span className="animate-pulse text-blue-400 ml-0.5">|</span>
                 </span>
@@ -103,7 +103,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="text-gray-400 text-lg leading-relaxed max-w-lg"
+              className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-lg"
             >
               A developer surviving through life with a cup of coffee. <br />
               I survive and force living.
@@ -118,7 +118,7 @@ export default function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="min-h-12 rounded-full px-10 py-6 text-lg font-semibold btn-gradient-glow transform hover:scale-105 transition-all duration-300"
+                className="min-h-12 rounded-full px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold btn-gradient-glow transform hover:scale-105 transition-all duration-300"
               >
                 <a href="#projects">View My Work</a>
               </Button>
@@ -126,7 +126,7 @@ export default function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="min-h-12 rounded-full px-10 py-6 text-lg font-semibold bg-transparent border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 hover:border-white/30 transform hover:scale-105 transition-all duration-300"
+                className="min-h-12 rounded-full px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-semibold bg-transparent border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 hover:border-white/30 transform hover:scale-105 transition-all duration-300"
               >
                 <a href="#contact">Contact Me</a>
               </Button>
@@ -184,7 +184,7 @@ export default function Hero() {
             </motion.div>
 
 
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10">
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10">
               <div className="w-full h-full rounded-3xl overflow-hidden profile-ring-glow border-2 border-gray-800/50 rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img
                   src="/profile.webp"

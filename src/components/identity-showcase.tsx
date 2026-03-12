@@ -135,10 +135,10 @@ export default function IdentityShowcase() {
         const nextIndex = (currentIndex + 1) % identities.length;
         return identities[nextIndex];
       });
-    }, 4000); // Increased to 4s to allow full 0.5s exit/enter animations
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [isAutoRotating, activeIdentity.id]); // Added activeIdentity.id to reset timer when manually changed
+  }, [isAutoRotating]);
 
   const getCurrentRotationFromMatrix = (element: HTMLDivElement) => {
     const computedStyle = window.getComputedStyle(element);
@@ -222,7 +222,7 @@ export default function IdentityShowcase() {
   }, [isDragging, lastMousePos]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto my-16">
+    <div className="w-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto my-10 sm:my-16">
       <div
         className="relative min-h-[160px]"
         onMouseEnter={() => setIsAutoRotating(false)}
@@ -236,19 +236,19 @@ export default function IdentityShowcase() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.4 }}
-            className="bg-transparent border border-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg transition-colors duration-500"
+            className="bg-transparent border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg transition-colors duration-500"
           >
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
-              <div className={`p-6 flex-shrink-0 rounded-full bg-white/5 border border-white/10 ${activeIdentity.color} bg-clip-text text-transparent flex items-center justify-center`}>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 text-center md:text-left">
+              <div className={`p-4 sm:p-6 flex-shrink-0 rounded-full bg-white/5 border border-white/10 ${activeIdentity.color} bg-clip-text text-transparent flex items-center justify-center`}>
                 <div className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
                   {activeIdentity.icon}
                 </div>
               </div>
               <div className="flex flex-col justify-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-white">
                   I am a <span className={`bg-gradient-to-r ${activeIdentity.color} bg-clip-text text-transparent drop-shadow-sm`}>{activeIdentity.title}</span>
                 </h2>
-                <p className="text-gray-300 min-h-[48px] flex items-center justify-center md:justify-start">{activeIdentity.description}</p>
+                <p className="text-sm sm:text-base text-gray-300 min-h-[40px] sm:min-h-[48px] flex items-center justify-center md:justify-start">{activeIdentity.description}</p>
               </div>
             </div>
           </motion.div>
@@ -286,7 +286,7 @@ export default function IdentityShowcase() {
       </div>
 
 
-      <div className="mt-16 relative h-64 w-64 mx-auto perspective">
+      <div className="mt-10 sm:mt-16 relative h-40 w-40 sm:h-56 sm:w-56 md:h-64 md:w-64 mx-auto perspective">
         <div
           ref={setCubeRef}
           className={`cube-container cursor-grab ${isDragging ? "cursor-grabbing" : ""

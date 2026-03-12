@@ -180,10 +180,10 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="relative w-full py-16 md:py-24 overflow-hidden"
+      className="relative w-full py-12 sm:py-16 md:py-24 overflow-hidden"
     >
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
 
           <div>
 
@@ -193,7 +193,7 @@ export default function Skills() {
               transition={{ duration: 0.6 }}
               className="mb-10"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
                 My Skills
               </h2>
               <div className="h-1.5 w-24 bg-gray-600 rounded-full" />
@@ -204,9 +204,9 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="relative flex w-full items-center justify-center mx-auto mt-8 lg:mt-12"
+              className="relative flex w-full items-center justify-center mx-auto mt-6 sm:mt-8 lg:mt-12"
             >
-              <div className="relative mx-auto w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[440px] md:h-[440px]">
+              <div className="relative mx-auto w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] lg:w-[440px] lg:h-[440px]">
 
                 <div className="absolute inset-0 rounded-full border border-blue-500/10" />
                 <div className="absolute inset-[14%] rounded-full border border-blue-500/15" />

@@ -73,7 +73,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-14 sm:py-20 md:py-28">
       <div className="container px-4 md:px-6 max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -81,7 +81,7 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
 
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -90,11 +90,11 @@ export default function Contact() {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                   Get In Touch
                 </h2>
                 <div className="h-1.5 w-24 bg-gray-600 rounded-full" />
-                <p className="text-gray-400 mt-6 text-lg leading-relaxed max-w-md">
+                <p className="text-gray-400 mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed max-w-md">
                   Have a question or a project in mind? Feel free to reach out.
                 </p>
               </div>

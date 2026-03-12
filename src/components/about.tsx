@@ -9,14 +9,14 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="py-16">
+    <section id="about" className="py-10 sm:py-16">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center"
         >
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -46,13 +46,13 @@ export default function About() {
             className="space-y-6"
           >
             <div className="inline-block">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                 About Me
               </h2>
               <div className="h-1.5 w-24 bg-gray-600 rounded-full"></div>
             </div>
 
-            <div className="space-y-4 text-lg leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed">
               <p className="text-gray-300">
                 Hi! I'm a Software Developer with interest in AI/ML, IOT, and
                 Full-Stack Development.

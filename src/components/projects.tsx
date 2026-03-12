@@ -39,7 +39,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-10 sm:py-16">
       <div className="container px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -48,17 +48,17 @@ export default function Projects() {
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
             Featured Projects
           </h2>
           <div className="h-1.5 w-24 bg-gray-600 mx-auto rounded-full"></div>
-          <p className="text-gray-300 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-300 mt-4 sm:mt-6 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
             Explore some of my recent work and side projects
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           layout
         >
           <AnimatePresence>
@@ -86,7 +86,7 @@ export default function Projects() {
                       height={400}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-40 sm:h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
                       <motion.a

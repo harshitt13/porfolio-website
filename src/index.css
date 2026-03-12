@@ -247,6 +247,32 @@
   transform: rotateX(-90deg) translateZ(8rem);
 }
 
+@media (max-width: 480px) {
+  .front {
+    transform: translateZ(5rem);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(5rem);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(5rem);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(5rem);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(5rem);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(5rem);
+  }
+}
+
 @keyframes rotate {
   0% {
     transform: rotateY(0) rotateX(0);
