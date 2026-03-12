@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 
-const roles = ["Software Developer", "ML Engineer", "Photographer", "Designer"];
+const roles = ["Developer", "Engineer", "Photographer", "Designer", "Gamer", "Seeker"];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -35,7 +35,13 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 z-0" />
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 z-0 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)"
+        }}
+      />
 
       <div className="container px-4 md:px-6 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -87,8 +93,8 @@ export default function Hero() {
               transition={{ delay: 0.7, duration: 0.6 }}
               className="text-gray-400 text-lg leading-relaxed max-w-lg"
             >
-              A Software Developer surviving through life with a cup of coffee.
-              Building things that matter, one commit at a time.
+              A developer surviving through life with a cup of coffee. <br />
+              I survive and force living.
             </motion.p>
 
             <motion.div
@@ -108,7 +114,7 @@ export default function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="min-h-12 rounded-full px-10 py-6 text-lg font-semibold border border-gray-700 text-white hover:bg-white/5 transform hover:scale-105 transition-all duration-300"
+                className="min-h-12 rounded-full px-10 py-6 text-lg font-semibold bg-transparent border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 hover:border-white/30 transform hover:scale-105 transition-all duration-300"
               >
                 <a href="#contact">Contact Me</a>
               </Button>
@@ -157,17 +163,12 @@ export default function Hero() {
               className="absolute -top-4 -right-2 md:top-2 md:right-0 z-20 professional-card card-accent-top p-4 rounded-xl max-w-[200px] opacity-80"
             >
               <pre className="text-xs font-mono text-gray-400 leading-relaxed">
-                <span className="text-blue-400">const</span>{" "}
-                <span className="text-purple-400">dev</span> ={" "}
-                <span className="text-green-400">{"{"}</span>
-                {"\n"}  name:{" "}
-                <span className="text-amber-300">"Harshit"</span>,
-                {"\n"}  coffee:{" "}
-                <span className="text-amber-300">true</span>,
-                {"\n"}  status:{" "}
-                <span className="text-amber-300">"building"</span>
-                {"\n"}
-                <span className="text-green-400">{"}"}</span>
+                <span className="text-purple-400">truth:</span>
+                {"\n"}  <span className="text-blue-400">warning:</span>{" "}
+                <span className="text-amber-300">|</span>
+                {"\n"}    <span className="text-gray-300">i don't actually exist</span>
+                {"\n"}    <span className="text-gray-300">so if u ever met me irl</span>
+                {"\n"}    <span className="text-gray-300">you're schizophrenic</span>
               </pre>
             </motion.div>
 
@@ -187,14 +188,14 @@ export default function Hero() {
             </div>
 
             {/* Floating badge */}
-            <motion.div
+            {/* <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
               className="absolute -bottom-4 -left-2 md:bottom-4 md:left-4 z-20 professional-card px-4 py-2.5 rounded-xl flex items-center gap-2 opacity-80"
             >
               <div className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
               <span className="text-xs font-mono text-gray-400">Available for work</span>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>
@@ -206,15 +207,16 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 2 }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <a href="#about" title="Scroll to About section" className="flex flex-col items-center gap-2 group">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-gray-500 group-hover:text-gray-400 transition-colors">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-gray-500 to-transparent overflow-hidden relative">
-            <motion.div
-              className="absolute top-0 w-full h-1/2 bg-white"
-              animate={{ top: ['-50%', '100%'] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            />
-          </div>
+        <a 
+          aria-label="Scroll"
+          title="Scroll"
+          className="w-8 h-14 rounded-full border-2 border-gray-600/50 flex justify-center items-start p-2 hover:border-gray-400 transition-colors cursor-pointer group"
+        >
+          <motion.div
+            className="w-1 h-3 bg-gray-500 group-hover:bg-white rounded-full"
+            animate={{ y: [0, 16, 0], opacity: [1, 0.5, 1] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          />
         </a>
       </motion.div>
     </section>

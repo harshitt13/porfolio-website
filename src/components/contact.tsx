@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -67,13 +67,6 @@ export default function Contact() {
       color: "text-blue-400",
     },
     {
-      icon: <Phone className="w-4 h-4" />,
-      label: "Phone",
-      value: "+91 7409064489",
-      href: "tel:+917409064489",
-      color: "text-green-400",
-    },
-    {
       icon: <MapPin className="w-4 h-4" />,
       label: "Location",
       value: "Bhopal, India",
@@ -105,7 +98,7 @@ export default function Contact() {
                 </h2>
                 <div className="h-1.5 w-24 bg-gray-600 rounded-full" />
                 <p className="text-gray-400 mt-6 text-lg leading-relaxed max-w-md">
-                  Have a project in mind or just want to say hi? I'd love to hear from you.
+                  Have a question or a project in mind? Feel free to reach out.
                 </p>
               </div>
 
@@ -132,6 +125,20 @@ export default function Contact() {
                   </motion.a>
                 ))}
               </div>
+
+              {/* Embedded Map */}
+              <div className="w-full h-40 rounded-xl overflow-hidden border border-gray-800/50 mt-8">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465563.1456167813!2d77.06176842871094!3d23.25404530000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1672847400000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  allowFullScreen={true}
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bhopal Location Map"
+                  className="grayscale hover:grayscale-0 transition-all duration-500 border-0"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </motion.div>
 
             {/* Right — Form */}
@@ -139,89 +146,63 @@ export default function Contact() {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="professional-card card-accent-top p-6 md:p-8 rounded-2xl"
+              className="w-full max-w-xl mx-auto md:mx-0 p-2"
             >
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="name"
-                      className="text-xs font-mono text-gray-500 uppercase tracking-wider"
-                    >
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your Name"
-                      required
-                      className="bg-black/40 border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-blue-500/10 rounded-xl p-4 transition-all duration-300"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="email"
-                      className="text-xs font-mono text-gray-500 uppercase tracking-wider"
-                    >
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your@email.com"
-                      required
-                      className="bg-black/40 border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-blue-500/10 rounded-xl p-4 transition-all duration-300"
-                    />
-                  </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-0">
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Name"
+                    required
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base"
+                  />
                 </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="subject"
-                    className="text-xs font-mono text-gray-500 uppercase tracking-wider"
-                  >
-                    Subject
-                  </label>
+                <div className="space-y-0">
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    required
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base"
+                  />
+                </div>
+                <div className="space-y-0">
                   <Input
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Project Inquiry"
+                    placeholder="Subject"
                     required
-                    className="bg-black/40 border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-blue-500/10 rounded-xl p-4 transition-all duration-300"
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg px-4 py-6 transition-all duration-300 text-base"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="message"
-                    className="text-xs font-mono text-gray-500 uppercase tracking-wider"
-                  >
-                    Message
-                  </label>
+                <div className="space-y-0 pt-2">
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    rows={5}
+                    placeholder="Message"
+                    rows={6}
                     required
-                    className="bg-black/40 border-gray-800 text-white placeholder:text-gray-600 focus:border-blue-500/50 focus:ring-blue-500/10 rounded-xl p-4 transition-all duration-300 resize-none"
+                    className="bg-transparent border border-white/10 text-gray-200 placeholder:text-gray-500 focus:border-white/30 focus:ring-0 rounded-lg p-4 transition-all duration-300 resize-none text-base"
                   />
                 </div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full px-8 py-4 btn-gradient-glow text-white font-semibold rounded-xl text-base transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </Button>
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    className="w-full h-14 bg-transparent border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/20 hover:text-white font-medium rounded-lg text-base transition-all duration-300"
+                  >
+                    Submit
+                  </Button>
+                </div>
               </form>
             </motion.div>
           </div>

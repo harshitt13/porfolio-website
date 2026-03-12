@@ -88,7 +88,7 @@ export default function Projects() {
                 layout
                 className="group"
               >
-                <div className="professional-card h-full flex flex-col overflow-hidden transition-all duration-500 group-hover:shadow-glow">
+                <div className="bg-transparent border border-white/10 rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-500 hover:border-white/30">
                   <div className="relative overflow-hidden">
                     <img
                       src={project.image || "/placeholder.svg"}
@@ -168,7 +168,7 @@ export default function Projects() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full professional-card text-white font-semibold border-gray-600 hover:border-blue-400 transition-all duration-300 group hover:shadow-glow">
+            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/20 hover:text-white font-medium transition-all duration-300 group">
               <Github className="h-5 w-5 group-hover:text-blue-400 transition-colors duration-300" />
               <span className="group-hover:text-blue-400 transition-colors duration-300">
                 Show More Projects

@@ -68,9 +68,9 @@ export default function Footer() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   whileHover={{ y: -3, scale: 1.05 }}
-                  className={`p-3 rounded-xl bg-gray-900/60 backdrop-blur-sm ${link.color} transition-all duration-300 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-gray-900/25 border border-gray-800/30 hover:border-gray-700/50`}
+                  className={`p-3 rounded-xl bg-transparent border border-white/10 transition-all duration-300 hover:bg-white/5 hover:border-white/30 ${link.color}`}
                 >
-                  <div className="text-gray-400 hover:text-gray-200 transition-colors duration-300">
+                  <div className="text-gray-400 hover:text-white transition-colors duration-300">
                     {link.icon}
                   </div>
                   <span className="sr-only">{link.label}</span>
@@ -100,16 +100,18 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-full lg:w-auto flex justify-center lg:justify-end mt-8 lg:mt-4"
           >
-            <LazyIframe
-              src="https://open.spotify.com/embed/track/6pj9JkwBA6VzYdLXvaJkPh?si=5562a60653e1480a?utm_source=generator&theme=0"
-              width="100%"
-              height="152"
-              frameBorder="0"
-              allowFullScreen={true}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              title="Spotify Currently Playing"
-              className="rounded-lg min-w-[300px] max-w-[400px]"
-            />
+            <div className="p-1 border border-white/10 rounded-2xl bg-transparent hover:border-white/30 transition-all duration-300 w-full lg:w-auto flex items-center justify-center">
+              <LazyIframe
+                src="https://open.spotify.com/embed/track/6pj9JkwBA6VzYdLXvaJkPh?si=5562a60653e1480a?utm_source=generator&theme=0"
+                width="100%"
+                height="152"
+                frameBorder="0"
+                allowFullScreen={true}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                title="Spotify Currently Playing"
+                className="rounded-xl min-w-[300px] max-w-[400px]"
+              />
+            </div>
           </motion.div>
         </div>
       </div>

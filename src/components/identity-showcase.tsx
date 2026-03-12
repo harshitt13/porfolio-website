@@ -4,7 +4,7 @@ import type React from "react";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera, Code, Gamepad2, Palette, Laptop, Layers } from "lucide-react";
+import { Camera, Code, Gamepad2, Palette, Cpu, Compass } from "lucide-react";
 
 type Identity = {
   id: number;
@@ -24,17 +24,17 @@ const identities: Identity[] = [
   },
   {
     id: 2,
+    title: "Engineer",
+    icon: <Cpu className="h-6 w-6" />,
+    color: "from-indigo-500 to-violet-400",
+    description: "Architecting and building robust systems",
+  },
+  {
+    id: 3,
     title: "Photographer",
     icon: <Camera className="h-6 w-6" />,
     color: "from-amber-500 to-orange-400",
     description: "Capturing moments through images",
-  },
-  {
-    id: 3,
-    title: "Gamer",
-    icon: <Gamepad2 className="h-6 w-6" />,
-    color: "from-green-500 to-emerald-400",
-    description: "Exploring virtual worlds to escape the real one ",
   },
   {
     id: 4,
@@ -42,6 +42,20 @@ const identities: Identity[] = [
     icon: <Palette className="h-6 w-6" />,
     color: "from-purple-500 to-pink-400",
     description: "Creating visually stunning and intuitive experiences",
+  },
+  {
+    id: 5,
+    title: "Gamer",
+    icon: <Gamepad2 className="h-6 w-6" />,
+    color: "from-green-500 to-emerald-400",
+    description: "Exploring virtual worlds to escape the real one",
+  },
+  {
+    id: 6,
+    title: "Seeker",
+    icon: <Compass className="h-6 w-6" />,
+    color: "from-rose-500 to-red-400",
+    description: "Constantly exploring and learning new things",
   },
 ];
 
@@ -309,14 +323,14 @@ export default function IdentityShowcase() {
             </div>
             <div className="cube-face top hover:brightness-110 transition-all duration-200">
               <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-indigo-500 to-violet-400 text-white rounded-lg p-4">
-                <Laptop className="h-12 w-12 mb-2" />
-                <span className="font-bold">Creator</span>
+                <Cpu className="h-12 w-12 mb-2" />
+                <span className="font-bold">Engineer</span>
               </div>
             </div>
             <div className="cube-face bottom hover:brightness-110 transition-all duration-200">
               <div className="flex flex-col items-center justify-center h-full bg-gradient-to-r from-rose-500 to-red-400 text-white rounded-lg p-4">
-                <Layers className="h-12 w-12 mb-2" />
-                <span className="font-bold">Innovator</span>
+                <Compass className="h-12 w-12 mb-2" />
+                <span className="font-bold">Seeker</span>
               </div>
             </div>
           </div>

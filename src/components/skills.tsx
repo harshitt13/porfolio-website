@@ -17,8 +17,8 @@ const techItems = [
   { name: "HTML5", icon: `${DI}/html5/html5-original.svg`, angle: 168, ring: "outer" as const },
   { name: "CSS3", icon: `${DI}/css3/css3-original.svg`, angle: 192, ring: "outer" as const },
   { name: "React", icon: `${DI}/react/react-original.svg`, angle: 216, ring: "outer" as const },
-  { name: "Next.js", icon: `${DI}/nextjs/nextjs-original.svg`, angle: 240, ring: "outer" as const },
-  { name: "Flask", icon: `${DI}/flask/flask-original.svg`, angle: 264, ring: "outer" as const },
+  { name: "Next.js", icon: `${DI}/nextjs/nextjs-original.svg`, angle: 240, ring: "outer" as const, invert: true },
+  { name: "Flask", icon: `${DI}/flask/flask-original.svg`, angle: 264, ring: "outer" as const, invert: true },
   { name: "FastAPI", icon: `${DI}/fastapi/fastapi-original.svg`, angle: 288, ring: "outer" as const },
   { name: "Docker", icon: `${DI}/docker/docker-original.svg`, angle: 312, ring: "outer" as const },
   { name: "Git", icon: `${DI}/git/git-original.svg`, angle: 336, ring: "outer" as const },
@@ -31,7 +31,7 @@ const techItems = [
   { name: "Supabase", icon: `${DI}/supabase/supabase-original.svg`, angle: 144, ring: "middle" as const },
   { name: "Prisma", icon: `${DI}/prisma/prisma-original.svg`, angle: 180, ring: "middle" as const },
   { name: "Firebase", icon: `${DI}/firebase/firebase-original.svg`, angle: 216, ring: "middle" as const },
-  { name: "Vercel", icon: `${DI}/vercel/vercel-original.svg`, angle: 252, ring: "middle" as const },
+  { name: "Vercel", icon: `${DI}/vercel/vercel-original.svg`, angle: 252, ring: "middle" as const, invert: true },
   { name: "GCP", icon: `${DI}/googlecloud/googlecloud-original.svg`, angle: 288, ring: "middle" as const },
   { name: "Linux", icon: `${DI}/linux/linux-original.svg`, angle: 324, ring: "middle" as const },
 
@@ -52,7 +52,7 @@ const cloudOnlyItems = [
   { name: "Neo4j", icon: `${DI}/neo4j/neo4j-original.svg` },
   { name: "SQL Server", icon: `${DI}/microsoftsqlserver/microsoftsqlserver-original.svg` },
   // DevOps
-  { name: "GitHub", icon: `${DI}/github/github-original.svg` },
+  { name: "GitHub", icon: `${DI}/github/github-original.svg`, invert: true },
   { name: "Actions", icon: "/icons/git actions.png" },
   { name: "Netlify", icon: `${DI}/netlify/netlify-original.svg` },
   { name: "WordPress", icon: `${DI}/wordpress/wordpress-original.svg` },
@@ -84,7 +84,7 @@ const cloudOnlyItems = [
   { name: "Antigravity", icon: "/icons/antigravity.png" },
   { name: "Codex", icon: "/icons/codex.png" },
   { name: "Ollama", icon: "https://ollama.ai/public/ollama.png" },
-  { name: "Cursor", icon: "/icons/cursor.png" },
+  { name: "Cursor", icon: "/icons/cursor.png", invert: true },
   // Config / Data formats
   { name: "YAML", icon: "https://www.vectorlogo.zone/logos/yaml/yaml-icon.svg" },
   { name: "JSON", icon: "/icons/json.png" },
@@ -96,7 +96,13 @@ const cloudOnlyItems = [
 
 const allItems = [...techItems, ...cloudOnlyItems];
 
-type RadarTech = (typeof techItems)[number];
+type RadarTech = {
+  name: string;
+  icon: string;
+  angle?: number;
+  ring?: "outer" | "middle" | "inner";
+  invert?: boolean;
+};
 
 const ringRadii = { outer: 44, middle: 30, inner: 16 };
 const ringDurations = { outer: 35, middle: 25, inner: 18 };
@@ -118,7 +124,7 @@ function TechIcon({ tech }: { tech: RadarTech }) {
           width={24}
           height={24}
           loading="lazy"
-          className="w-5 h-5 sm:w-6 sm:h-6 object-contain group-hover:brightness-125 transition-all duration-300"
+          className={`w-5 h-5 sm:w-6 sm:h-6 object-contain group-hover:brightness-125 transition-all duration-300 ${tech.invert ? 'invert opacity-90' : ''}`}
         />
       </div>
       <span className="text-[7px] sm:text-[8px] text-gray-500 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
@@ -146,7 +152,7 @@ function RingItems({
       className="absolute inset-0"
     >
       {items.map((tech) => {
-        const rad = (tech.angle * Math.PI) / 180;
+        const rad = ((tech.angle || 0) * Math.PI) / 180;
         return (
           <motion.div
             key={tech.name}
@@ -260,7 +266,7 @@ export default function Skills() {
                     width={16}
                     height={16}
                     loading="lazy"
-                    className="w-4 h-4 object-contain flex-shrink-0"
+                    className={`w-4 h-4 object-contain flex-shrink-0 ${tech.invert ? 'invert opacity-90' : ''}`}
                   />
                   <span>{tech.name}</span>
                 </motion.span>
