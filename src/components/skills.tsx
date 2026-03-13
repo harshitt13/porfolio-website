@@ -250,17 +250,17 @@ export default function Skills() {
             >
               <div className="relative mx-auto w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] lg:w-[440px] lg:h-[440px]">
 
-                <div className="absolute inset-0 rounded-full border border-blue-500/10" />
-                <div className="absolute inset-[14%] rounded-full border border-blue-500/15" />
-                <div className="absolute inset-[28%] rounded-full border border-blue-500/25" />
-                <div className="absolute inset-[42%] rounded-full border-2 border-blue-500/40" />
+                <div className="absolute inset-0 rounded-full border border-white/5" />
+                <div className="absolute inset-[14%] rounded-full border border-white/10" />
+                <div className="absolute inset-[28%] rounded-full border border-white/15" />
+                <div className="absolute inset-[42%] rounded-full border border-white/20" />
 
 
-                <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-blue-500/10 to-transparent" />
-                <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
+                <div className="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+                <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
 
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 glow-blue animate-pulse-glow-blue z-10" />
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)] z-10" />
 
 
                 <motion.div

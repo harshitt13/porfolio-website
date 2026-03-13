@@ -145,7 +145,7 @@ export default function Hero() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl border border-gray-800 text-gray-500 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] hover:scale-110 transition-all duration-300"
+                  className="p-3 rounded-xl bg-transparent border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 hover:border-white/30 transform hover:-translate-y-[3px] hover:scale-105 transition-all duration-300"
                   title={link.label}
                 >
                   {link.icon}

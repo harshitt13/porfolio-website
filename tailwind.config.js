@@ -63,6 +63,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        heading: ["'Space Grotesk'", "sans-serif"],
       },
       backdropBlur: {
         xs: "2px",

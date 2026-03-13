@@ -88,7 +88,7 @@ export default function Projects() {
                       decoding="async"
                       className="w-full h-40 sm:h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
                       <motion.a
                         href={project.githubUrl}
                         target="_blank"
