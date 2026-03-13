@@ -533,10 +533,8 @@
 /* Mobile: reduce sizes and blur for performance */
 @media (max-width: 768px) {
   .aurora-bg-wrapper {
-    /* Use absolute on mobile to avoid iOS fixed-positioning bugs */
-    position: absolute;
-    min-height: 100%;
-    min-height: 100dvh;
+    position: fixed;
+    inset: 0;
   }
 
   .aurora-orbs-container {
