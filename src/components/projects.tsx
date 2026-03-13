@@ -73,12 +73,12 @@ export default function Projects() {
                   duration: 0.6,
                   type: "spring",
                 }}
-                whileHover={{ y: -8, scale: 1.02 }}
+                whileHover={{ y: -4 }}
                 layout
                 className="group"
               >
-                <div className="bg-transparent border border-white/10 rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-500 hover:border-white/30 card-glow-hover">
-                  <div className="relative overflow-hidden shimmer-hover">
+                <div className="bg-transparent border border-white/10 rounded-2xl h-full flex flex-col overflow-hidden transition-all duration-300 hover:border-white/20">
+                  <div className="relative overflow-hidden">
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -88,7 +88,7 @@ export default function Projects() {
                       decoding="async"
                       className="w-full h-40 sm:h-48 md:h-56 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
                       <motion.a
                         href={project.githubUrl}
                         target="_blank"
@@ -97,7 +97,7 @@ export default function Projects() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className="p-4 rounded-full bg-black/60 backdrop-blur-sm border border-gray-600 hover:border-blue-400 transition-all duration-300 group-hover:animate-glow">
+                        <div className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-colors duration-200">
                           <Github className="h-6 w-6 text-white" />
                         </div>
                       </motion.a>
@@ -109,7 +109,7 @@ export default function Projects() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className="p-4 rounded-full bg-black/60 backdrop-blur-sm border border-gray-600 hover:border-purple-400 transition-all duration-300 group-hover:animate-glow">
+                        <div className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-colors duration-200">
                           <ExternalLink className="h-6 w-6 text-white" />
                         </div>
                       </motion.a>
@@ -117,7 +117,7 @@ export default function Projects() {
                   </div>
 
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-3 transition-colors duration-200">
                       {project.title}
                     </h3>
                     <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
@@ -131,7 +131,7 @@ export default function Projects() {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: index * 0.1 + tagIndex * 0.05 }}
-                          className="px-3 py-1.5 text-xs font-semibold rounded-full bg-gradient-to-r from-blue-500/20 to-purple-600/20 text-blue-300 border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300"
+                          className="px-3 py-1.5 text-xs font-medium rounded-full bg-white/5 text-gray-400 border border-white/10"
                         >
                           {tag}
                         </motion.span>
@@ -150,20 +150,16 @@ export default function Projects() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <motion.a
+          <a
             href="https://github.com/harshitt13"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/20 hover:text-white font-medium transition-all duration-300 group">
-              <Github className="h-5 w-5 group-hover:text-blue-400 transition-colors duration-300" />
-              <span className="group-hover:text-blue-400 transition-colors duration-300">
-                Show More Projects
-              </span>
+            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-transparent border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/30 hover:text-white hover:scale-105 font-medium transition-all duration-300 active:scale-95 group">
+              <Github className="h-5 w-5" />
+              <span>Show More Projects</span>
             </div>
-          </motion.a>
+          </a>
         </motion.div>
       </div>
     </section>

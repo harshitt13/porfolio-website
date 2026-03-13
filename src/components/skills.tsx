@@ -55,6 +55,7 @@ const cloudOnlyItems = [
   { name: "Actions", icon: "/icons/git actions.png" },
   { name: "Netlify", icon: `${DI}/netlify/netlify-original.svg` },
   { name: "WordPress", icon: `${DI}/wordpress/wordpress-original.svg` },
+  { name: "Vite", icon: `${DI}/vitejs/vitejs-original.svg` },
 
   { name: "Arduino", icon: `${DI}/arduino/arduino-original.svg` },
   { name: "Fritzing", icon: "/icons/fritzing.png" },
@@ -67,6 +68,7 @@ const cloudOnlyItems = [
   { name: "Hostinger", icon: "/icons/hostinger.png" },
 
   { name: "Postman", icon: `${DI}/postman/postman-original.svg` },
+  { name: "Selenium", icon: `${DI}/selenium/selenium-original.svg` },
   { name: "DevTools", icon: "/icons/devtools.png" },
 
   { name: "Figma", icon: `${DI}/figma/figma-original.svg` },
@@ -87,10 +89,12 @@ const cloudOnlyItems = [
 
   { name: "YAML", icon: "https://www.vectorlogo.zone/logos/yaml/yaml-icon.svg" },
   { name: "JSON", icon: "/icons/json.png" },
+  { name: "XML", icon: "https://cdn-icons-png.flaticon.com/512/136/136526.png" },
 
   { name: "Matplotlib", icon: "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" },
   { name: "Plotly", icon: "https://www.vectorlogo.zone/logos/plotly/plotly-icon.svg" },
   { name: "Seaborn", icon: "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" },
+  { name: "Search Console", icon: "https://www.vectorlogo.zone/logos/google/google-icon.svg" },
 ];
 
 const allItems = [...techItems, ...cloudOnlyItems];
@@ -221,9 +225,9 @@ export default function Skills() {
       className="relative w-full py-12 sm:py-16 md:py-24 overflow-hidden"
     >
       <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center min-h-[500px]">
 
-          <div>
+          <div className="flex flex-col justify-center">
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -242,7 +246,7 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="relative flex w-full items-center justify-center mx-auto mt-6 sm:mt-8 lg:mt-12"
+              className="relative flex-grow flex w-full items-center justify-center mt-2 sm:mt-4 lg:mt-6"
             >
               <div className="relative mx-auto w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] lg:w-[440px] lg:h-[440px]">
 

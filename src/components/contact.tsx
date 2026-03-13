@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Button } from "./ui/button";
+
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Mail, MapPin } from "lucide-react";
@@ -193,12 +193,14 @@ export default function Contact() {
                   />
                 </div>
                 <div className="pt-2">
-                  <Button
+                  <motion.button
                     type="submit"
-                    className="w-full h-14 bg-transparent border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/20 hover:text-white font-medium rounded-lg text-base transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full py-4 rounded-full bg-transparent border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/20 hover:text-white font-medium text-base transition-all duration-300"
                   >
                     Submit
-                  </Button>
+                  </motion.button>
                 </div>
               </form>
             </motion.div>

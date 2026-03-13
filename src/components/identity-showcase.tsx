@@ -246,7 +246,8 @@ export default function IdentityShowcase() {
               </div>
               <div className="flex flex-col justify-center">
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-white">
-                  I am a <span className={`bg-gradient-to-r ${activeIdentity.color} bg-clip-text text-transparent drop-shadow-sm`}>{activeIdentity.title}</span>
+                  I am {/^[AEIOU]/i.test(activeIdentity.title) ? "an" : "a"}{" "}
+                  <span className={`bg-gradient-to-r ${activeIdentity.color} bg-clip-text text-transparent drop-shadow-sm`}>{activeIdentity.title}</span>
                 </h2>
                 <p className="text-sm sm:text-base text-gray-300 min-h-[40px] sm:min-h-[48px] flex items-center justify-center md:justify-start">{activeIdentity.description}</p>
               </div>
