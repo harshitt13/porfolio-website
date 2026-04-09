@@ -19,7 +19,7 @@ const projects = [
     image: "/project2.webp",
     tags: ["React", "JavaScript", "Node.js", "CSS"],
     githubUrl: "https://github.com/harshitt13/meowscripts",
-    liveUrl: "https://makaanwala.harshitt13.in/",
+    liveUrl: "https://meowscript.harshitt13.in/",
   },
   {
     id: 3,
