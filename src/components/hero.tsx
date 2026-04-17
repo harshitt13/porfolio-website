@@ -128,7 +128,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute -top-4 -right-2 md:top-2 md:right-0 z-20 professional-card card-accent-top p-4 rounded-xl max-w-[200px] opacity-80"
+              className="absolute -top-6 -right-2 md:-top-4 md:-right-6 lg:-right-10 z-30 professional-card card-accent-top p-4 rounded-xl max-w-[210px] opacity-95 bg-black/60 shadow-xl"
               style={{ willChange: "transform" }}
             >
               <pre className="text-xs font-mono text-gray-400 leading-relaxed">
