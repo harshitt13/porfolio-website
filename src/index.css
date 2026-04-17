@@ -227,6 +227,91 @@
   }
 }
 
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroStaggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.8s ease-out both;
+}
+
+.hero-fade-in-right {
+  animation: heroFadeInRight 0.8s 0.3s ease-out both;
+}
+
+.hero-stagger-1 {
+  animation: heroStaggerIn 0.5s 0.2s ease-out both;
+}
+
+.hero-stagger-2 {
+  animation: heroStaggerIn 0.6s 0.3s ease-out both;
+}
+
+.hero-stagger-3 {
+  animation: heroStaggerIn 0.5s 0.6s ease-out both;
+}
+
+.hero-stagger-4 {
+  animation: heroStaggerIn 0.6s 0.7s ease-out both;
+}
+
+.hero-stagger-5 {
+  animation: heroStaggerIn 0.6s 0.9s ease-out both;
+}
+
+.hero-stagger-6 {
+  animation: heroStaggerIn 0.5s 1.1s ease-out both;
+}
+
+.hero-stagger-7 {
+  animation: heroStaggerIn 0.5s 1.5s ease-out both;
+}
+
+@keyframes skillTagAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.skill-tag-appear {
+  animation: skillTagAppear 0.4s ease-out both;
+}
+
+
 /* Responsive design improvements */
 @media (max-width: 768px) {
   html {
@@ -530,49 +615,84 @@
   background: rgba(8, 145, 178, 0.2);
 }
 
-/* Mobile: reduce sizes and blur for performance */
+/* Mobile: replace animated blurred orbs with a lightweight static gradient */
 @media (max-width: 768px) {
   .aurora-bg-wrapper {
     position: fixed;
     inset: 0;
   }
 
+  /* Hide the individual orbs on mobile entirely */
   .aurora-orbs-container {
-    filter: blur(50px);
-    opacity: 0.35;
+    display: none;
   }
 
-  .aurora-orb--blue {
-    width: 70vw;
-    height: 70vw;
-    top: -15%;
-    left: -20%;
-  }
-
-  .aurora-orb--purple {
-    width: 60vw;
-    height: 60vw;
-    top: 30%;
-    right: -20%;
-  }
-
-  .aurora-orb--cyan {
-    width: 70vw;
-    height: 50vw;
-    bottom: -10%;
-    left: 10%;
+  /* Use a single static radial gradient instead — no blur, no animation, no GPU cost */
+  .aurora-bg-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 40%, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 40% 80%, rgba(8, 145, 178, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
   }
 }
 
 /* Very small screens: even lighter */
 @media (max-width: 480px) {
-  .aurora-orbs-container {
-    filter: blur(40px);
-    opacity: 0.3;
+  .aurora-bg-wrapper::after {
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 40%, rgba(147, 51, 234, 0.05) 0%, transparent 50%);
   }
 }
 
-/* Aurora / Mesh Background Animations */
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orbs-container {
+    display: none;
+  }
+
+  .aurora-bg-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 40%, rgba(147, 51, 234, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-fade-in,
+  .hero-fade-in-right,
+  .hero-stagger-1,
+  .hero-stagger-2,
+  .hero-stagger-3,
+  .hero-stagger-4,
+  .hero-stagger-5,
+  .hero-stagger-6,
+  .hero-stagger-7 {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .text-gradient {
+    animation: none !important;
+  }
+
+  .skill-tag-appear {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Aurora / Mesh Background Animations — desktop only */
 @keyframes aurora-1 {
 
   0%,

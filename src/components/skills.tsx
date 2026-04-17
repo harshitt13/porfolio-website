@@ -162,6 +162,7 @@ function TechIcon({ tech }: { tech: RadarTech }) {
           width={24}
           height={24}
           loading="lazy"
+          decoding="async"
           className={`w-5 h-5 sm:w-6 sm:h-6 object-contain group-hover:brightness-125 transition-all duration-300 ${tech.invert ? 'invert opacity-90' : ''}`}
         />
       </div>
@@ -240,13 +241,11 @@ export default function Skills() {
               </h2>
               <div className="h-1.5 w-24 bg-gray-600 rounded-full" />
             </motion.div>
-
-
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="relative flex-grow flex w-full items-center justify-center mt-2 sm:mt-4 lg:mt-6"
+              className="relative flex-grow hidden md:flex w-full items-center justify-center mt-2 sm:mt-4 lg:mt-6"
             >
               <div className="relative mx-auto w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[400px] md:h-[400px] lg:w-[440px] lg:h-[440px]">
 
@@ -288,18 +287,16 @@ export default function Skills() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <div className="flex flex-wrap gap-2 justify-between">
-              {allItems.map((tech, i) => (
-                <motion.span
+              {allItems.map((tech) => (
+                <span
                   key={tech.name}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.3 + i * 0.02 }}
                   className="px-3 py-2 text-xs sm:text-sm leading-normal rounded-lg
                              border border-white/10 backdrop-blur-md
                              text-gray-300 whitespace-nowrap
                              hover:border-blue-400/60 hover:text-white
                              hover:bg-blue-500/10 transition-all duration-300
-                             flex items-center gap-1.5 cursor-default skill-tag-bg"
+                             flex items-center gap-1.5 cursor-default skill-tag-bg
+                             skill-tag-appear"
                 >
                   <img
                     src={tech.icon}
@@ -307,10 +304,11 @@ export default function Skills() {
                     width={16}
                     height={16}
                     loading="lazy"
+                    decoding="async"
                     className={`w-4 h-4 object-contain flex-shrink-0 ${tech.invert ? 'invert opacity-90' : ''}`}
                   />
                   <span>{tech.name}</span>
-                </motion.span>
+                </span>
               ))}
             </div>
           </motion.div>

@@ -1,14 +1,26 @@
-
-
-import { useCallback } from "react"
+import { useCallback, useState, useEffect } from "react"
 import Particles from "react-particles"
 import type { Engine } from "tsparticles-engine"
 import { loadSlim } from "tsparticles-slim"
 
 export default function ParticlesBackground() {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return window.innerWidth < 768;
+  });
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine)
   }, [])
+
+  if (isMobile) return null;
 
   return (
     <Particles
@@ -25,7 +37,7 @@ export default function ParticlesBackground() {
             value: "transparent",
           },
         },
-        fpsLimit: 60,
+        fpsLimit: 30,
         interactivity: {
           events: {
             onClick: {
@@ -70,7 +82,7 @@ export default function ParticlesBackground() {
               enable: true,
               area: 1200,
             },
-            value: 40,
+            value: 25,
           },
           opacity: {
             value: 0.3,
@@ -87,4 +99,3 @@ export default function ParticlesBackground() {
     />
   )
 }
-
