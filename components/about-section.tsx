@@ -6,7 +6,7 @@ export function AboutSection() {
       <PromptLine command="cat about.md" />
       
       <div className="bg-[#1b1714] border border-[#2c2620] rounded p-4 space-y-3 text-sm text-[#e9e4d8] leading-relaxed">
-        <p>
+        <p className="text-justify">
           Hi! I&apos;m a Software Engineer who is actively contributing
           to the <span className="text-[#ffb648]">CNCF ecosystem and Observability</span>,
           specifically <span className="text-[#ffb648]">OpenTelemetry</span>,

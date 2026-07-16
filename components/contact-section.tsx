@@ -20,7 +20,7 @@ export function ContactSection() {
               href={contact.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#ffb648] hover:brightness-110 hover:shadow-[0_0_8px_rgba(255,182,72,0.3)] transition-all cursor-pointer rounded px-1"
+              className="text-[#ffb648] hover:brightness-110 hover:shadow-[0_0_8px_rgba(255,182,72,0.3)] transition-all cursor-pointer rounded px-1 break-all"
             >
               {contact.value}
             </a>

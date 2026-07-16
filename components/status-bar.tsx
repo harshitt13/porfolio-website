@@ -24,7 +24,7 @@ export function StatusBar() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-[#1b1714] to-[#141210] border-t border-[#2c2620] flex items-center justify-between px-6 text-xs text-[#6b6560]"
+      className="fixed bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-[#1b1714] to-[#141210] border-t border-[#2c2620] flex items-center justify-between px-4 sm:px-6 text-xs text-[#6b6560]"
       role="status"
       aria-label="Portfolio status bar"
     >
@@ -33,7 +33,7 @@ export function StatusBar() {
         <span>STATUS: available</span>
       </div>
 
-      <div className="hidden sm:flex items-center gap-4">
+      <div className="flex items-center gap-4">
         <div>
           <span className="text-[#948c7e]">SESSION:</span> {elapsed}
         </div>

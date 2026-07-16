@@ -57,10 +57,10 @@ export function ContributionsSection() {
                 href={pr.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex gap-2 pl-4 text-[#e9e4d8] whitespace-nowrap hover:text-[#ffb648] transition-colors group"
+                className="flex gap-2 pl-4 text-[#e9e4d8] hover:text-[#ffb648] transition-colors group"
               >
                 <span className="text-[#948c7e] flex-shrink-0 group-hover:text-[#948c7e]">#{pr.perms}</span>
-                <span className="flex-shrink-0">{pr.title}</span>
+                <span className="text-justify">{pr.title}</span>
               </a>
             ))}
           </div>

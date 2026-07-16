@@ -70,7 +70,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Description */}
-              <div className="text-[#e9e4d8] leading-relaxed mb-2">
+              <div className="text-[#e9e4d8] leading-relaxed mb-2 text-justify">
                 <span className="text-[#6b6560]">{'>'} </span>
                 {project.description}
               </div>

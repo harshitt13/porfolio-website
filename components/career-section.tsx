@@ -64,7 +64,7 @@ export function CareerSection() {
                   </div>
 
                   {/* Conventional commit message */}
-                  <div className="text-[#e9e4d8] leading-relaxed mb-2">
+                  <div className="text-[#e9e4d8] leading-relaxed mb-2 text-justify">
                     <span className="text-[#6b6560]">{'>'} </span>
                     <span className="text-[#948c7e]">{commit.scope}</span>
                     <span className="text-[#6b6560]">: </span>

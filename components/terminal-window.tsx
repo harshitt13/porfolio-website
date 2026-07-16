@@ -98,7 +98,7 @@ export function TerminalWindow({ children }: { children: React.ReactNode }) {
 
           {/* Content */}
           {!isMinimized && (
-            <div className={`bg-[#141210] px-6 py-6 space-y-6 ${isFullscreen ? 'overflow-y-auto flex-1' : ''}`}>
+            <div className={`bg-[#141210] px-4 sm:px-6 py-4 sm:py-6 space-y-6 ${isFullscreen ? 'overflow-y-auto flex-1' : ''}`}>
               {children}
             </div>
           )}
