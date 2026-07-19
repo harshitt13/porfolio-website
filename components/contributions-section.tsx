@@ -47,10 +47,7 @@ export function ContributionsSection() {
       <div className="bg-[#1b1714] border border-[#2c2620] rounded p-4 space-y-4 text-xs overflow-x-auto">
         {contributions.map((group) => (
           <div key={group.org} className="space-y-1">
-            {/* Org / repo header */}
             <div className="text-[#ffb648]">/{group.org}</div>
-
-            {/* PR entries */}
             {group.prs.map((pr) => (
               <a
                 key={pr.title}

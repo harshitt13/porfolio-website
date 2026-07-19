@@ -31,7 +31,6 @@ export function BootSequence() {
   const [visitorIp, setVisitorIp] = useState<string>('resolving...')
 
   useEffect(() => {
-    // --- Last login via cookie ---
     const previousVisit = getCookie('last_visit')
     if (previousVisit) {
       const date = new Date(previousVisit)
@@ -51,16 +50,13 @@ export function BootSequence() {
     } else {
       setLastLogin('just now')
     }
-    // Store the current visit timestamp (kept for 365 days)
     setCookie('last_visit', new Date().toISOString(), 365)
 
-    // --- Visitor IP ---
-    fetch('https://api.ipify.org?format=json')
+    fetch('/api/ip')
       .then((res) => res.json())
       .then((data) => setVisitorIp(data.ip))
       .catch(() => setVisitorIp('127.0.0.1'))
 
-    // --- Uptime ticker (50ms for smooth decimals without burning battery) ---
     const interval = setInterval(() => {
       const years = (Date.now() - BIRTH_DATE) / MS_PER_YEAR
       setUptime(`${years.toFixed(12)} years`)

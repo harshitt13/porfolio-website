@@ -44,7 +44,6 @@ export function ProjectsSection() {
         <div className="space-y-3">
           {projects.map((project) => (
             <div key={project.name} className="border border-[#2c2620] rounded px-3 py-2.5 hover:border-[#6b6560] transition-colors bg-[#141210]/50 group">
-              {/* Top row: name + status button */}
               <div className="flex items-center justify-between mb-1.5 flex-wrap gap-1">
                 <a
                   href={project.repoLink}
@@ -69,13 +68,11 @@ export function ProjectsSection() {
                 </a>
               </div>
 
-              {/* Description */}
               <div className="text-[#e9e4d8] leading-relaxed mb-2 text-justify">
                 <span className="text-[#6b6560]">{'>'} </span>
                 {project.description}
               </div>
 
-              {/* Tech stack */}
               <div className="flex flex-wrap gap-1.5">
                 {project.tech.map((t) => (
                   <span

@@ -16,8 +16,6 @@ export function HeroSection() {
     <section id="whoami" className="space-y-4">
       <BootSequence />
       <PromptLine command="whoami" />
-      
-      {/* Name with blinking cursor */}
       <div className="space-y-3">
         <h1 className="text-4xl sm:text-5xl font-bold text-[#e9e4d8] flex items-baseline gap-2" style={{ fontFamily: 'var(--font-mono-heading)' }}>
           Harshit
