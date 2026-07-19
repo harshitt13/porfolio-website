@@ -15,14 +15,15 @@ const MS_PER_YEAR = 365.2425 * 24 * 60 * 60 * 1000
 
 function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-  return match ? decodeURIComponent(match[2]) : null
+  const cookies = document.cookie.split('; ')
+  const cookie = cookies.find(c => c.startsWith(`${name}=`))
+  return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : null
 }
 
 function setCookie(name: string, value: string, days: number) {
   if (typeof document === 'undefined') return
   const expires = new Date(Date.now() + days * 864e5).toUTCString()
-  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax; Secure`
 }
 
 export function BootSequence() {
@@ -53,8 +54,11 @@ export function BootSequence() {
     setCookie('last_visit', new Date().toISOString(), 365)
 
     fetch('/api/ip')
-      .then((res) => res.json())
-      .then((data) => setVisitorIp(data.ip))
+      .then((res) => {
+        if (!res.ok) throw new Error('IP fetch failed')
+        return res.json()
+      })
+      .then((data) => setVisitorIp(data.ip ?? '127.0.0.1'))
       .catch(() => setVisitorIp('127.0.0.1'))
 
     const interval = setInterval(() => {

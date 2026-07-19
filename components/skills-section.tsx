@@ -8,7 +8,7 @@ const skillsData: Record<string, string[]> = {
   "Databases": ["postgresql", "mysql", "sqlite", "sqlserver", "neo4j", "mongodb", "prisma", "supabase"],
   "DevOps & Environments": ["git", "github", "github-actions", "docker", "wsl"],
   "Cloud & Hosting Platforms": ["aws", "gcp", "firebase", "vercel", "netlify", "render", "hostinger", "wordpress", "google-search-console"],
-  "Testing & APIs": ["postman", "fastapi", "axe-devtools"],
+  "Testing & APIs": ["postman", "axe-devtools"],
   "Design & Creativity": ["figma", "affinity", "photoshop", "canva", "clipchamp", "obs"],
   "AI & LLMs": ["copilot", "anthropic", "langchain", "huggingface", "google-ai", "google-antigravity", "code-rabbit", "codex", "ollama", "cursor"],
   "Configuration & Data Formats": ["yaml", "json", "xml"]
