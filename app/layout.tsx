@@ -63,6 +63,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexMono.variable} ${jetBrainsMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebPage',
+              name: 'Harshit Kushwaha | Software Engineer & OSS Contributor',
+              url: siteUrl,
+              author: {
+                '@type': 'Person',
+                name: 'Harshit Kushwaha',
+                url: siteUrl,
+                sameAs: [
+                  'https://github.com/harshitt13',
+                  'https://linkedin.com/in/harshitt13',
+                ],
+              },
+              mainEntity: {
+                '@type': 'Quotation',
+                text: 'Hope prolongs suffering.',
+                creator: {
+                  '@type': 'Person',
+                  name: 'Harshit Kushwaha',
+                  url: siteUrl,
+                },
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="antialiased bg-[#0c0a08] text-[#e9e4d8] font-mono pb-12">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
