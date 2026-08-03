@@ -17,7 +17,7 @@ const navItems: NavItem[] = [
   { id: 'skills', label: './skills' },
   { id: 'contact', label: './contact' },
   { id: 'links', label: './links', href: 'https://linktr.ee/harshitt13' },
-  { id: 'resume', label: './resume', href: 'https://github.com/harshitt13/resume/blob/main/Harshit_Kushwaha_Resume.pdf' },
+  { id: 'resume', label: './resume', href: 'https://github.com/harshitt13/resume/blob/main/Harshit%20Kushwaha%20Resume.pdf' },
 ]
 
 export function NavPills() {

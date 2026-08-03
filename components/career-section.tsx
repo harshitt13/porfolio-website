@@ -2,7 +2,7 @@ import { PromptLine } from './prompt-line'
 
 const commits = [
   {
-    role: 'Member',
+    role: 'Triager',
     org: 'OpenTelemetry — CNCF',
     scope: 'OSS Contributor',
     message: 'Collaborate with project maintainers to steer the development of critical observability components, ensuring stability and performance at scale',
