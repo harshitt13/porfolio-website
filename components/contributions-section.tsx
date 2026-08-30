@@ -29,6 +29,7 @@ const contributions = [
     org: 'meshery-extensions/kanvas-site',
     prs: [
       { perms: '136', title: 'fix: resolve semantic HTML and accessibility warnings on landing page', link: 'https://github.com/meshery-extensions/kanvas-site/pull/136' },
+      { perms: '135', title: 'SEO & Accessibility: Semantic HTML Body Audit for Landing Page', link: 'https://github.com/meshery-extensions/kanvas-site/issues/135' },
     ],
   },
   {

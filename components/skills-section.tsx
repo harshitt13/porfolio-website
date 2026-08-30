@@ -1,7 +1,7 @@
 import { PromptLine } from './prompt-line'
 
 const skillsData: Record<string, string[]> = {
-  "Programming Languages": ["python", "javascript", "typescript", "c", "c++", "go", "java", "html", "css"],
+  "Programming Languages": ["python", "javascript", "typescript", "c", "c++", "go", "java", "dart", "flutter", "html", "css"],
   "Hardware & Prototyping": ["arduino", "fritzing", "kicad", "easyeda", "ultimaker-cura"],
   "Machine Learning & Data Science": ["tensorflow", "keras", "pytorch", "scikit_learn", "numpy", "pandas", "matplotlib", "plotly", "opencv", "seaborn"],
   "Web Development Frameworks": ["react", "nextjs", "flask", "fastapi"],
