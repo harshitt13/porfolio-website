@@ -1,97 +1,83 @@
 import { PromptLine } from './prompt-line'
+import { PROJECTS, SOCIAL_LINKS } from '@/lib/config'
+import type { Project } from '@/lib/types'
 
-const projects = [
-  {
-    name: 'NyxChat',
-    description: 'P2P decentralized serverless encrypted messaging application',
-    tech: ['Dart', 'Serverless', 'Decentralized', 'Encrypted'],
-    repoLink: 'https://github.com/harshitt13/NyxChat',
-    statusLabel: 'Active',
-    statusLink: 'https://github.com/harshitt13/NyxChat/releases',
-  },
-  {
-    name: 'Krtrimahastah',
-    description: 'Open-Source, affordable and intelligent prosthetic hand for amputees',
-    tech: ['ESP32', 'SinricPro', 'Multimodal', 'Robotics', 'IoT'],
-    repoLink: 'https://github.com/harshitt13/Krtrimahastah',
-    statusLabel: 'Demonstration',
-    statusLink: 'https://youtu.be/BNZyQIecj14',
-  },
-  {
-    name: 'Meowscript',
-    description: 'Cat theme based purrest programming language',
-    tech: ['React', 'JavaScript', 'Node.js'],
-    repoLink: 'https://github.com/harshitt13/meowscripts',
-    statusLabel: 'Live',
-    statusLink: 'https://meowscript.harshitt13.in/',
-  },
-  {
-    name: 'Stock-Market-Prediction-Model',
-    description: 'Quantitative forecasting engine. Features a PyTorch Time-Series Transformer, Bayesian architecture optimization, and dynamic Volatility-Aware (VIX) Meta-Learning',
-    tech: ['Python', 'XGBoost', 'Random Forest', 'LSTM (PyTorch)', 'Time-Series Transformer'],
-    repoLink: 'https://github.com/harshitt13/Stock-Market-Prediction-Model',
-    statusLabel: 'Github',
-    statusLink: 'https://github.com/harshitt13/Stock-Market-Prediction-Model',
-  },
-]
+const STATUS_STYLES: Record<Project['statusLabel'], string> = {
+  Active: 'bg-green-900/30 text-green-400 border-green-800/40 hover:bg-green-900/50',
+  Github: 'bg-purple-900/30 text-purple-400 border-purple-800/40 hover:bg-purple-900/50',
+  Live: 'bg-yellow-900/30 text-term-accent border-yellow-800/40 hover:bg-yellow-900/50',
+  Demonstration: 'bg-yellow-900/30 text-term-accent border-yellow-800/40 hover:bg-yellow-900/50',
+}
+
+function StatusBadge({ project }: { project: Project }) {
+  return (
+    <a
+      href={project.statusLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`text-xs px-2.5 py-1 rounded border transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-term-accent ${STATUS_STYLES[project.statusLabel]}`}
+      aria-label={`${project.name} — ${project.statusLabel} (opens in a new tab)`}
+    >
+      {project.statusLabel} <span aria-hidden="true">↗</span>
+    </a>
+  )
+}
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="space-y-3">
+    <section id="projects" className="space-y-3" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" className="sr-only">
+        Projects
+      </h2>
       <PromptLine command="ls ./projects" />
 
-      <div className="bg-[#1b1714] border border-[#2c2620] rounded p-4 text-sm">
-        <div className="space-y-3">
-          {projects.map((project) => (
-            <div key={project.name} className="border border-[#2c2620] rounded px-3 py-2.5 hover:border-[#6b6560] transition-colors bg-[#141210]/50 group">
+      <div className="bg-term-panel border border-term-edge rounded p-4 text-sm">
+        <ul className="space-y-3 list-none">
+          {PROJECTS.map(project => (
+            <li
+              key={project.id}
+              className="border border-term-edge rounded px-3 py-2.5 hover:border-term-dim transition-colors bg-term-surface/50"
+            >
               <div className="flex items-center justify-between mb-1.5 flex-wrap gap-1">
                 <a
                   href={project.repoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#7fd8e8] font-medium hover:text-[#ffb648] transition-colors"
+                  className="text-term-cyan font-medium hover:text-term-accent transition-colors focus:outline-none focus:ring-2 focus:ring-term-accent rounded"
                 >
                   {project.name}
                 </a>
-                <a
-                  href={project.statusLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-xs px-2.5 py-1 rounded cursor-pointer transition-all hover:scale-105 ${project.statusLabel === 'Active'
-                      ? 'bg-green-900/30 text-green-400 border border-green-800/40 hover:bg-green-900/50'
-                      : project.statusLabel === 'Github'
-                        ? 'bg-purple-900/30 text-purple-400 border border-purple-800/40 hover:bg-purple-900/50'
-                        : 'bg-yellow-900/30 text-[#ffb648] border border-yellow-800/40 hover:bg-yellow-900/50'
-                    }`}
-                >
-                  {project.statusLabel} ↗
-                </a>
+                <StatusBadge project={project} />
               </div>
 
-              <div className="text-[#e9e4d8] leading-relaxed mb-2 text-justify">
-                <span className="text-[#6b6560]">{'>'} </span>
+              <p className="text-term-fg leading-relaxed mb-2 text-justify">
+                <span className="text-term-dim" aria-hidden="true">
+                  {'> '}
+                </span>
                 {project.description}
-              </div>
+              </p>
 
-              <div className="flex flex-wrap gap-1.5">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[10px] px-1.5 py-0.5 rounded bg-[#1b1714] border border-[#2c2620] text-[#948c7e]"
+              <ul className="flex flex-wrap gap-1.5 list-none">
+                {project.tech.map(tech => (
+                  <li
+                    key={tech}
+                    className="text-[10px] px-1.5 py-0.5 rounded bg-term-panel border border-term-edge text-term-muted"
                   >
-                    {t}
-                  </span>
+                    {tech}
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </li>
           ))}
-        </div>
+        </ul>
+
         <div className="mt-4 flex justify-end">
           <a
-            href="https://github.com/harshitt13?tab=repositories"
+            href={SOCIAL_LINKS.allRepositories}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b6560] hover:text-[#ffb648] transition-colors text-xs"
+            className="text-term-dim hover:text-term-accent transition-colors text-xs focus:outline-none focus:ring-2 focus:ring-term-accent rounded px-1"
+            aria-label="Browse all repositories on GitHub"
           >
             ...more
           </a>

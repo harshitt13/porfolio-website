@@ -1,10 +1,9 @@
-'use client'
-
-import { useCallback } from 'react'
+import { SOCIAL_LINKS } from '@/lib/config'
 
 interface NavItem {
   id: string
   label: string
+  /** External destination. Internal items scroll to their section anchor. */
   href?: string
 }
 
@@ -16,23 +15,21 @@ const navItems: NavItem[] = [
   { id: 'career', label: './career' },
   { id: 'skills', label: './skills' },
   { id: 'contact', label: './contact' },
-  { id: 'links', label: './links', href: 'https://linktr.ee/harshitt13' },
-  { id: 'resume', label: './resume', href: 'https://github.com/harshitt13/resume/blob/main/Harshit%20Kushwaha%20Resume.pdf' },
+  { id: 'links', label: './links', href: SOCIAL_LINKS.linktree },
+  { id: 'resume', label: './resume', href: SOCIAL_LINKS.resume },
 ]
 
+const pillClass =
+  'px-3 py-1.5 border border-term-edge-strong text-term-muted text-sm rounded transition-all duration-200 hover:border-term-accent hover:text-term-accent hover:glow-accent focus:outline-none focus:ring-2 focus:ring-term-accent'
+
+// Plain anchors rather than scroll handlers: they update the URL (so /#projects
+// is shareable), work with the back button, move keyboard focus into the target
+// section, and are crawlable as internal links. Smooth scrolling comes from
+// scroll-behavior in globals.css, which the reduced-motion block overrides.
 export function NavPills() {
-  const handleClick = useCallback((id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }, [])
-
-  const pillClass = "px-3 py-1.5 border border-[#5a5449] text-[#948c7e] text-sm rounded transition-all duration-200 hover:border-[#ffb648] hover:text-[#ffb648] hover:shadow-[0_0_8px_rgba(255,182,72,0.2)]"
-
   return (
-    <div className="flex flex-wrap gap-2 mb-8 pb-6 border-b border-[#2c2620]">
-      {navItems.map((item) =>
+    <nav className="flex flex-wrap gap-2 mb-8 pb-6 border-b border-term-edge" aria-label="Sections">
+      {navItems.map(item =>
         item.href ? (
           <a
             key={item.id}
@@ -44,15 +41,11 @@ export function NavPills() {
             {item.label}
           </a>
         ) : (
-          <button
-            key={item.id}
-            onClick={() => handleClick(item.id)}
-            className={pillClass}
-          >
+          <a key={item.id} href={`#${item.id}`} className={pillClass}>
             {item.label}
-          </button>
+          </a>
         )
       )}
-    </div>
+    </nav>
   )
 }

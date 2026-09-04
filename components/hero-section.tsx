@@ -1,36 +1,29 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import { BootSequence } from './boot-sequence'
 import { PromptLine } from './prompt-line'
+import { SITE_CONFIG } from '@/lib/config'
 
+// Server component: the blink is suppressed purely in CSS via
+// prefers-reduced-motion, so no client JS or hydration pass is needed.
 export function HeroSection() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setPrefersReducedMotion(mediaQuery.matches)
-  }, [])
-
   return (
-    <section id="whoami" className="space-y-4">
+    <section id="whoami" className="space-y-4" aria-labelledby="whoami-heading">
       <BootSequence />
       <PromptLine command="whoami" />
+
       <div className="space-y-3">
-        <h1 className="text-4xl sm:text-5xl font-bold text-[#e9e4d8] flex items-baseline gap-2" style={{ fontFamily: 'var(--font-mono-heading)' }}>
-          Harshit
-          <span
-            className={`w-2 h-10 sm:h-12 bg-[#ffb648] ${!prefersReducedMotion ? 'cursor-blink' : ''}`}
-          ></span>
+        <h1
+          id="whoami-heading"
+          className="font-mono-heading text-4xl sm:text-5xl font-bold text-term-fg flex flex-wrap items-baseline gap-x-3 gap-y-1"
+        >
+          {SITE_CONFIG.name}
+          <span className="w-2 h-10 sm:h-12 bg-term-accent cursor-blink" aria-hidden="true" />
         </h1>
 
-        <div className="text-lg sm:text-xl font-medium text-[#ffb648]" style={{ fontFamily: 'var(--font-mono-heading)', textShadow: '0 0 8px rgba(255, 182, 72, 0.3)' }}>
-          Software Engineer | OSS Contributor
-        </div>
-
-        <p className="text-sm text-[#948c7e] max-w-2xl leading-relaxed">
-          My favorite framework is understanding how things work.
+        <p className="font-mono-heading glow-text text-lg sm:text-xl font-medium text-term-accent">
+          {SITE_CONFIG.title.replace(' & ', ' | ')}
         </p>
+
+        <p className="text-sm text-term-muted max-w-2xl leading-relaxed">{SITE_CONFIG.tagline}</p>
       </div>
     </section>
   )

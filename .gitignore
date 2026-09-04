@@ -13,3 +13,12 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
+# Build/tooling artifacts
+.dist/
+*.tsbuildinfo
+.eslintcache
+
+# Standardized on npm; other package-manager lockfiles are not used here.
+pnpm-lock.yaml
+yarn.lock
+bun.lockb

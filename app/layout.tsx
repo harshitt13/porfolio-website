@@ -3,58 +3,79 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { IBM_Plex_Mono, JetBrains_Mono } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { SITE_CONFIG, HOME_SEO, THEME } from '@/lib/config'
+import { SITE_GRAPH } from '@/lib/schema'
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-mono',
+  display: 'swap',
 })
 
 const jetBrainsMono = JetBrains_Mono({
   weight: ['400', '500', '600', '700', '800'],
   subsets: ['latin'],
   variable: '--font-mono-heading',
+  display: 'swap',
 })
 
-const siteUrl = 'https://harshitt13.in'
+const { siteUrl, name, description } = SITE_CONFIG
 
 export const metadata: Metadata = {
-  title: 'Harshit Kushwaha | Software Engineer & OSS Contributor',
-  description: 'Software Engineer contributing to CNCF, OpenTelemetry, and open-source observability. Building cloud-native tools, AI/ML systems, and full-stack applications.',
+  title: {
+    default: HOME_SEO.title,
+    template: `%s | ${name}`,
+  },
+  description,
+  keywords: HOME_SEO.keywords,
+  applicationName: name,
+  authors: [{ name, url: siteUrl }],
+  creator: name,
+  publisher: name,
   metadataBase: new URL(siteUrl),
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Harshit Kushwaha | Software Engineer & OSS Contributor',
-    description: 'Software Engineer contributing to CNCF, OpenTelemetry, and open-source observability.',
+    title: HOME_SEO.title,
+    description,
     url: siteUrl,
-    siteName: 'Harshit Kushwaha',
+    siteName: name,
     locale: 'en_IN',
-    type: 'website',
+    type: 'profile',
+    firstName: 'Harshit',
+    lastName: 'Kushwaha',
+    username: 'harshitt13',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Harshit Kushwaha | Software Engineer & OSS Contributor',
-    description: 'Software Engineer contributing to CNCF, OpenTelemetry, and open-source observability.',
+    title: HOME_SEO.title,
+    description,
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
   },
   icons: {
-    icon: [
-      {
-        url: '/favicon.png',
-        type: 'image/png',
-      },
-    ],
+    icon: [{ url: '/favicon.png', type: 'image/png', sizes: '500x500' }],
+    apple: [{ url: '/favicon.png', sizes: '500x500' }],
   },
+  // Paste the token from Search Console > Settings > Ownership verification
+  // if you ever need the HTML-tag method instead of the DNS record.
+  // verification: { google: '...' },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#0c0a08',
+  themeColor: THEME.base,
   userScalable: true,
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({
@@ -64,39 +85,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexMono.variable} ${jetBrainsMono.variable}`}>
-      <head>
+      <body className="antialiased bg-term-base text-term-fg font-mono pb-12">
+        {children}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebPage',
-              name: 'Harshit Kushwaha | Software Engineer & OSS Contributor',
-              url: siteUrl,
-              author: {
-                '@type': 'Person',
-                name: 'Harshit Kushwaha',
-                url: siteUrl,
-                sameAs: [
-                  'https://github.com/harshitt13',
-                  'https://linkedin.com/in/harshitt13',
-                ],
-              },
-              mainEntity: {
-                '@type': 'Quotation',
-                text: 'Hope prolongs suffering.',
-                creator: {
-                  '@type': 'Person',
-                  name: 'Harshit Kushwaha',
-                  url: siteUrl,
-                },
-              },
-            }),
-          }}
+          // Serialized from a literal defined above, so there is no untrusted input here.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_GRAPH) }}
         />
-      </head>
-      <body className="antialiased bg-[#0c0a08] text-[#e9e4d8] font-mono pb-12">
-        {children}
         {process.env.NODE_ENV === 'production' && (
           <>
             <Analytics />

@@ -1,30 +1,43 @@
 import { PromptLine } from './prompt-line'
-
-const contacts = [
-  { label: 'email', value: 'find.harshitt13@gmail.com', href: 'mailto:find.harshitt13@gmail.com' },
-  { label: 'github', value: 'github.com/harshitt13', href: 'https://github.com/harshitt13' },
-  { label: 'linkedin', value: 'linkedin.com/in/harshitt13', href: 'https://linkedin.com/in/harshitt13' },
-]
+import { CONTACTS } from '@/lib/config'
 
 export function ContactSection() {
   return (
-    <section id="contact" className="space-y-3">
+    <section id="contact" className="space-y-3" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" className="sr-only">
+        Contact
+      </h2>
       <PromptLine command="cat contact.txt" />
-      <div className="bg-[#1b1714] border border-[#2c2620] rounded p-4 space-y-3 text-sm">
-        {contacts.map((contact) => (
-          <div key={contact.label} className="flex items-center gap-3">
-            <span className="text-[#6b6560] w-20 flex-shrink-0">{contact.label}</span>
-            <span className="text-[#6b6560]">=</span>
-            <a
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#ffb648] hover:brightness-110 hover:shadow-[0_0_8px_rgba(255,182,72,0.3)] transition-all cursor-pointer rounded px-1 break-all"
-            >
-              {contact.value}
-            </a>
-          </div>
-        ))}
+
+      <div className="bg-term-panel border border-term-edge rounded p-4 text-sm">
+        <dl className="space-y-3">
+          {CONTACTS.map(contact => {
+            const isExternal = !contact.href.startsWith('mailto:')
+            // rel="me" marks these as the same person's profiles, which is how
+            // identity consolidation (IndieAuth, and search entity graphs) works.
+            const rel = [isExternal && 'noopener noreferrer', contact.isIdentity && 'me']
+              .filter(Boolean)
+              .join(' ')
+            return (
+              <div key={contact.label} className="flex items-center gap-3">
+                <dt className="text-term-dim w-20 flex-shrink-0">{contact.label}</dt>
+                <span className="text-term-dim" aria-hidden="true">
+                  =
+                </span>
+                <dd className="min-w-0">
+                  <a
+                    href={contact.href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={rel || undefined}
+                    className="text-term-accent hover:brightness-110 hover:glow-accent-md transition-all rounded px-1 break-all focus:outline-none focus:ring-2 focus:ring-term-accent"
+                  >
+                    {contact.value}
+                  </a>
+                </dd>
+              </div>
+            )
+          })}
+        </dl>
       </div>
     </section>
   )

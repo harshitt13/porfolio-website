@@ -2,24 +2,27 @@ import { PromptLine } from './prompt-line'
 
 export function AboutSection() {
   return (
-    <section id="about" className="space-y-3">
+    <section id="about" className="space-y-3" aria-labelledby="about-heading">
+      <h2 id="about-heading" className="sr-only">
+        About
+      </h2>
       <PromptLine command="cat about.md" />
-      
-      <div className="bg-[#1b1714] border border-[#2c2620] rounded p-4 space-y-3 text-sm text-[#e9e4d8] leading-relaxed">
+
+      <div className="bg-term-panel border border-term-edge rounded p-4 space-y-3 text-sm text-term-fg leading-relaxed">
         <p className="text-justify">
-          Hi! I&apos;m a Software Engineer who is actively contributing
-          to the <span className="text-[#ffb648]">CNCF ecosystem and Observability</span>,
-          specifically <span className="text-[#ffb648]">OpenTelemetry</span>,
-          along with <span className="text-[#ffb648]">Meshery</span>,
-          <span className="text-[#ffb648]"> Kestra</span>,
-          and <span className="text-[#ffb648]">Jaeger</span>.
-          My interests also include <span className="text-[#ffb648]">AIML</span>,
-          <span className="text-[#ffb648]"> IOT</span>,
-          <span className="text-[#ffb648]"> Full-Stack Development</span>,
-          and <span className="text-[#ffb648]">Robotics</span>.
-          Other than that I enjoy <span className="text-[#ffb648]">gaming</span>,
-          <span className="text-[#ffb648]"> learning new technologies</span>,
-          and <span className="text-[#ffb648]">stuff</span>.
+          Hi! I&apos;m a Software Engineer who is actively contributing to the{' '}
+          <span className="text-term-accent">CNCF ecosystem and Observability</span>, specifically{' '}
+          <span className="text-term-accent">OpenTelemetry</span>, along with{' '}
+          <span className="text-term-accent">Meshery</span>,{' '}
+          <span className="text-term-accent">Kestra</span>, and{' '}
+          <span className="text-term-accent">Jaeger</span>. My interests also include{' '}
+          <span className="text-term-accent">AIML</span>,{' '}
+          <span className="text-term-accent">IOT</span>,{' '}
+          <span className="text-term-accent">Full-Stack Development</span>, and{' '}
+          <span className="text-term-accent">Robotics</span>. Other than that I enjoy{' '}
+          <span className="text-term-accent">gaming</span>,{' '}
+          <span className="text-term-accent">learning new technologies</span>, and{' '}
+          <span className="text-term-accent">stuff</span>.
         </p>
       </div>
     </section>

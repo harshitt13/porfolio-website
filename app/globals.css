@@ -1,25 +1,77 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
 
+/*
+ * Canonical palette. Tailwind v4 turns every --color-* entry here into
+ * bg-/text-/border-/ring-/etc. utilities, so these tokens are the single
+ * source of truth for anything rendered in the browser.
+ *
+ * lib/config.ts mirrors these values for the OG image only — Satori renders
+ * outside the browser and cannot resolve CSS variables. Keep the two in sync.
+ */
 @theme {
   --font-mono: 'IBM Plex Mono', monospace;
   --font-mono-heading: 'JetBrains Mono', monospace;
+
+  --color-term-base: #0c0a08;
+  --color-term-surface: #141210;
+  --color-term-panel: #1b1714;
+  --color-term-edge: #2c2620;
+  --color-term-edge-strong: #5a5449;
+  --color-term-dim: #6b6560;
+  --color-term-muted: #948c7e;
+  --color-term-fg: #e9e4d8;
+  --color-term-accent: #ffb648;
+  --color-term-accent-dim: #c98f38;
+  --color-term-cyan: #7fd8e8;
+}
+
+/* Amber bloom, derived from the accent token rather than a repeated rgba(). */
+@utility glow-accent-sm {
+  box-shadow: 0 0 6px color-mix(in srgb, var(--color-term-accent) 30%, transparent);
+}
+
+@utility glow-accent {
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-term-accent) 20%, transparent);
+}
+
+@utility glow-accent-md {
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-term-accent) 30%, transparent);
+}
+
+@utility glow-text {
+  text-shadow: 0 0 8px color-mix(in srgb, var(--color-term-accent) 30%, transparent);
+}
+
+@utility glow-text-lg {
+  text-shadow: 0 0 20px color-mix(in srgb, var(--color-term-accent) 15%, transparent);
 }
 
 :root {
   color-scheme: dark;
+  /* Anchor navigation from the nav pills; the reduced-motion block below
+     resets this to auto. */
+  scroll-behavior: smooth;
   scroll-padding-bottom: 2.5rem;
 }
 
 @keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes scan-lines {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 4px; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 4px;
+  }
 }
 
 .cursor-blink {
@@ -27,11 +79,7 @@
 }
 
 .terminal-window {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
   position: relative;
 }
 
@@ -42,14 +90,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px,
-      transparent 2px
-    );
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  );
   pointer-events: none;
   z-index: 1;
   animation: scan-lines 8s linear infinite;
@@ -59,11 +106,7 @@
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -71,4 +114,18 @@
 .content-wrapper {
   position: relative;
   z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink,
+  .terminal-window::before {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

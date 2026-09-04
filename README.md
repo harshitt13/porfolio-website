@@ -1,0 +1,88 @@
+# harshitt13.in
+
+Personal portfolio for **Harshit Kushwaha** — Software Engineer and open-source
+contributor (CNCF / OpenTelemetry). A single-page terminal emulator: boot
+sequence, shell prompts, and a live session clock.
+
+**Live:** <https://harshitt13.in>
+
+## Stack
+
+|           |                                                               |
+| --------- | ------------------------------------------------------------- |
+| Framework | Next.js 16 (App Router, Turbopack)                            |
+| Language  | TypeScript 5.7 (strict)                                       |
+| Styling   | Tailwind CSS v4 — palette defined in `@theme`, no config file |
+| Analytics | Vercel Analytics + Speed Insights (production only)           |
+| Hosting   | Vercel                                                        |
+
+Runtime dependencies are deliberately minimal: React, Next, and the two Vercel
+analytics packages. No UI kit, no CSS-in-JS, no icon library.
+
+## Getting started
+
+```bash
+npm install
+npm run dev          # http://localhost:3000
+```
+
+## Scripts
+
+| Script                            | What it does                                          |
+| --------------------------------- | ----------------------------------------------------- |
+| `npm run dev`                     | Dev server                                            |
+| `npm run build`                   | Production build                                      |
+| `npm run start`                   | Serve the production build                            |
+| `npm run qa`                      | `format:check` + `type-check` + `lint` — what CI runs |
+| `npm run lint` / `lint:fix`       | ESLint 9 (flat config)                                |
+| `npm run format` / `format:check` | Prettier                                              |
+| `npm run type-check`              | `tsc --noEmit`                                        |
+
+CI runs `qa` and `build` on every push and pull request.
+
+## Layout
+
+```
+app/
+  layout.tsx            Root layout, metadata, schema.org @graph
+  page.tsx              The single page — composes the sections
+  globals.css           @theme palette + terminal effects
+  opengraph-image.tsx   Generated 1200x630 social card
+  manifest.ts           Web app manifest
+  robots.ts             robots.txt
+  sitemap.ts            sitemap.xml
+  error.tsx             Route error boundary
+  global-error.tsx      Root error boundary
+  not-found.tsx         404
+  api/ip/route.ts       Echoes the visitor IP for the boot sequence
+  quotes/               Standalone quote page (not linked from the portfolio)
+components/             One component per section, plus the terminal chrome
+lib/
+  config.ts             All content — projects, contributions, career, skills
+  types.ts              Shared interfaces
+  utils.ts              Date/time formatting, reduced-motion check
+  use-interval-value.ts useSyncExternalStore hook backing the clocks
+```
+
+### Editing content
+
+Everything shown on the page lives in `lib/config.ts`. Adding a project or a
+pull request means adding an object there — no component changes.
+
+### Colors
+
+`app/globals.css` owns the palette in its `@theme` block, which Tailwind turns
+into `bg-term-panel`, `text-term-accent`, and so on. `THEME` in `lib/config.ts`
+mirrors those values for the OG images only, because Satori renders outside a
+browser and cannot resolve CSS variables. Change one, change the other.
+
+## Accessibility
+
+Every section has a heading and a matching `aria-labelledby`. Decorative shell
+prompts are `aria-hidden`. Interactive targets meet WCAG 2.2 minimum sizes, and
+animations are disabled under `prefers-reduced-motion`.
+
+## License
+
+[MIT](LICENSE) for the code. The written content, résumé, and personal
+likeness are not covered.

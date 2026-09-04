@@ -1,79 +1,96 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
+import { useIntervalValue } from '@/lib/use-interval-value'
 
-const BIRTH_DATE = new Date(
-  2005, // Year
-  0,    // Month (0 = January)
-  15,   // Day
-  14,   // Hour (24-hour)
-  30,   // Minute
-  0      // Second
-).getTime()
-
+// Fixed to UTC so the uptime counter reads identically for every visitor
+// instead of drifting with the browser's local time zone.
+const BIRTH_DATE = Date.UTC(2005, 0, 15, 14, 30, 0)
 const MS_PER_YEAR = 365.2425 * 24 * 60 * 60 * 1000
+const UPTIME_TICK_MS = 50
+const COOKIE_NAME = 'last_visit'
+const INITIAL_UPTIME = '0.000000000000 years'
 
 function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null
-  const cookies = document.cookie.split('; ')
-  const cookie = cookies.find(c => c.startsWith(`${name}=`))
+  const cookie = document.cookie.split('; ').find(c => c.startsWith(`${name}=`))
   return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : null
 }
 
 function setCookie(name: string, value: string, days: number) {
   if (typeof document === 'undefined') return
   const expires = new Date(Date.now() + days * 864e5).toUTCString()
-  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax; Secure`
+  // `Secure` is dropped over http so the cookie still works on localhost.
+  const secure = window.location.protocol === 'https:' ? '; Secure' : ''
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax${secure}`
 }
 
-export function BootSequence() {
-  const [uptime, setUptime] = useState('0.000000000000 years')
-  const [lastLogin, setLastLogin] = useState<string>('just now')
-  const [visitorIp, setVisitorIp] = useState<string>('resolving...')
+const readUptime = () => `${((Date.now() - BIRTH_DATE) / MS_PER_YEAR).toFixed(12)} years`
 
-  useEffect(() => {
-    const previousVisit = getCookie('last_visit')
-    if (previousVisit) {
-      const date = new Date(previousVisit)
-      setLastLogin(
-        date.toLocaleDateString('en-US', {
+// Read once and memoised for the lifetime of the tab: the previous visit must
+// not change under the reader when the effect below writes the new cookie.
+let cachedLastLogin: string | undefined
+
+function readLastLogin(): string {
+  if (cachedLastLogin !== undefined) return cachedLastLogin
+
+  const previousVisit = getCookie(COOKIE_NAME)
+  const date = previousVisit ? new Date(previousVisit) : null
+
+  cachedLastLogin =
+    date && !Number.isNaN(date.getTime())
+      ? `${date.toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
-        }) +
-          ' ' +
-          date.toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false,
-          })
-      )
-    } else {
-      setLastLogin('just now')
-    }
-    setCookie('last_visit', new Date().toISOString(), 365)
+        })} ${date.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        })}`
+      : 'just now'
 
-    fetch('/api/ip')
-      .then((res) => {
-        if (!res.ok) throw new Error('IP fetch failed')
+  return cachedLastLogin
+}
+
+// A cookie has no change events, so there is nothing to subscribe to.
+const noopSubscribe = () => () => {}
+const serverLastLogin = () => 'just now'
+
+export function BootSequence() {
+  const lastLogin = useSyncExternalStore(noopSubscribe, readLastLogin, serverLastLogin)
+  const uptime = useIntervalValue(readUptime, UPTIME_TICK_MS, INITIAL_UPTIME, {
+    pauseWhenHidden: true,
+    respectReducedMotion: true,
+  })
+  const [visitorIp, setVisitorIp] = useState('resolving...')
+
+  // Stamp this visit only after the previous value has been read above.
+  useEffect(() => {
+    setCookie(COOKIE_NAME, new Date().toISOString(), 365)
+  }, [])
+
+  useEffect(() => {
+    const controller = new AbortController()
+
+    fetch('/api/ip', { signal: controller.signal })
+      .then(res => {
+        if (!res.ok) throw new Error('IP lookup failed')
         return res.json()
       })
-      .then((data) => setVisitorIp(data.ip ?? '127.0.0.1'))
-      .catch(() => setVisitorIp('127.0.0.1'))
+      .then(data => setVisitorIp(typeof data?.ip === 'string' ? data.ip : '127.0.0.1'))
+      .catch(error => {
+        if (error?.name !== 'AbortError') setVisitorIp('127.0.0.1')
+      })
 
-    const interval = setInterval(() => {
-      const years = (Date.now() - BIRTH_DATE) / MS_PER_YEAR
-      setUptime(`${years.toFixed(12)} years`)
-    }, 50)
-
-    return () => clearInterval(interval)
+    return () => controller.abort()
   }, [])
 
   return (
-    <div className="text-xs text-[#6b6560] mb-4 space-y-0.5 p-3 bg-[#1b1714] rounded border border-[#2c2620]">
+    <div className="text-xs text-term-dim mb-4 space-y-0.5 p-3 bg-term-panel rounded border border-term-edge">
       <div>$ ssh harshitt13@production</div>
       <div>{`Last login: ${lastLogin} from ${visitorIp}`}</div>
-      <div>{`Uptime: ${uptime}`}</div>
+      <div className="tabular-nums" aria-hidden="true">{`Uptime: ${uptime}`}</div>
       <div>
         Loading profile <span className="text-green-500">[OK]</span>
       </div>

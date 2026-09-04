@@ -1,74 +1,43 @@
 import { PromptLine } from './prompt-line'
-
-const contributions = [
-  {
-    org: 'open-telemetry/opentelemetry-java-contrib',
-    prs: [
-      { perms: '2887', title: 'fix(ibm-mq-metrics): update metric unit from microseconds to us', link: 'https://github.com/open-telemetry/opentelemetry-java-contrib/pull/2887' },
-      { perms: '2835', title: 'feat(ibm-mq-metrics): report queue manager uptime', link: 'https://github.com/open-telemetry/opentelemetry-java-contrib/pull/2835' },
-    ],
-  },
-  {
-    org: 'open-telemetry/opentelemetry-collector-contrib',
-    prs: [
-      { perms: '48707', title: '[exporter/alibabacloudlogservice] Add support for STS security_token authentication', link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48707' },
-      { perms: '48055', title: '[exporter/googlecloudstorage] Add timeout, sending_queue, and retry settings', link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48055' },
-      { perms: '48053', title: 'feat(opampsupervisor): make log format configurable', link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48053' },
-      { perms: '47382', title: 'feat(tailsampling): enable nesting of not policy within and_sub_policy', link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47382' },
-      { perms: '47381', title: '[receiver/oracledb] Exclude collectors own queries from Top Query analyses', link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47381' },
-    ],
-  },
-  {
-    org: 'meshery/meshery',
-    prs: [
-      { perms: '17759', title: '[Docs - New] Fix and enhance lightbox image viewer functionality', link: 'https://github.com/meshery/meshery/pull/17759' },
-      { perms: '17747', title: '[docs-new] Fix missing favicons by correcting paths in head.html', link: 'https://github.com/meshery/meshery/pull/17747' },
-    ],
-  },
-  {
-    org: 'meshery-extensions/kanvas-site',
-    prs: [
-      { perms: '136', title: 'fix: resolve semantic HTML and accessibility warnings on landing page', link: 'https://github.com/meshery-extensions/kanvas-site/pull/136' },
-      { perms: '135', title: 'SEO & Accessibility: Semantic HTML Body Audit for Landing Page', link: 'https://github.com/meshery-extensions/kanvas-site/issues/135' },
-    ],
-  },
-  {
-    org: 'kestra-io/kestra',
-    prs: [
-      { perms: '14857', title: 'fix(core): use toDashboardFilterBuilder for namespace filter in ITriggers and IMetrics', link: 'https://github.com/kestra-io/kestra/pull/14857' },
-    ],
-  },
-]
+import { CONTRIBUTIONS, SOCIAL_LINKS } from '@/lib/config'
 
 export function ContributionsSection() {
   return (
-    <section id="contributions" className="space-y-3">
+    <section id="contributions" className="space-y-3" aria-labelledby="contributions-heading">
+      <h2 id="contributions-heading" className="sr-only">
+        Open source contributions
+      </h2>
       <PromptLine command="ls -la ~/contributions" />
 
-      <div className="bg-[#1b1714] border border-[#2c2620] rounded p-4 space-y-4 text-xs overflow-x-auto">
-        {contributions.map((group) => (
+      <div className="bg-term-panel border border-term-edge rounded p-4 space-y-4 text-xs overflow-x-auto">
+        {CONTRIBUTIONS.map(group => (
           <div key={group.org} className="space-y-1">
-            <div className="text-[#ffb648]">/{group.org}</div>
-            {group.prs.map((pr) => (
-              <a
-                key={pr.title}
-                href={pr.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-2 pl-4 text-[#e9e4d8] hover:text-[#ffb648] transition-colors group"
-              >
-                <span className="text-[#948c7e] flex-shrink-0 group-hover:text-[#948c7e]">#{pr.perms}</span>
-                <span className="text-justify">{pr.title}</span>
-              </a>
-            ))}
+            <h3 className="text-term-accent font-mono font-medium text-xs">/{group.org}</h3>
+            <ul className="space-y-1 list-none">
+              {group.prs.map(pr => (
+                <li key={pr.link}>
+                  <a
+                    href={pr.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex gap-2 pl-4 text-term-fg hover:text-term-accent transition-colors focus:outline-none focus:ring-2 focus:ring-term-accent rounded px-1"
+                  >
+                    <span className="text-term-muted flex-shrink-0">#{pr.number}</span>
+                    <span className="text-justify">{pr.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
+
         <div className="mt-4 flex justify-end">
           <a
-            href="https://github.com/search?q=is%3Apr+author%3Aharshitt13+is%3Amerged&type=pullrequests"
+            href={SOCIAL_LINKS.allPRs}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6b6560] hover:text-[#ffb648] transition-colors text-xs"
+            className="text-term-dim hover:text-term-accent transition-colors text-xs focus:outline-none focus:ring-2 focus:ring-term-accent rounded px-1"
+            aria-label="View all merged pull requests on GitHub"
           >
             ...more
           </a>

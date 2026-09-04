@@ -8,6 +8,7 @@ import { CareerSection } from '@/components/career-section'
 import { SkillsSection } from '@/components/skills-section'
 import { ContactSection } from '@/components/contact-section'
 import { StatusBar } from '@/components/status-bar'
+import { HOME_GRAPH } from '@/lib/schema'
 
 export default function Home() {
   return (
@@ -23,6 +24,10 @@ export default function Home() {
         <ContactSection />
       </TerminalWindow>
       <StatusBar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_GRAPH) }}
+      />
     </main>
   )
 }
