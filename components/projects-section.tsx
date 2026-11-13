@@ -16,7 +16,7 @@ function StatusBadge({ project }: { project: Project }) {
       target="_blank"
       rel="noopener noreferrer"
       className={`text-xs px-2.5 py-1 rounded border transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-term-accent ${STATUS_STYLES[project.statusLabel]}`}
-      aria-label={`${project.name} — ${project.statusLabel} (opens in a new tab)`}
+      aria-label={`${project.name} - ${project.statusLabel} (opens in a new tab)`}
     >
       {project.statusLabel} <span aria-hidden="true">↗</span>
     </a>

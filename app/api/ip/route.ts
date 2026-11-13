@@ -1,17 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isIP } from 'node:net'
 
 const FALLBACK_IP = '127.0.0.1'
-const IPV4 = /^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$/
 
 /**
  * `x-forwarded-for` is attacker-controlled, and whatever we return here is
  * rendered back into the page, so anything that is not a well-formed address is
- * discarded rather than echoed. IPv6 is validated by the URL parser, which
- * implements the real grammar (compression, embedded IPv4, zone-less form).
+ * discarded rather than echoed. Validate the entire address, not a URL that
+ * could accept path or query characters after an IPv6 closing bracket.
  */
 function isValidIp(value: string): boolean {
-  if (IPV4.test(value)) return true
-  return value.includes(':') && URL.canParse(`http://[${value}]`)
+  return !value.includes('%') && isIP(value) !== 0
 }
 
 export async function GET(req: NextRequest) {
@@ -20,6 +19,6 @@ export async function GET(req: NextRequest) {
 
   return NextResponse.json(
     { ip: isValidIp(raw) ? raw : FALLBACK_IP },
-    { headers: { 'Cache-Control': 'no-store' } }
+    { headers: { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } }
   )
 }

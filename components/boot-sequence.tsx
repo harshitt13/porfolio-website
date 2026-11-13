@@ -14,7 +14,13 @@ const INITIAL_UPTIME = '0.000000000000 years'
 function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null
   const cookie = document.cookie.split('; ').find(c => c.startsWith(`${name}=`))
-  return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : null
+  if (!cookie) return null
+  try {
+    return decodeURIComponent(cookie.split('=').slice(1).join('='))
+  } catch {
+    // Ignore malformed percent encoding in an old or manually edited cookie.
+    return null
+  }
 }
 
 function setCookie(name: string, value: string, days: number) {

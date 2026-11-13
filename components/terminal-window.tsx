@@ -42,10 +42,9 @@ export function TerminalWindow({ children }: { children: React.ReactNode }) {
     )
   }
 
-  // The dot stays 12px for the macOS look, but a transparent inset pseudo-element
-  // widens the actual hit area to 24px so it meets WCAG 2.2 target-size minimums.
+  // Keep the 12px dots inside separate 24px buttons so hit areas never overlap.
   const controlClass =
-    "relative w-3 h-3 rounded-full border shadow-sm transition-colors cursor-pointer before:absolute before:content-[''] before:-inset-1.5 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-term-surface focus:ring-term-accent"
+    'w-6 h-6 shrink-0 flex items-center justify-center rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-offset-term-surface focus:ring-term-accent'
 
   return (
     <div
@@ -58,34 +57,49 @@ export function TerminalWindow({ children }: { children: React.ReactNode }) {
           className={`${isFullscreen ? 'w-full h-full rounded-none flex flex-col' : 'rounded-xl'} border border-term-edge bg-term-surface shadow-2xl overflow-hidden transition-all duration-300 ${isMinimized ? 'max-h-12' : ''}`}
         >
           <div className="bg-gradient-to-b from-term-panel to-term-surface border-b border-term-edge px-4 py-3 flex items-center justify-between gap-3">
-            <div className="flex gap-2">
+            <div className="flex shrink-0">
               <button
                 type="button"
                 onClick={() => setIsClosed(true)}
-                className={`${controlClass} bg-red-500 border-red-600 hover:bg-red-600`}
+                className={`${controlClass} group`}
                 title="Close"
                 aria-label="Close terminal"
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className="w-3 h-3 rounded-full border border-red-600 bg-red-500 group-hover:bg-red-600"
+                />
+              </button>
               <button
                 type="button"
                 onClick={() => setIsMinimized(v => !v)}
-                className={`${controlClass} bg-yellow-400 border-yellow-500 hover:bg-yellow-500`}
+                className={`${controlClass} group`}
                 title={isMinimized ? 'Restore' : 'Minimize'}
                 aria-label={isMinimized ? 'Restore terminal' : 'Minimize terminal'}
                 aria-expanded={!isMinimized}
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className="w-3 h-3 rounded-full border border-yellow-500 bg-yellow-400 group-hover:bg-yellow-500"
+                />
+              </button>
               <button
                 type="button"
                 onClick={() => setIsFullscreen(v => !v)}
-                className={`${controlClass} bg-green-500 border-green-600 hover:bg-green-600`}
+                className={`${controlClass} group`}
                 title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
                 aria-label={isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
                 aria-pressed={isFullscreen}
-              />
+              >
+                <span
+                  aria-hidden="true"
+                  className="w-3 h-3 rounded-full border border-green-600 bg-green-500 group-hover:bg-green-600"
+                />
+              </button>
             </div>
 
             <div className="flex-1 text-center text-xs font-medium">
-              <span className="text-term-dim">harshitt13 — zsh — 88x24</span>
+              <span className="text-term-dim">harshitt13 - zsh - 88x24</span>
             </div>
 
             <div

@@ -12,7 +12,7 @@ interface IntervalValueOptions {
 
 /**
  * External store that recomputes a value on an interval. Defined at module
- * level so its mutable bookkeeping lives outside any render pass — the store is
+ * level so its mutable bookkeeping lives outside any render pass - the store is
  * only ever driven from `subscribe`, which React calls from an effect.
  */
 function createIntervalStore<T>(
@@ -85,7 +85,7 @@ function createIntervalStore<T>(
  * the client takes over on subscribe, without the cascading render a
  * synchronous setState inside an effect would cause.
  *
- * `compute` must be referentially stable — pass a module-level function or one
+ * `compute` must be referentially stable - pass a module-level function or one
  * memoised by the caller.
  */
 export function useIntervalValue<T>(

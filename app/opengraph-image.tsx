@@ -3,7 +3,7 @@ import { SITE_CONFIG, THEME } from '@/lib/config'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
-export const alt = `${SITE_CONFIG.name} — ${SITE_CONFIG.title}`
+export const alt = `${SITE_CONFIG.name} - ${SITE_CONFIG.title}`
 
 export default function OpengraphImage() {
   return new ImageResponse(

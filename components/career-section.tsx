@@ -38,7 +38,7 @@ export function CareerSection() {
                     </div>
                     <span className="text-xs text-term-dim whitespace-nowrap">
                       <time dateTime={entry.start}>{formatMonthYear(entry.start)}</time>
-                      {' — '}
+                      {' - '}
                       {entry.end ? (
                         <time dateTime={entry.end}>{formatMonthYear(entry.end)}</time>
                       ) : (

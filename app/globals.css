@@ -5,7 +5,7 @@
  * bg-/text-/border-/ring-/etc. utilities, so these tokens are the single
  * source of truth for anything rendered in the browser.
  *
- * lib/config.ts mirrors these values for the OG image only — Satori renders
+ * lib/config.ts mirrors these values for the OG image only - Satori renders
  * outside the browser and cannot resolve CSS variables. Keep the two in sync.
  */
 @theme {
@@ -17,7 +17,7 @@
   --color-term-panel: #1b1714;
   --color-term-edge: #2c2620;
   --color-term-edge-strong: #5a5449;
-  --color-term-dim: #6b6560;
+  --color-term-dim: #948c7e;
   --color-term-muted: #948c7e;
   --color-term-fg: #e9e4d8;
   --color-term-accent: #ffb648;

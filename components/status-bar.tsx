@@ -14,7 +14,7 @@ function createElapsedReader() {
 
 export function StatusBar() {
   // The reader is built during render but only reads the clock when it is first
-  // called — from the store's subscribe, i.e. inside an effect, never in render.
+  // called - from the store's subscribe, i.e. inside an effect, never in render.
   const readElapsed = useMemo(() => createElapsedReader(), [])
 
   const elapsed = useIntervalValue(readElapsed, 1000, '00:00:00')

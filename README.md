@@ -38,7 +38,12 @@ npm run dev          # http://localhost:3000
 | `npm run format` / `format:check` | Prettier                                              |
 | `npm run type-check`              | `tsc --noEmit`                                        |
 
-CI runs `qa` and `build` on every push and pull request.
+Run `npm run qa` and `npm run build` before deployment.
+
+For production regression checks, start the built site with `npm start`, then
+run `npm test` in another terminal. Set `SITE_TEST_URL` to use another local port.
+These checks cover IP validation, response headers, metadata, contribution links,
+the sitemap, and 404 responses.
 
 ## Layout
 

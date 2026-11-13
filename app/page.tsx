@@ -26,7 +26,7 @@ export default function Home() {
       <StatusBar />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_GRAPH) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_GRAPH).replace(/</g, '\\u003c') }}
       />
     </main>
   )

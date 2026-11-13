@@ -90,7 +90,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           // Serialized from a literal defined above, so there is no untrusted input here.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_GRAPH) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_GRAPH).replace(/</g, '\\u003c') }}
         />
         {process.env.NODE_ENV === 'production' && (
           <>

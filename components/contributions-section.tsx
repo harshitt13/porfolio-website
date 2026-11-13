@@ -9,10 +9,12 @@ export function ContributionsSection() {
       </h2>
       <PromptLine command="ls -la ~/contributions" />
 
-      <div className="bg-term-panel border border-term-edge rounded p-4 space-y-4 text-xs overflow-x-auto">
+      <div className="bg-term-panel border border-term-edge rounded p-4 space-y-4 text-xs min-w-0">
         {CONTRIBUTIONS.map(group => (
           <div key={group.org} className="space-y-1">
-            <h3 className="text-term-accent font-mono font-medium text-xs">/{group.org}</h3>
+            <h3 className="text-term-accent font-mono font-medium text-xs [overflow-wrap:anywhere]">
+              /{group.org}
+            </h3>
             <ul className="space-y-1 list-none">
               {group.prs.map(pr => (
                 <li key={pr.link}>
@@ -20,10 +22,10 @@ export function ContributionsSection() {
                     href={pr.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex gap-2 pl-4 text-term-fg hover:text-term-accent transition-colors focus:outline-none focus:ring-2 focus:ring-term-accent rounded px-1"
+                    className="flex min-h-6 items-start gap-2 py-1 pl-4 text-term-fg hover:text-term-accent transition-colors focus:outline-none focus:ring-2 focus:ring-term-accent rounded px-1"
                   >
                     <span className="text-term-muted flex-shrink-0">#{pr.number}</span>
-                    <span className="text-justify">{pr.title}</span>
+                    <span className="min-w-0 [overflow-wrap:anywhere]">{pr.title}</span>
                   </a>
                 </li>
               ))}

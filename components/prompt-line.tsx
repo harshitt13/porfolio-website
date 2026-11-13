@@ -1,6 +1,6 @@
 /**
  * Decorative shell prompt. Marked aria-hidden because each section already
- * carries a real heading — without this, screen readers announce
+ * carries a real heading - without this, screen readers announce
  * "harshitt13@prod colon tilde dollar cat about dot md" before every section.
  */
 export function PromptLine({ command }: { command: string }) {

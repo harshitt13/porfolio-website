@@ -6,7 +6,7 @@ const { siteUrl, name, description } = SITE_CONFIG
  * schema.org nodes, split by scope.
  *
  * Site-wide nodes (Person, WebSite) are emitted once from the root layout, so
- * they appear on every page under one stable @id — that repetition is what lets
+ * they appear on every page under one stable @id - that repetition is what lets
  * a crawler resolve them to a single entity. Page-level nodes live with the
  * page they describe, so no page ever claims to be two documents at once.
  */
@@ -60,7 +60,7 @@ export const SITE_GRAPH = {
   '@graph': [personNode, websiteNode],
 }
 
-/** Emitted from app/page.tsx — describes the portfolio itself. */
+/** Emitted from app/page.tsx - describes the portfolio itself. */
 export const HOME_GRAPH = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -99,7 +99,7 @@ export const QUOTE_GRAPH = {
       '@type': 'WebPage',
       '@id': `${quoteUrl}#webpage`,
       url: quoteUrl,
-      name: `“${QUOTE.text}” — ${name}`,
+      name: `“${QUOTE.text}” - ${name}`,
       description: `A quote by ${name}.`,
       inLanguage: 'en',
       isPartOf: { '@id': SCHEMA_IDS.website },

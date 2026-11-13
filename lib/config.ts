@@ -40,7 +40,7 @@ export const SOCIAL_LINKS = {
  * into one entity, so ranking for the name improves roughly in proportion to
  * how complete and accurate this list is.
  *
- * Add any other profile you actively own — X/Twitter, Dev.to, Medium,
+ * Add any other profile you actively own - X/Twitter, Dev.to, Medium,
  * Stack Overflow, Instagram, YouTube, Hashnode, Reddit, ORCID. Only list
  * accounts that are really yours and that link back here; unverifiable or
  * dead entries weaken the association rather than strengthening it.
@@ -82,7 +82,7 @@ export const THEME: PortfolioTheme = {
   panel: '#1b1714',
   edge: '#2c2620',
   edgeStrong: '#5a5449',
-  dim: '#6b6560',
+  dim: '#948c7e',
   muted: '#948c7e',
   fg: '#e9e4d8',
   accent: '#ffb648',
@@ -132,6 +132,107 @@ export const PROJECTS: Project[] = [
 
 export const CONTRIBUTIONS: Contribution[] = [
   {
+    org: 'MindfulSoftwareLLC/dartastic_opentelemetry',
+    prs: [
+      {
+        number: '277',
+        title: 'Implement metrics exemplars with trace correlation and sampling reservoirs',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry/pull/277',
+      },
+      {
+        number: '268',
+        title: 'Centralize SDK configuration and fix resource precedence and default sampling',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry/pull/268',
+      },
+      {
+        number: '72',
+        title: 'Implement metrics SDK environment variable configuration',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry/pull/72',
+      },
+      {
+        number: '66',
+        title: 'Configure BatchLogRecordProcessor through environment variables',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry/pull/66',
+      },
+      {
+        number: '59',
+        title: 'Implement BatchSpanProcessor environment variable support',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry/pull/59',
+      },
+    ],
+  },
+  {
+    org: 'MindfulSoftwareLLC/dartastic_opentelemetry_api',
+    prs: [
+      {
+        number: '113',
+        title:
+          'Align Metrics API callbacks, batch registration, and advisory parameters with the spec',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry_api/pull/113',
+      },
+      {
+        number: '118',
+        title: 'Implement context-driven span creation and explicit root span support',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry_api/pull/118',
+      },
+      {
+        number: '129',
+        title: 'Fix instrumentation scope attribute leaks and reuse non-recording spans',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry_api/pull/129',
+      },
+      {
+        number: '124',
+        title: 'Honor span recording state and correct tracer enablement checks',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry_api/pull/124',
+      },
+      {
+        number: '142',
+        title: 'Add random-trace-id flag support to TraceFlags',
+        link: 'https://github.com/MindfulSoftwareLLC/dartastic_opentelemetry_api/pull/142',
+      },
+    ],
+  },
+  {
+    org: 'open-telemetry/opentelemetry-collector-contrib',
+    prs: [
+      {
+        number: '48782',
+        title: 'Correlate asynchronous messaging spans in the service graph connector',
+        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48782',
+      },
+      {
+        number: '50020',
+        title: 'Add the clear function to the OpenTelemetry Transformation Language',
+        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/50020',
+      },
+      {
+        number: '49741',
+        title: 'Support passing nil values to OTTL setters behind a feature gate',
+        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/49741',
+      },
+      {
+        number: '48055',
+        title: 'Add timeout, queue, and retry support to the Google Cloud Storage exporter',
+        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48055',
+      },
+      {
+        number: '48707',
+        title: 'Add STS security token authentication to the Alibaba Cloud Log Service exporter',
+        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48707',
+      },
+    ],
+  },
+  {
+    org: 'jaegertracing/jaeger-ui',
+    prs: [
+      {
+        number: '3987',
+        title: 'Fix overlapping labels on self-referencing nodes in the DAG view',
+        link: 'https://github.com/jaegertracing/jaeger-ui/pull/3987',
+      },
+    ],
+  },
+  {
     org: 'open-telemetry/opentelemetry-java-contrib',
     prs: [
       {
@@ -143,37 +244,6 @@ export const CONTRIBUTIONS: Contribution[] = [
         number: '2835',
         title: 'feat(ibm-mq-metrics): report queue manager uptime',
         link: 'https://github.com/open-telemetry/opentelemetry-java-contrib/pull/2835',
-      },
-    ],
-  },
-  {
-    org: 'open-telemetry/opentelemetry-collector-contrib',
-    prs: [
-      {
-        number: '48707',
-        title:
-          '[exporter/alibabacloudlogservice] Add support for STS security_token authentication',
-        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48707',
-      },
-      {
-        number: '48055',
-        title: '[exporter/googlecloudstorage] Add timeout, sending_queue, and retry settings',
-        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48055',
-      },
-      {
-        number: '48053',
-        title: 'feat(opampsupervisor): make log format configurable',
-        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/48053',
-      },
-      {
-        number: '47382',
-        title: 'feat(tailsampling): enable nesting of not policy within and_sub_policy',
-        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47382',
-      },
-      {
-        number: '47381',
-        title: '[receiver/oracledb] Exclude collectors own queries from Top Query analyses',
-        link: 'https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47381',
       },
     ],
   },
@@ -200,11 +270,6 @@ export const CONTRIBUTIONS: Contribution[] = [
         title: 'fix: resolve semantic HTML and accessibility warnings on landing page',
         link: 'https://github.com/meshery-extensions/kanvas-site/pull/136',
       },
-      {
-        number: '135',
-        title: 'SEO & Accessibility: Semantic HTML Body Audit for Landing Page',
-        link: 'https://github.com/meshery-extensions/kanvas-site/issues/135',
-      },
     ],
   },
   {
@@ -224,7 +289,7 @@ export const CAREER: CareerEntry[] = [
   {
     id: 'triager',
     role: 'Triager',
-    org: 'OpenTelemetry — CNCF',
+    org: 'OpenTelemetry - CNCF',
     scope: 'OSS Contributor',
     message:
       'Collaborate with project maintainers to steer the development of critical observability components, ensuring stability and performance at scale',
@@ -395,7 +460,7 @@ export const CONTACTS: Contact[] = [
 
 /**
  * The site renders a single page, so there is exactly one document to describe.
- * Per-section entries used to live here but nothing could ever consume them —
+ * Per-section entries used to live here but nothing could ever consume them -
  * anchors are not separate documents to a crawler.
  */
 export const HOME_SEO: SeoMetadata = {

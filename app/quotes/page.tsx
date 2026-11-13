@@ -5,10 +5,10 @@ import { QUOTE_GRAPH } from '@/lib/schema'
 
 const { siteUrl, name } = SITE_CONFIG
 const quoteUrl = `${siteUrl}${QUOTE.slug}`
-const titled = `“${QUOTE.text}” — ${name}`
+const titled = `“${QUOTE.text}” - ${name}`
 
 export const metadata: Metadata = {
-  title: titled,
+  title: { absolute: titled },
   description: `“${QUOTE.text}” A quote by ${name}, Software Engineer and open-source contributor. Read the original on his personal site.`,
   keywords: [
     QUOTE.text,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   alternates: { canonical: QUOTE.slug },
   openGraph: {
     title: titled,
-    description: `“${QUOTE.text}” A quote by ${name} — Software Engineer & OSS Contributor.`,
+    description: `“${QUOTE.text}” A quote by ${name} - Software Engineer & OSS Contributor.`,
     url: quoteUrl,
     siteName: name,
     locale: 'en_IN',
@@ -56,7 +56,7 @@ export default function QuotesPage() {
             &ldquo;{QUOTE.text}&rdquo;
           </p>
           <footer className="text-lg sm:text-xl text-term-accent">
-            —{' '}
+            -{' '}
             <Link
               href="/"
               rel="author"
@@ -69,7 +69,7 @@ export default function QuotesPage() {
 
         <div className="text-sm text-term-muted leading-relaxed space-y-4 border-t border-term-edge pt-8">
           <p>
-            Said by <strong className="text-term-fg">{name}</strong> — {SITE_CONFIG.title}. He
+            Said by <strong className="text-term-fg">{name}</strong> - {SITE_CONFIG.title}. He
             contributes to the CNCF ecosystem and open-source observability, primarily
             OpenTelemetry, alongside Meshery, Kestra, and Jaeger.
           </p>
@@ -109,7 +109,7 @@ export default function QuotesPage() {
 
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(QUOTE_GRAPH) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(QUOTE_GRAPH).replace(/</g, '\\u003c') }}
         />
       </article>
     </main>
