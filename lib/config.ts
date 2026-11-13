@@ -25,6 +25,8 @@ export const SITE_CONFIG = {
 export const SOCIAL_LINKS = {
   github: 'https://github.com/harshitt13',
   linkedin: 'https://linkedin.com/in/harshitt13',
+  x: 'https://x.com/harshittt_13',
+  bluesky: 'https://bsky.app/profile/harshitt13.bsky.social',
   linktree: 'https://linktr.ee/harshitt13',
   instagram: 'https://www.instagram.com/harshitt.13/',
   youtube: 'https://www.youtube.com/@find.harshitt13',
@@ -47,6 +49,8 @@ export const SOCIAL_LINKS = {
 export const PROFILE_URLS: string[] = [
   SOCIAL_LINKS.github,
   SOCIAL_LINKS.linkedin,
+  SOCIAL_LINKS.x,
+  SOCIAL_LINKS.bluesky,
   SOCIAL_LINKS.instagram,
   SOCIAL_LINKS.youtube,
   SOCIAL_LINKS.linktree,

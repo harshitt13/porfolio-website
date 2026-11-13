@@ -35,6 +35,14 @@ test('public pages expose canonical metadata and parseable structured data', asy
       const title = html.match(/<title>(.*?)<\/title>/s)?.[1] || ''
       assert.equal(title.split('Harshit Kushwaha').length - 1, 1)
     } else {
+      const person = graphs
+        .flatMap(([, json]) => JSON.parse(json)['@graph'])
+        .find(node => node['@type'] === 'Person')
+      assert.ok(person.sameAs.includes('https://www.instagram.com/harshitt.13/'))
+      assert.ok(person.sameAs.includes('https://linkedin.com/in/harshitt13'))
+      assert.ok(person.sameAs.includes('https://x.com/harshittt_13'))
+      assert.ok(person.sameAs.includes('https://bsky.app/profile/harshitt13.bsky.social'))
+      assert.equal(new Set(person.sameAs).size, person.sameAs.length)
       const contributions = html.match(/<section id="contributions".*?<\/section>/s)?.[0] || ''
       const links = [...contributions.matchAll(/href="(https:\/\/github.com\/[^\"]+\/pull\/\d+)"/g)]
       assert.equal(links.length, 22)
