@@ -290,8 +290,8 @@ export const CONTRIBUTIONS: Contribution[] = [
 
 export const CAREER: CareerEntry[] = [
   {
-    id: 'triager',
-    role: 'Triager',
+    id: 'approver',
+    role: 'Approver',
     org: 'OpenTelemetry - CNCF',
     scope: 'OSS Contributor',
     message:
