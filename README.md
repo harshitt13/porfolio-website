@@ -47,6 +47,16 @@ the sitemap, and 404 responses.
 
 ## Dependency maintenance
 
+Dependabot checks npm dependencies and GitHub Actions every Monday at 09:00
+Asia/Kolkata. Related framework packages are grouped; other major npm upgrades
+remain separate. PRs run the CI workflow's production build, formatting, type
+checks, lint, and server regression tests. Updates require manual review and
+merge. The schedules and workflow take effect when `.github/` reaches `main`.
+
+Security-update PRs are controlled separately by GitHub's repository security
+settings. Review any new install scripts when dependencies change; do not
+automatically expand `allowScripts` to make an update pass.
+
 ESLint 10 is currently blocked by the peer dependencies of
 `eslint-plugin-react@7.37.5` and `eslint-plugin-import@2.32.0`, both pulled in by
 `eslint-config-next@16.4.6`. Keep ESLint 9 until these plugins support version 10
