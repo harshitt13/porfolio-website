@@ -5,6 +5,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { SITE_CONFIG, HOME_SEO, THEME } from '@/lib/config'
 import { SITE_GRAPH } from '@/lib/schema'
+import { StructuredData } from '@/components/structured-data'
 
 const ibmPlexMono = IBM_Plex_Mono({
   weight: ['400', '500', '600', '700'],
@@ -14,7 +15,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 const jetBrainsMono = JetBrains_Mono({
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['500', '700'],
   subsets: ['latin'],
   variable: '--font-mono-heading',
   display: 'swap',
@@ -87,11 +88,7 @@ export default function RootLayout({
     <html lang="en" className={`${ibmPlexMono.variable} ${jetBrainsMono.variable}`}>
       <body className="antialiased bg-term-base text-term-fg font-mono pb-12">
         {children}
-        <script
-          type="application/ld+json"
-          // Serialized from a literal defined above, so there is no untrusted input here.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_GRAPH).replace(/</g, '\\u003c') }}
-        />
+        <StructuredData data={SITE_GRAPH} />
         {process.env.NODE_ENV === 'production' && (
           <>
             <Analytics />

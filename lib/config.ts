@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
   siteUrl: 'https://harshitt13.in',
   tagline: 'My favorite framework is understanding how things work.',
   description:
-    'Software Engineer contributing to CNCF, OpenTelemetry, and open-source observability. Building cloud-native tools, AI/ML systems, and full-stack applications.',
+    'Harshit Kushwaha, software engineer and open-source contributor. Explore my OpenTelemetry, Dart SDK, and Jaeger contributions, software projects, and experience.',
 }
 
 export const SOCIAL_LINKS = {
@@ -36,9 +36,8 @@ export const SOCIAL_LINKS = {
 
 /**
  * Every profile that belongs to the same person, emitted as schema.org
- * `sameAs`. This is the main signal Google uses to merge scattered accounts
- * into one entity, so ranking for the name improves roughly in proportion to
- * how complete and accurate this list is.
+ * `sameAs`, helping consumers associate these profiles with one person.
+ * This is identity metadata, not a guarantee of search rankings.
  *
  * Add any other profile you actively own - X/Twitter, Dev.to, Medium,
  * Stack Overflow, Instagram, YouTube, Hashnode, Reddit, ORCID. Only list
@@ -341,100 +340,64 @@ export const CAREER: CareerEntry[] = [
 export const SKILLS: Skill[] = [
   {
     category: 'Programming Languages',
+    skills: ['Dart', 'Go', 'Java', 'JavaScript', 'Python', 'TypeScript'],
+  },
+  {
+    category: 'Web & App Development',
+    skills: ['CSS', 'FastAPI', 'Flask', 'Flutter', 'HTML', 'Next.js', 'React', 'WordPress'],
+  },
+  {
+    category: 'Databases & Data Access',
     skills: [
-      'python',
-      'javascript',
-      'typescript',
-      'c',
-      'c++',
-      'go',
-      'java',
-      'dart',
-      'flutter',
-      'html',
-      'css',
+      'MongoDB',
+      'MySQL',
+      'Neo4j',
+      'PostgreSQL',
+      'Prisma',
+      'SQL Server',
+      'SQLite',
+      'Supabase',
     ],
+  },
+  {
+    category: 'DevOps & Developer Tools',
+    skills: ['Docker', 'Git', 'GitHub', 'GitHub Actions', 'Linux/WSL'],
+  },
+  {
+    category: 'Cloud & Hosting',
+    skills: ['AWS', 'Firebase', 'Google Cloud', 'Hostinger', 'Netlify', 'Render', 'Vercel'],
+  },
+  {
+    category: 'Testing, Accessibility & SEO',
+    skills: ['axe DevTools', 'Google Search Console', 'Postman'],
+  },
+  {
+    category: 'Machine Learning',
+    skills: ['Keras', 'OpenCV', 'PyTorch', 'scikit-learn', 'TensorFlow'],
+  },
+  {
+    category: 'Data Analysis & Visualization',
+    skills: ['Matplotlib', 'NumPy', 'pandas', 'Plotly', 'Seaborn'],
+  },
+  {
+    category: 'AI Platforms & Libraries',
+    skills: ['Anthropic', 'Google AI', 'Hugging Face', 'LangChain', 'Ollama'],
+  },
+  {
+    category: 'AI Development Tools',
+    skills: ['CodeRabbit', 'Codex', 'Copilot', 'Cursor', 'Claude'],
   },
   {
     category: 'Hardware & Prototyping',
-    skills: ['arduino', 'fritzing', 'kicad', 'easyeda', 'ultimaker-cura'],
+    skills: ['Arduino', 'EasyEDA', 'Fritzing', 'KiCad', 'UltiMaker Cura'],
   },
   {
-    category: 'Machine Learning & Data Science',
-    skills: [
-      'tensorflow',
-      'keras',
-      'pytorch',
-      'scikit_learn',
-      'numpy',
-      'pandas',
-      'matplotlib',
-      'plotly',
-      'opencv',
-      'seaborn',
-    ],
+    category: 'Design & Media',
+    skills: ['Affinity', 'Canva', 'Clipchamp', 'Figma', 'OBS', 'Photoshop'],
   },
   {
-    category: 'Web Development Frameworks',
-    skills: ['react', 'nextjs', 'flask', 'fastapi'],
-  },
-  {
-    category: 'Databases',
-    skills: [
-      'postgresql',
-      'mysql',
-      'sqlite',
-      'sqlserver',
-      'neo4j',
-      'mongodb',
-      'prisma',
-      'supabase',
-    ],
-  },
-  {
-    category: 'DevOps & Environments',
-    skills: ['git', 'github', 'github-actions', 'docker', 'wsl'],
-  },
-  {
-    category: 'Cloud & Hosting Platforms',
-    skills: [
-      'aws',
-      'gcp',
-      'firebase',
-      'vercel',
-      'netlify',
-      'render',
-      'hostinger',
-      'wordpress',
-      'google-search-console',
-    ],
-  },
-  {
-    category: 'Testing & APIs',
-    skills: ['postman', 'axe-devtools'],
-  },
-  {
-    category: 'Design & Creativity',
-    skills: ['figma', 'affinity', 'photoshop', 'canva', 'clipchamp', 'obs'],
-  },
-  {
-    category: 'AI & LLMs',
-    skills: [
-      'copilot',
-      'anthropic',
-      'langchain',
-      'huggingface',
-      'google-ai',
-      'google-antigravity',
-      'code-rabbit',
-      'codex',
-      'ollama',
-      'cursor',
-    ],
-  },
-  {
-    category: 'Configuration & Data Formats',
-    skills: ['yaml', 'json', 'xml'],
+    category: 'Data Formats',
+    skills: ['JSON', 'XML', 'YAML'],
   },
 ]
 

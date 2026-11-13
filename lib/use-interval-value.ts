@@ -1,7 +1,6 @@
 'use client'
 
 import { useMemo, useSyncExternalStore } from 'react'
-import { prefersReducedMotion } from './utils'
 
 interface IntervalValueOptions {
   /** Stop the timer while the tab is in the background. */
@@ -23,6 +22,7 @@ function createIntervalStore<T>(
 ) {
   let snapshot = serverSnapshot
   let timer: ReturnType<typeof setInterval> | undefined
+  let motionQuery: MediaQueryList | undefined
   const listeners = new Set<() => void>()
 
   const tick = () => {
@@ -33,6 +33,7 @@ function createIntervalStore<T>(
   }
 
   const start = () => {
+    if ((pauseWhenHidden && document.hidden) || motionQuery?.matches) return
     if (timer === undefined) timer = setInterval(tick, intervalMs)
   }
 
@@ -51,6 +52,14 @@ function createIntervalStore<T>(
     }
   }
 
+  const onMotionChange = () => {
+    stop()
+    if (!motionQuery?.matches) {
+      tick()
+      start()
+    }
+  }
+
   return {
     subscribe(listener: () => void) {
       listeners.add(listener)
@@ -59,16 +68,20 @@ function createIntervalStore<T>(
         // Seed the snapshot before React reads it back, so the first client
         // paint already shows a real value instead of the server placeholder.
         tick()
-        if (!(respectReducedMotion && prefersReducedMotion())) {
-          start()
-          if (pauseWhenHidden) document.addEventListener('visibilitychange', onVisibilityChange)
+        if (respectReducedMotion && window.matchMedia) {
+          motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+          motionQuery.addEventListener('change', onMotionChange)
         }
+        start()
+        if (pauseWhenHidden) document.addEventListener('visibilitychange', onVisibilityChange)
       }
 
       return () => {
         listeners.delete(listener)
         if (listeners.size > 0) return
         stop()
+        motionQuery?.removeEventListener('change', onMotionChange)
+        motionQuery = undefined
         if (pauseWhenHidden) document.removeEventListener('visibilitychange', onVisibilityChange)
       }
     },

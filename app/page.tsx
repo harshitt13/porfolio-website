@@ -9,6 +9,7 @@ import { SkillsSection } from '@/components/skills-section'
 import { ContactSection } from '@/components/contact-section'
 import { StatusBar } from '@/components/status-bar'
 import { HOME_GRAPH } from '@/lib/schema'
+import { StructuredData } from '@/components/structured-data'
 
 export default function Home() {
   return (
@@ -24,10 +25,7 @@ export default function Home() {
         <ContactSection />
       </TerminalWindow>
       <StatusBar />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_GRAPH).replace(/</g, '\\u003c') }}
-      />
+      <StructuredData data={HOME_GRAPH} />
     </main>
   )
 }

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { SITE_CONFIG, SOCIAL_LINKS, QUOTE } from '@/lib/config'
 import { QUOTE_GRAPH } from '@/lib/schema'
+import { StructuredData } from '@/components/structured-data'
 
 const { siteUrl, name } = SITE_CONFIG
 const quoteUrl = `${siteUrl}${QUOTE.slug}`
@@ -107,10 +108,7 @@ export default function QuotesPage() {
           </a>
         </div>
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(QUOTE_GRAPH).replace(/</g, '\\u003c') }}
-        />
+        <StructuredData data={QUOTE_GRAPH} />
       </article>
     </main>
   )

@@ -45,6 +45,22 @@ run `npm test` in another terminal. Set `SITE_TEST_URL` to use another local por
 These checks cover IP validation, response headers, metadata, contribution links,
 the sitemap, and 404 responses.
 
+## Dependency maintenance
+
+ESLint 10 is currently blocked by the peer dependencies of
+`eslint-plugin-react@7.37.5` and `eslint-plugin-import@2.32.0`, both pulled in by
+`eslint-config-next@16.4.6`. Keep ESLint 9 until these plugins support version 10
+or the lint configuration is deliberately migrated. Do not use `--force` or
+`--legacy-peer-deps` to bypass this check. ESLint 9 is end-of-life, so this is a
+temporary compatibility constraint, not a long-term maintenance solution.
+
+The `allowScripts` entry approves only `unrs-resolver@1.12.2`. Its postinstall
+helper checks for the platform-specific native binding and may install or
+download the matching binary from the configured npm registry if it is missing.
+Review the script and its helper again before approving a newer version. The
+policy requires an npm version supporting `allowScripts`; older npm versions
+such as 11.9 do not enforce it.
+
 ## Layout
 
 ```
